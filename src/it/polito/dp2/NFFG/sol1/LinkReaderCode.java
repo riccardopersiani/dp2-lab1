@@ -13,19 +13,26 @@ public class LinkReaderCode implements LinkReader{
 	private NodeReader linkSourceNode;
 	
 	public LinkReaderCode(NFFGType nffg, LinkType link){
+		System.out.println("LinkReaderCode - Inside Costructor");
+
 		this.linkName = link.getId();
-			
+		
 		for(NodeType node: nffg.getNodes().getNode()){
-			if(node.equals(link.getDestination())){
+			String nodeName = node.getId();
+			if(nodeName.equals(link.getDestination())){
+				System.out.println("LinkReaderCode - Getting Destination");
 				this.linkDestinationNode = new NodeReaderCode(node,nffg);
 			}
 		}
 		
 		for(NodeType node: nffg.getNodes().getNode()){
-			if(node.equals(link.getDestination())){
-				this.linkSourceNode = new NodeReaderCode(node,nffg);
+			String nodeName = node.getId();
+			if(nodeName.equals(link.getSource())){
+				System.out.println("LinkReaderCode - Getting Source");
+				//this.linkSourceNode = new NodeReaderCode(node,nffg);
 			}
 		}
+		System.out.println("LinkReaderCode - End Costructor");
 	}
 
 	@Override

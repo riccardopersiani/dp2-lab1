@@ -18,11 +18,16 @@ public class NodeReaderCode implements NodeReader{
 	public NodeReaderCode(NodeType node, NFFGType nffg){
 		this.nodeName = node.getId();
 		this.nodeFunctionalType = covertServiceToFunctional(node.getService());
-		
+		System.out.println("NodeReaderCode - Inside Costructor");
+
+		//Scrolling link list
 		for(LinkType link: nffg.getLinks().getLink()){
+			System.out.println("NodeReaderCode - Filling set<LinkReader>");
 			LinkReader linkReader = new LinkReaderCode(nffg,link);
-			nodeLinksList.add(linkReader);
+			System.out.println("NodeReaderCode - Filling set<LinkReader> adding");
+			this.nodeLinksList.add(linkReader);
 		}
+		System.out.println("NodeReaderCode - End Costructor");
 	}
 	
 	@Override

@@ -1,0 +1,48 @@
+This project was developed by Riccardo Persiani for the course of Distributed Programming II, taught by Professor Ricardo Sisto at the Technical Univerity of Turin.
+In particular this document refers to the Assignment 1 - part a, released in early October.
+
+This DTD is the implementation of a System that manages Network Function Forwarding Graphs(NF-FGs), where network devices offer services listed in a catalog.
+The tree root is named "RootNetwork" which has no attributes and contains one or more "NFFG" and one and only one "Catalog". 
+
+The "NFFG" element, which represent a single network, contains 3 elements: "Nodes", "Links" and "Policies".
+The "NFFG" attributes are an ID, which uniquely identifies it, and a CDATA field that represents the time of its last update.
+
+"Nodes" represents just container for one or more "Node" element, that is why has no attributes.
+It was developed in order to have "Node" elements grouped together and make the code more readable.
+
+"Node" represents a single device and it contains a "Service" element.
+In addiction it is uniquely identified by an ID field, in this way i can have multiple nodes that offer the same service and at the same time i can be able to distinguish them.
+
+A "Service" is a functionality offered by a node and has a pointer to a "SingleService" which is inside the "Catalog"..
+
+"Links" as well as "Nodes" is a container for "Link" elements and has no attributes.
+
+"Link" is the representation for a connection between two nodes: one and only one "Source" element, and one and only one "Destination" element. In addition "Link" is uniquely identified by an ID field. 
+
+"Source" is the node where the Link taken into account starts and has a pointer(IDREF) to a node declared.
+
+"Destination" is the node where the link ends and, like "Source", has a pointer(IDREF) to a node declared.
+
+"Policies" as well as "Nodes" and "Links" is a container for "Policy" elements.
+
+Every "Policy" has a policy_name which must be unique within the NFFG, in this way i can distinguish them inside the network.
+
+There are two different types of policy: reachability and traversal.
+"ReachabilityPolicy" with the following attribute list: result which is IMPLIED, this field could be used to verify if the property associated with the policy is satisfied; 
+verification_time and verification_message which are simply strings that describes the time when the verification is performed and the verification output message;
+isPositive which is a CDATA field and describe if a policy is positive or not.
+Finally, it contains the elements "Source" and "Destination" described before, which represent the initial node and the final node where the policy is applied.
+The difference from "Link" here is that is possible to have other nodes between source and destination.
+
+"TraversalPolicy" is exactly the same of "ReachabilityPolicy" but in addition to the "Source" and "Destination" element it has the "Devices" element.
+
+"Devices" represents the set of nodes traversed by the "TraversalPolicy", is a container for the "Device" elements and has no attributes.
+
+Every "Device" represent a network device traversed by the actual "Traversal Policy". 
+It has a service_name which is a pointer(IDREF) to the relative "SigleService" contained in "Catalog".
+
+"Catalog" represents a set of services offered by a service provider and contains one or more "SingleService" element.
+
+"SingleService" is the last element which i'm going describe. 
+It is a service offered by the service provider, it is identified by the ID field service_name because it must be unique inside the Catalog.
+

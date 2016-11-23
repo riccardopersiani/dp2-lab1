@@ -8,8 +8,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
+import javax.xml.transform.Source;
+import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 
@@ -21,6 +24,7 @@ import it.polito.dp2.NFFG.PolicyReader;
 import it.polito.dp2.NFFG.ReachabilityPolicyReader;
 import it.polito.dp2.NFFG.TraversalPolicyReader;
 import it.polito.dp2.NFFG.sol1.jaxb.NFFGType;
+import it.polito.dp2.NFFG.sol1.jaxb.ObjectFactory;
 import it.polito.dp2.NFFG.sol1.jaxb.ReachabilityPolicyType;
 import it.polito.dp2.NFFG.sol1.jaxb.RootNetworkType;
 import it.polito.dp2.NFFG.sol1.jaxb.TraversalPolicyType;
@@ -34,26 +38,31 @@ public class NffgVerifierCode implements NffgVerifier {
 	public static final String PACKAGE = "it.polito.dp2.NFFG.sol1.jaxb";
 
 	public NffgVerifierCode() throws SAXException, JAXBException{	
+		System.out.println("START NffgVerifierCode!!");
+
 		nffgReaders = new HashSet<NffgReader>();
 		policyReaders = new HashSet<PolicyReader>();
 
 		String fileName = System.getProperty("it.polito.dp2.NFFG.sol1.NffgInfo.file");
-		System.out.println(fileName+"**************************************");
+		System.out.println("fileName: "+fileName);
 		RootNetworkType root = null;
 		// Get The RootElement
 		root = doUnmarshall(new File(fileName));
-
+		System.out.println("root: "+root);
 		// Browse the list of all the Nffgs 		
 		for(NFFGType nffg : root.getNFFG()) {
+			System.out.println("Inside NFFG for{}");
 			// Covertion from NffgType to NffgReader
 			NffgReader nffgReader = new NffgReaderCode(nffg);
 			// Add the actual NffgReader to the set, otherwise it will be lost
 			nffgReaders.add(nffgReader);
 			for(ReachabilityPolicyType reachabilityPolicy: nffg.getPolicies().getReachabilityPolicy()){
+				System.out.println("Inside reachability for{}");
 				ReachabilityPolicyReader reachabilityReader = new ReachabilityPolicyReaderCode(nffg, reachabilityPolicy);
 				policyReaders.add(reachabilityReader);
 			}
 			for(TraversalPolicyType traversalPolicy: nffg.getPolicies().getTraversalPolicy()){
+				System.out.println("Inside traversal for{}");
 				TraversalPolicyReader traversalReader = new TraversalPolicyReaderCode(nffg, traversalPolicy);
 				policyReaders.add(traversalReader);
 			}
@@ -95,6 +104,7 @@ public class NffgVerifierCode implements NffgVerifier {
 	}
 	
 	private RootNetworkType doUnmarshall(File inputFile) throws JAXBException, SAXException, IllegalArgumentException {
+		System.out.println("inputFile: "+inputFile);
 		JAXBContext jc = JAXBContext.newInstance(PACKAGE);
 		Schema schema = null;
 		// Create the package where the class used to read XML elements and create objects like NodeType
@@ -102,7 +112,7 @@ public class NffgVerifierCode implements NffgVerifier {
 		try {
 			// Instantiate the schema from the file .xsd
 			schema = SchemaFactory.newInstance(W3C_XML_SCHEMA_NS_URI).newSchema(new File(XSD_NAME));
-
+			
 		}catch(IllegalArgumentException e) {
 			System.err.println("Error! No implementation of the schema language is available");
 			throw e;
@@ -116,7 +126,11 @@ public class NffgVerifierCode implements NffgVerifier {
 		// Set the schema 
 		jaxbUnmarshaller.setSchema(schema);
 		// Set the input file to be unmarshalled 
-		return (RootNetworkType)jaxbUnmarshaller.unmarshal(inputFile);		
+		System.out.println("Unmarshaling Done!!");
+		//RootNetworkType root = (RootNetworkType)jaxbUnmarshaller.unmarshal(inputFile);	
+		JAXBElement<RootNetworkType> root = (JAXBElement<RootNetworkType>) jaxbUnmarshaller.unmarshal(inputFile);
+		RootNetworkType r = root.getValue();
+		return r;
 	}
 
 }

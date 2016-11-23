@@ -1,0 +1,73 @@
+<!-- DTD for a System that manages NFFGs and Catalog -->
+<!ELEMENT RootNetwork (NFFG+, Catalog)>
+
+
+<!ELEMENT NFFG (Nodes, Links, Policies)>
+<!ATTLIST NFFG
+	NFFG_name ID #REQUIRED	
+	last_update_time CDATA #REQUIRED	
+>	
+
+<!ELEMENT Node (Service) >
+<!ATTLIST Node
+	node_name ID #REQUIRED		
+>
+<!ELEMENT Link (Source, Destination)>
+<!ATTLIST Link
+	link_name ID #REQUIRED		
+>	
+<!ELEMENT Policy (ReachabilityPolicy | TraversalPolicy)> <!-- Correggere -->
+<!ATTLIST Policy
+	policy_name ID #REQUIRED
+>	
+
+<!ELEMENT Nodes (Node+) >
+
+<!ELEMENT Links (Link+) >
+
+<!ELEMENT Policies (Policy+) >
+
+<!ELEMENT Service EMPTY>
+<!ATTLIST Service
+	service_name IDREF #REQUIRED		
+>	
+<!ELEMENT Source EMPTY>
+<!ATTLIST Source
+	source_name IDREF #REQUIRED		
+>		
+<!ELEMENT Destination EMPTY>
+<!ATTLIST Destination
+	destination_name IDREF #REQUIRED			
+>
+<!ELEMENT ReachabilityPolicy (Source , Destination)>
+<!ATTLIST ReachabilityPolicy
+	verification_result (true | false) #IMPLIED
+	verification_time CDATA #REQUIRED
+	verification_message CDATA #REQUIRED
+	isPositive	(true | false)	#REQUIRED				
+>
+<!ELEMENT TraversalPolicy (Source, Destination, Devices)>	
+<!ATTLIST TraversalPolicy
+	verification_result (true | false) #IMPLIED
+	verification_time CDATA #REQUIRED
+	verification_message CDATA #REQUIRED
+	isPositive	(true | false)	#REQUIRED				
+>
+<!ELEMENT Devices (Device+)>
+
+<!ELEMENT Device EMPTY>
+<!ATTLIST Device	
+	service_name IDREF #REQUIRED 		
+>
+	
+<!ELEMENT Catalog (SingleService)+>	
+	
+<!ELEMENT SingleService EMPTY>
+<!ATTLIST SingleService 
+	service_name ID #REQUIRED
+>	<!-- Must use the char "-" to separate words, otherwise it will display an error -->	
+
+<!-- Using IDREFs will introduce the difficulty to manage them inside the DTD but it the application side will be easier -->
+		
+<!-- This DTD has been developed by Riccardo Persiani s225289 
+		for the assignment 1 of the Distributed Programming II course -->			
