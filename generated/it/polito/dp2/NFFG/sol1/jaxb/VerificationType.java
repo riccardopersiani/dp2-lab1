@@ -1,8 +1,8 @@
 //
-// Questo file Ë stato generato dall'architettura JavaTM per XML Binding (JAXB) Reference Implementation, v2.2.8-b130911.1802 
+// Questo file √® stato generato dall'architettura JavaTM per XML Binding (JAXB) Reference Implementation, v2.2.8-b130911.1802 
 // Vedere <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
-// Qualsiasi modifica a questo file andr‡ persa durante la ricompilazione dello schema di origine. 
-// Generato il: 2016.11.18 alle 04:00:06 PM CET 
+// Qualsiasi modifica a questo file andr√† persa durante la ricompilazione dello schema di origine. 
+// Generato il: 2016.11.24 alle 01:12:31 PM CET 
 //
 
 
@@ -54,7 +54,7 @@ public class VerificationType {
     protected Boolean result;
 
     /**
-     * Recupera il valore della propriet‡ time.
+     * Recupera il valore della propriet√† time.
      * 
      * @return
      *     possible object is
@@ -66,7 +66,7 @@ public class VerificationType {
     }
 
     /**
-     * Imposta il valore della propriet‡ time.
+     * Imposta il valore della propriet√† time.
      * 
      * @param value
      *     allowed object is
@@ -78,7 +78,7 @@ public class VerificationType {
     }
 
     /**
-     * Recupera il valore della propriet‡ message.
+     * Recupera il valore della propriet√† message.
      * 
      * @return
      *     possible object is
@@ -90,7 +90,7 @@ public class VerificationType {
     }
 
     /**
-     * Imposta il valore della propriet‡ message.
+     * Imposta il valore della propriet√† message.
      * 
      * @param value
      *     allowed object is
@@ -102,7 +102,7 @@ public class VerificationType {
     }
 
     /**
-     * Recupera il valore della propriet‡ result.
+     * Recupera il valore della propriet√† result.
      * 
      * @return
      *     possible object is
@@ -114,7 +114,7 @@ public class VerificationType {
     }
 
     /**
-     * Imposta il valore della propriet‡ result.
+     * Imposta il valore della propriet√† result.
      * 
      * @param value
      *     allowed object is

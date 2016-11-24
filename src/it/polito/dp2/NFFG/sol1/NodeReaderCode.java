@@ -20,7 +20,6 @@ public class NodeReaderCode implements NodeReader{
 		this.nodeName = node.getId();
 		this.nodeFunctionalType = covertServiceToFunctional(node.getService());
 		LinkReader linkReader = null;
-		System.out.println("NodeReaderCode - nodeName: "+node.getId());
 		
 		nodeLinksList = new HashSet<LinkReader>();
 
@@ -31,11 +30,12 @@ public class NodeReaderCode implements NodeReader{
 				//Vado a creare un link con destinazione uguale al nodo in questione
 				linkReader = new LinkReaderCode(nffg, link);
 				//Aggiungo il link al nodo, anche se il link reader è parziale perché non ha la sorgente
-				System.out.println("NodeReaderCode - Before adding linkReader1");
+				//System.out.println("NodeReaderCode - Before adding linkReader1");
 				System.out.println(linkReader.toString());
 				nodeLinksList.add(linkReader);
 			}
 		}
+		System.out.println(this.toString());
 		System.out.println("NodeReaderCode - End Costructor");
 	}
 
@@ -52,6 +52,10 @@ public class NodeReaderCode implements NodeReader{
 	@Override
 	public Set<LinkReader> getLinks() {
 		return nodeLinksList;
+	}
+	
+	public String toString(){
+		return "NODEREADER -> Name: "+this.nodeName+" - Function: "+this.nodeFunctionalType.toString();
 	}
 
 	private FunctionalType covertServiceToFunctional(ServiceType service){

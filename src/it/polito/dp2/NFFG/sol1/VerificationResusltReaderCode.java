@@ -17,7 +17,7 @@ public class VerificationResusltReaderCode implements VerificationResultReader {
 	private XMLGregorianCalendar XMLGregVerificationTime;
 	
 	public VerificationResusltReaderCode(NFFGType nffg, ReachabilityPolicyType policy){
-		this.verificationPolicyReader = new PolicyReaderCode(nffg, policy);
+		//this.verificationPolicyReader = new PolicyReaderCode(nffg, policy);
 		this.verificationResult = policy.getVerification().isResult();
 		this.verificationResultMsg = policy.getVerification().getMessage(); 
 		this.XMLGregVerificationTime = policy.getVerification().getTime();

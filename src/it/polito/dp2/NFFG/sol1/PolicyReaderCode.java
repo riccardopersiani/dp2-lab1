@@ -16,7 +16,7 @@ public class PolicyReaderCode implements PolicyReader{
 	public PolicyReaderCode(NFFGType nffg, ReachabilityPolicyType policy){
 		this.policyName = policy.getId();
 		this.policyIsPositive = policy.isIsPositive();
-		this.policyNffgReader = new NffgReaderCode(nffg);
+		//this.policyNffgReader = new NffgReaderCode(nffg);
 		this.policyVerificationResultReader = new VerificationResusltReaderCode(nffg,policy);	
 	}	
 

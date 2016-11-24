@@ -1,8 +1,8 @@
 //
-// Questo file Ë stato generato dall'architettura JavaTM per XML Binding (JAXB) Reference Implementation, v2.2.8-b130911.1802 
+// Questo file √® stato generato dall'architettura JavaTM per XML Binding (JAXB) Reference Implementation, v2.2.8-b130911.1802 
 // Vedere <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
-// Qualsiasi modifica a questo file andr‡ persa durante la ricompilazione dello schema di origine. 
-// Generato il: 2016.11.18 alle 04:00:06 PM CET 
+// Qualsiasi modifica a questo file andr√† persa durante la ricompilazione dello schema di origine. 
+// Generato il: 2016.11.24 alle 01:12:31 PM CET 
 //
 
 
@@ -51,7 +51,7 @@ public class LinkType {
     protected String id;
 
     /**
-     * Recupera il valore della propriet‡ source.
+     * Recupera il valore della propriet√† source.
      * 
      * @return
      *     possible object is
@@ -63,7 +63,7 @@ public class LinkType {
     }
 
     /**
-     * Imposta il valore della propriet‡ source.
+     * Imposta il valore della propriet√† source.
      * 
      * @param value
      *     allowed object is
@@ -75,7 +75,7 @@ public class LinkType {
     }
 
     /**
-     * Recupera il valore della propriet‡ destination.
+     * Recupera il valore della propriet√† destination.
      * 
      * @return
      *     possible object is
@@ -87,7 +87,7 @@ public class LinkType {
     }
 
     /**
-     * Imposta il valore della propriet‡ destination.
+     * Imposta il valore della propriet√† destination.
      * 
      * @param value
      *     allowed object is
@@ -99,7 +99,7 @@ public class LinkType {
     }
 
     /**
-     * Recupera il valore della propriet‡ id.
+     * Recupera il valore della propriet√† id.
      * 
      * @return
      *     possible object is
@@ -111,7 +111,7 @@ public class LinkType {
     }
 
     /**
-     * Imposta il valore della propriet‡ id.
+     * Imposta il valore della propriet√† id.
      * 
      * @param value
      *     allowed object is

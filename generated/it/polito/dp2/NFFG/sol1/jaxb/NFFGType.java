@@ -1,8 +1,8 @@
 //
-// Questo file Ë stato generato dall'architettura JavaTM per XML Binding (JAXB) Reference Implementation, v2.2.8-b130911.1802 
+// Questo file √® stato generato dall'architettura JavaTM per XML Binding (JAXB) Reference Implementation, v2.2.8-b130911.1802 
 // Vedere <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
-// Qualsiasi modifica a questo file andr‡ persa durante la ricompilazione dello schema di origine. 
-// Generato il: 2016.11.18 alle 04:00:06 PM CET 
+// Qualsiasi modifica a questo file andr√† persa durante la ricompilazione dello schema di origine. 
+// Generato il: 2016.11.24 alle 01:12:31 PM CET 
 //
 
 
@@ -61,7 +61,7 @@ public class NFFGType {
     protected XMLGregorianCalendar lastUpdateTime;
 
     /**
-     * Recupera il valore della propriet‡ nodes.
+     * Recupera il valore della propriet√† nodes.
      * 
      * @return
      *     possible object is
@@ -73,7 +73,7 @@ public class NFFGType {
     }
 
     /**
-     * Imposta il valore della propriet‡ nodes.
+     * Imposta il valore della propriet√† nodes.
      * 
      * @param value
      *     allowed object is
@@ -85,7 +85,7 @@ public class NFFGType {
     }
 
     /**
-     * Recupera il valore della propriet‡ links.
+     * Recupera il valore della propriet√† links.
      * 
      * @return
      *     possible object is
@@ -97,7 +97,7 @@ public class NFFGType {
     }
 
     /**
-     * Imposta il valore della propriet‡ links.
+     * Imposta il valore della propriet√† links.
      * 
      * @param value
      *     allowed object is
@@ -109,7 +109,7 @@ public class NFFGType {
     }
 
     /**
-     * Recupera il valore della propriet‡ policies.
+     * Recupera il valore della propriet√† policies.
      * 
      * @return
      *     possible object is
@@ -121,7 +121,7 @@ public class NFFGType {
     }
 
     /**
-     * Imposta il valore della propriet‡ policies.
+     * Imposta il valore della propriet√† policies.
      * 
      * @param value
      *     allowed object is
@@ -133,7 +133,7 @@ public class NFFGType {
     }
 
     /**
-     * Recupera il valore della propriet‡ name.
+     * Recupera il valore della propriet√† name.
      * 
      * @return
      *     possible object is
@@ -145,7 +145,7 @@ public class NFFGType {
     }
 
     /**
-     * Imposta il valore della propriet‡ name.
+     * Imposta il valore della propriet√† name.
      * 
      * @param value
      *     allowed object is
@@ -157,7 +157,7 @@ public class NFFGType {
     }
 
     /**
-     * Recupera il valore della propriet‡ lastUpdateTime.
+     * Recupera il valore della propriet√† lastUpdateTime.
      * 
      * @return
      *     possible object is
@@ -169,7 +169,7 @@ public class NFFGType {
     }
 
     /**
-     * Imposta il valore della propriet‡ lastUpdateTime.
+     * Imposta il valore della propriet√† lastUpdateTime.
      * 
      * @param value
      *     allowed object is
