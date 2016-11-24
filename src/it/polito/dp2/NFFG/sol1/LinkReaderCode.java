@@ -7,31 +7,52 @@ import it.polito.dp2.NFFG.sol1.jaxb.NFFGType;
 import it.polito.dp2.NFFG.sol1.jaxb.NodeType;
 
 public class LinkReaderCode implements LinkReader{
-	
+
 	private String linkName;
 	private NodeReader linkDestinationNode;
 	private NodeReader linkSourceNode;
-	
+
+
 	public LinkReaderCode(NFFGType nffg, LinkType link){
 		System.out.println("LinkReaderCode - Inside Costructor");
 
-		this.linkName = link.getId();
-		
+		this.linkName = link.getId();	
+		NodeReader nodus = null;
+
+		//Aggiunge al link solo il nodo destinazione
 		for(NodeType node: nffg.getNodes().getNode()){
-			String nodeName = node.getId();
-			if(nodeName.equals(link.getDestination())){
-				System.out.println("LinkReaderCode - Getting Destination");
-				this.linkDestinationNode = new NodeReaderCode(node,nffg);
+			//String nodeName = node.getId();
+			if(node.getId().equals(link.getDestination())){
+				nodus = new NodeReaderUncomplete(node.getId());
+				System.out.println("*** LINK-READER DESTINATION ***");
+				System.out.println("NodeTypeID: "+node.getId());
+				System.out.println("LinkDST: "+link.getDestination().toString());
+				System.out.println("EQUALS");
+				System.out.println("NodeReaderUncompl: "+nodus.getName());
+				if(nodus.getName().equals(link.getDestination())){
+					this.linkDestinationNode = nodus;
+					System.out.println("Name: "+this.linkName);
+					System.out.println("linkDestinationNode: "+this.linkDestinationNode.getName());				
+				}
 			}
 		}
 		
-		for(NodeType node: nffg.getNodes().getNode()){
+		for(NodeType node: nffg.getNodes().getNode()){	
 			String nodeName = node.getId();
 			if(nodeName.equals(link.getSource())){
-				System.out.println("LinkReaderCode - Getting Source");
-				//this.linkSourceNode = new NodeReaderCode(node,nffg);
+				nodus = new NodeReaderUncomplete(nodeName);
+				System.out.println("*** LINK-READER SOURCE ***");
+				System.out.println("NodeTypeID: "+node.getId());
+				System.out.println("LinkSRC: "+link.getSource().toString());
+				System.out.println("EQUALS");
+				System.out.println("NodeReaderUncompl: "+nodus.getName());
+				this.linkSourceNode = nodus;
+				System.out.println("Name: "+this.linkName);
+				System.out.println("linkDestinationNode: "+this.linkDestinationNode.getName());				
+				System.out.println("linkSourceNode: "+this.linkSourceNode.getName());				
 			}
 		}
+		//Bisogna aggiungere la sorgente ma puo darsi che il nodo sorgente non sia ancora stato istanziato
 		System.out.println("LinkReaderCode - End Costructor");
 	}
 
@@ -47,8 +68,11 @@ public class LinkReaderCode implements LinkReader{
 
 	@Override
 	public NodeReader getSourceNode() {
-		// TODO Auto-generated method stub
 		return this.linkSourceNode;
+	}
+
+	public String toString(){
+		return "Name: "+this.linkName+" - Destination: "+this.linkDestinationNode.getName()+" - Source: "+this.linkSourceNode.getName();
 	}
 
 }

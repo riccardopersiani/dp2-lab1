@@ -1,5 +1,6 @@
 package it.polito.dp2.NFFG.sol1;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import it.polito.dp2.NFFG.FunctionalType;
@@ -14,22 +15,30 @@ public class NodeReaderCode implements NodeReader{
 	private String nodeName;
 	private FunctionalType nodeFunctionalType;
 	private Set<LinkReader> nodeLinksList;
-	
+
 	public NodeReaderCode(NodeType node, NFFGType nffg){
 		this.nodeName = node.getId();
 		this.nodeFunctionalType = covertServiceToFunctional(node.getService());
-		System.out.println("NodeReaderCode - Inside Costructor");
+		LinkReader linkReader = null;
+		System.out.println("NodeReaderCode - nodeName: "+node.getId());
+		
+		nodeLinksList = new HashSet<LinkReader>();
 
-		//Scrolling link list
+		//Setting only linkName and destination
 		for(LinkType link: nffg.getLinks().getLink()){
-			System.out.println("NodeReaderCode - Filling set<LinkReader>");
-			LinkReader linkReader = new LinkReaderCode(nffg,link);
-			System.out.println("NodeReaderCode - Filling set<LinkReader> adding");
-			this.nodeLinksList.add(linkReader);
+			//Se la destinazione del link è uguale al nodo in questione
+			if(link.getDestination().equals(node.getId())){
+				//Vado a creare un link con destinazione uguale al nodo in questione
+				linkReader = new LinkReaderCode(nffg, link);
+				//Aggiungo il link al nodo, anche se il link reader è parziale perché non ha la sorgente
+				System.out.println("NodeReaderCode - Before adding linkReader1");
+				System.out.println(linkReader.toString());
+				nodeLinksList.add(linkReader);
+			}
 		}
 		System.out.println("NodeReaderCode - End Costructor");
 	}
-	
+
 	@Override
 	public String getName() {
 		return this.nodeName;
@@ -44,30 +53,30 @@ public class NodeReaderCode implements NodeReader{
 	public Set<LinkReader> getLinks() {
 		return nodeLinksList;
 	}
-	
+
 	private FunctionalType covertServiceToFunctional(ServiceType service){
 		FunctionalType functional = FunctionalType.CACHE;
 		switch(service){
 		case WEB_CACHE: functional = FunctionalType.CACHE;
-				    break;
+		break;
 		case DPI: functional = FunctionalType.DPI;
-					break;
+		break;
 		case FIREWALL: functional = FunctionalType.FW;
-					break;
+		break;
 		case NAT: functional = FunctionalType.NAT;
-					break;
+		break;
 		case ANTI_SPAM: functional = FunctionalType.SPAM;
-					break;
+		break;
 		case VPN_GATEWAY: functional = FunctionalType.VPN;
-					break;
+		break;
 		case WEB_CLIENT: functional = FunctionalType.WEB_CLIENT;
-					break;
+		break;
 		case MAIL_CLIENT: functional = FunctionalType.MAIL_CLIENT;
-					break;
+		break;
 		case MAIL_SERVER: functional = FunctionalType.MAIL_SERVER;
-					break;
+		break;
 		case WEB_SERVER: functional = FunctionalType.WEB_SERVER;
-					break;
+		break;
 		}
 		return functional;
 	}
