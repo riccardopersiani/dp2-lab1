@@ -23,20 +23,15 @@ public class NodeReaderCode implements NodeReader{
 		
 		nodeLinksList = new HashSet<LinkReader>();
 
-		//Setting only linkName and destination
+		// Setting link only if the actual node is the source
 		for(LinkType link: nffg.getLinks().getLink()){
-			//Se la destinazione del link è uguale al nodo in questione
-			if(link.getDestination().equals(node.getId())){
-				//Vado a creare un link con destinazione uguale al nodo in questione
+			if(link.getSource().equals(node.getId())){
 				linkReader = new LinkReaderCode(nffg, link);
-				//Aggiungo il link al nodo, anche se il link reader è parziale perché non ha la sorgente
-				//System.out.println("NodeReaderCode - Before adding linkReader1");
 				System.out.println(linkReader.toString());
 				nodeLinksList.add(linkReader);
 			}
 		}
 		System.out.println(this.toString());
-		System.out.println("NodeReaderCode - End Costructor");
 	}
 
 	@Override
@@ -55,32 +50,33 @@ public class NodeReaderCode implements NodeReader{
 	}
 	
 	public String toString(){
-		return "NODEREADER -> Name: "+this.nodeName+" - Function: "+this.nodeFunctionalType.toString();
+		return "NodeReader -> Name: "+this.nodeName+" - Function: "+this.nodeFunctionalType.toString();
 	}
 
 	private FunctionalType covertServiceToFunctional(ServiceType service){
 		FunctionalType functional = FunctionalType.CACHE;
 		switch(service){
+	
 		case WEB_CACHE: functional = FunctionalType.CACHE;
-		break;
+						break;
 		case DPI: functional = FunctionalType.DPI;
-		break;
+						break;
 		case FIREWALL: functional = FunctionalType.FW;
-		break;
+						break;
 		case NAT: functional = FunctionalType.NAT;
-		break;
+						break;
 		case ANTI_SPAM: functional = FunctionalType.SPAM;
-		break;
+						break;
 		case VPN_GATEWAY: functional = FunctionalType.VPN;
-		break;
+						break;
 		case WEB_CLIENT: functional = FunctionalType.WEB_CLIENT;
-		break;
+						break;
 		case MAIL_CLIENT: functional = FunctionalType.MAIL_CLIENT;
-		break;
+						break;
 		case MAIL_SERVER: functional = FunctionalType.MAIL_SERVER;
-		break;
+						break;
 		case WEB_SERVER: functional = FunctionalType.WEB_SERVER;
-		break;
+						break;
 		}
 		return functional;
 	}

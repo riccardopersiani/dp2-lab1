@@ -12,38 +12,27 @@ public class LinkReaderCode implements LinkReader{
 	private NodeReader linkDestinationNode;
 	private NodeReader linkSourceNode;
 
-
 	public LinkReaderCode(NFFGType nffg, LinkType link){
-		System.out.println("LinkReaderCode - Inside Costructor");
 
 		this.linkName = link.getId();	
 		NodeReader nodus = null;
 
-		//Aggiunge al link solo il nodo destinazione
+		//Looking for the Source Node
 		for(NodeType node: nffg.getNodes().getNode()){
-			//String nodeName = node.getId();
-			if(node.getId().equals(link.getDestination())){
+			if(node.getId().equals(link.getSource())){
 				nodus = new NodeReaderUncomplete(node.getId());
-				/*System.out.println("*** LINK-READER DESTINATION ***");
-				System.out.println("NodeTypeID: "+node.getId());
-				System.out.println("LinkDST: "+link.getDestination().toString());
-				System.out.println("EQUALS");
-				System.out.println("NodeReaderUncompl: "+nodus.getName());*/
-				this.linkDestinationNode = nodus;
-				System.out.println("Name: "+this.linkName);
-				System.out.println("linkDestinationNode: "+this.linkDestinationNode.getName());				
+				this.linkSourceNode = nodus;			
 			}
 		}
 
+		//TODO Try to subsubstitute the for inside the other
+		//Looking for the Destination node
 		for(NodeType node: nffg.getNodes().getNode()){	
-			String nodeName = node.getId();
-			if(nodeName.equals(link.getSource())){
-				nodus = new NodeReaderUncomplete(nodeName);
-				this.linkSourceNode = nodus;
+			if(node.getId().equals(link.getDestination())){
+				nodus = new NodeReaderUncomplete(node.getId());
+				this.linkDestinationNode = nodus;
 			}
 		}
-		//Bisogna aggiungere la sorgente ma puo darsi che il nodo sorgente non sia ancora stato istanziato
-		System.out.println("LinkReaderCode - End Costructor");
 	}
 
 	@Override
@@ -62,7 +51,6 @@ public class LinkReaderCode implements LinkReader{
 	}
 
 	public String toString(){
-		return "LINKREADER-> Name: "+this.linkName+" - Destination: "+this.linkDestinationNode.getName()+" - Source: "+this.linkSourceNode.getName();
+		return "LinkReader -> Name: "+this.linkName+" - Source: "+this.linkSourceNode.getName()+" - Destination: "+this.linkDestinationNode.getName();
 	}
-
 }

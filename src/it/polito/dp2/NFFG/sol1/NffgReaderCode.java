@@ -20,20 +20,15 @@ public class NffgReaderCode implements NffgReader {
 	
 	public NffgReaderCode(NFFGType nffg) {
 		this.nffgName = nffg.getName();
-		System.out.println("NffgReaderCode - Inside Costructor");
-
 		this.XMLGregorianlastUpdateTime = nffg.getLastUpdateTime();
 		this.lastUpdateTime = this.XMLGregorianlastUpdateTime.toGregorianCalendar();
 
 		nodeReaders = new HashSet<NodeReader>();
+		
 		for(NodeType node : nffg.getNodes().getNode()) {
-			System.out.println("NffgReaderCode - filling Set<NodeReader>");
 			NodeReader nodeReader = new NodeReaderCode(node, nffg);
-			System.out.println("NffgReaderCode - adding to Set<NodeReader>");
 			this.nodeReaders.add(nodeReader);
 		}
-		System.out.println("NffgReaderCode - End Costructor");
-
 	}
 	
 	@Override

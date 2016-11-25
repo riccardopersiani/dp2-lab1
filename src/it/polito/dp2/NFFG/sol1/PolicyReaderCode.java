@@ -13,11 +13,11 @@ public class PolicyReaderCode implements PolicyReader{
 	private NffgReader policyNffgReader;
 	private VerificationResultReader policyVerificationResultReader;
 	
-	public PolicyReaderCode(NFFGType nffg, ReachabilityPolicyType policy){
+	public PolicyReaderCode(NFFGType nffg, NffgReader nffgReader, ReachabilityPolicyType policy, VerificationResultReader verificationResultReader){
 		this.policyName = policy.getId();
 		this.policyIsPositive = policy.isIsPositive();
-		//this.policyNffgReader = new NffgReaderCode(nffg);
-		this.policyVerificationResultReader = new VerificationResusltReaderCode(nffg,policy);	
+		this.policyNffgReader = nffgReader;
+		this.policyVerificationResultReader = verificationResultReader;	
 	}	
 
 	@Override
@@ -38,6 +38,10 @@ public class PolicyReaderCode implements PolicyReader{
 	@Override
 	public Boolean isPositive() {
 		return this.policyIsPositive;
+	}
+	
+	public String toString(){ //TODO
+		return "PolicyReader -> Name: "+this.policyName+", NffgReader: "+this.policyNffgReader.toString()+", ";
 	}
 
 }

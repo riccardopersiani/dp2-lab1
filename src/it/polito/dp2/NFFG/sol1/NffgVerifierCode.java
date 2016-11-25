@@ -44,21 +44,19 @@ public class NffgVerifierCode implements NffgVerifier {
 		policyReaders = new HashSet<PolicyReader>();
 
 		String fileName = System.getProperty("it.polito.dp2.NFFG.sol1.NffgInfo.file");
-		System.out.println("fileName: "+fileName);
 		RootNetworkType root = null;
-		// Get The RootElement
 		root = doUnmarshall(new File(fileName));
 		System.out.println("root: "+root);
-		// Browse the list of all the Nffgs 		
+
 		for(NFFGType nffg : root.getNFFG()) {
-			System.out.println("Inside NFFG for{}");
-			// Covertion from NffgType to NffgReader
 			NffgReader nffgReader = new NffgReaderCode(nffg);
-			// Add the actual NffgReader to the set, otherwise it will be lost
 			nffgReaders.add(nffgReader);
+			
 			for(ReachabilityPolicyType reachabilityPolicy: nffg.getPolicies().getReachabilityPolicy()){
 				System.out.println("Inside reachability for{}");
-				ReachabilityPolicyReader reachabilityReader = new ReachabilityPolicyReaderCode(nffg, reachabilityPolicy);
+				System.out.println("nffg: "+nffg);
+				System.out.println("reachabilityPolicy: "+reachabilityPolicy);
+				ReachabilityPolicyReader reachabilityReader = new ReachabilityPolicyReaderCode(nffg, nffgReader, reachabilityPolicy);
 				policyReaders.add(reachabilityReader);
 			}
 			for(TraversalPolicyType traversalPolicy: nffg.getPolicies().getTraversalPolicy()){
