@@ -1,0 +1,3386 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RootNetwork xmlns="http://www.riccardopersiani.com/Schema">
+    <NFFG name="Nffg3" last_update_time="21:07:20.000+02:00">
+        <Nodes>
+            <Node id="DPI14">
+                <Service>DPI</Service>
+            </Node>
+            <Node id="CACHE0">
+                <Service>Web-cache</Service>
+            </Node>
+            <Node id="FW7">
+                <Service>Firewall</Service>
+            </Node>
+            <Node id="FW9">
+                <Service>Firewall</Service>
+            </Node>
+            <Node id="MAILCLIENT1">
+                <Service>Mail client</Service>
+            </Node>
+            <Node id="VPN10">
+                <Service>VPN gateway</Service>
+            </Node>
+            <Node id="FW13">
+                <Service>Firewall</Service>
+            </Node>
+            <Node id="MAILCLIENT2">
+                <Service>Mail client</Service>
+            </Node>
+            <Node id="FW12">
+                <Service>Firewall</Service>
+            </Node>
+            <Node id="WEBCLIENT8">
+                <Service>Web client</Service>
+            </Node>
+            <Node id="MAILCLIENT7">
+                <Service>Mail client</Service>
+            </Node>
+            <Node id="FW16">
+                <Service>Firewall</Service>
+            </Node>
+            <Node id="WEBCLIENT3">
+                <Service>Web client</Service>
+            </Node>
+            <Node id="WEBSERVER3">
+                <Service>Web server</Service>
+            </Node>
+            <Node id="WEBCLIENT4">
+                <Service>Web client</Service>
+            </Node>
+            <Node id="WEBSERVER4">
+                <Service>Web server</Service>
+            </Node>
+            <Node id="VPN15">
+                <Service>VPN gateway</Service>
+            </Node>
+            <Node id="WEBCLIENT5">
+                <Service>Web client</Service>
+            </Node>
+            <Node id="CACHE4">
+                <Service>Web-cache</Service>
+            </Node>
+            <Node id="WEBCLIENT6">
+                <Service>Web client</Service>
+            </Node>
+            <Node id="CACHE6">
+                <Service>Web-cache</Service>
+            </Node>
+            <Node id="WEBCLIENT0">
+                <Service>Web client</Service>
+            </Node>
+            <Node id="WEBSERVER1">
+                <Service>Web server</Service>
+            </Node>
+            <Node id="WEBSERVER2">
+                <Service>Web server</Service>
+            </Node>
+            <Node id="MAILSERVER0">
+                <Service>Mail server</Service>
+            </Node>
+            <Node id="VPN1">
+                <Service>VPN gateway</Service>
+            </Node>
+            <Node id="VPN3">
+                <Service>VPN gateway</Service>
+            </Node>
+            <Node id="DPI5">
+                <Service>DPI</Service>
+            </Node>
+            <Node id="DPI8">
+                <Service>DPI</Service>
+            </Node>
+            <Node id="DPI11">
+                <Service>DPI</Service>
+            </Node>
+            <Node id="SPAM2">
+                <Service>Anti-spam</Service>
+            </Node>
+        </Nodes>
+        <Links>
+            <Link id="Link197">
+                <Source>DPI14</Source>
+                <Destination>WEBCLIENT3</Destination>
+            </Link>
+            <Link id="Link152">
+                <Source>DPI14</Source>
+                <Destination>WEBSERVER2</Destination>
+            </Link>
+            <Link id="Link154">
+                <Source>DPI14</Source>
+                <Destination>WEBCLIENT0</Destination>
+            </Link>
+            <Link id="Link151">
+                <Source>DPI14</Source>
+                <Destination>SPAM2</Destination>
+            </Link>
+            <Link id="Link250">
+                <Source>DPI14</Source>
+                <Destination>WEBSERVER3</Destination>
+            </Link>
+            <Link id="Link46">
+                <Source>DPI14</Source>
+                <Destination>MAILCLIENT1</Destination>
+            </Link>
+            <Link id="Link68">
+                <Source>DPI14</Source>
+                <Destination>DPI5</Destination>
+            </Link>
+            <Link id="Link117">
+                <Source>DPI14</Source>
+                <Destination>WEBCLIENT6</Destination>
+            </Link>
+            <Link id="Link167">
+                <Source>DPI14</Source>
+                <Destination>WEBCLIENT5</Destination>
+            </Link>
+            <Link id="Link61">
+                <Source>DPI14</Source>
+                <Destination>CACHE6</Destination>
+            </Link>
+            <Link id="Link214">
+                <Source>DPI14</Source>
+                <Destination>WEBCLIENT8</Destination>
+            </Link>
+            <Link id="Link60">
+                <Source>DPI14</Source>
+                <Destination>DPI11</Destination>
+            </Link>
+            <Link id="Link186">
+                <Source>CACHE0</Source>
+                <Destination>WEBCLIENT8</Destination>
+            </Link>
+            <Link id="Link100">
+                <Source>CACHE0</Source>
+                <Destination>FW16</Destination>
+            </Link>
+            <Link id="Link155">
+                <Source>CACHE0</Source>
+                <Destination>DPI5</Destination>
+            </Link>
+            <Link id="Link219">
+                <Source>CACHE0</Source>
+                <Destination>CACHE4</Destination>
+            </Link>
+            <Link id="Link69">
+                <Source>CACHE0</Source>
+                <Destination>WEBSERVER3</Destination>
+            </Link>
+            <Link id="Link116">
+                <Source>CACHE0</Source>
+                <Destination>WEBSERVER4</Destination>
+            </Link>
+            <Link id="Link52">
+                <Source>CACHE0</Source>
+                <Destination>MAILCLIENT7</Destination>
+            </Link>
+            <Link id="Link201">
+                <Source>CACHE0</Source>
+                <Destination>MAILSERVER0</Destination>
+            </Link>
+            <Link id="Link84">
+                <Source>CACHE0</Source>
+                <Destination>SPAM2</Destination>
+            </Link>
+            <Link id="Link200">
+                <Source>CACHE0</Source>
+                <Destination>WEBCLIENT5</Destination>
+            </Link>
+            <Link id="Link125">
+                <Source>CACHE0</Source>
+                <Destination>DPI8</Destination>
+            </Link>
+            <Link id="Link209">
+                <Source>FW7</Source>
+                <Destination>MAILCLIENT1</Destination>
+            </Link>
+            <Link id="Link109">
+                <Source>FW7</Source>
+                <Destination>WEBCLIENT5</Destination>
+            </Link>
+            <Link id="Link29">
+                <Source>FW7</Source>
+                <Destination>DPI5</Destination>
+            </Link>
+            <Link id="Link191">
+                <Source>FW7</Source>
+                <Destination>WEBCLIENT0</Destination>
+            </Link>
+            <Link id="Link199">
+                <Source>FW7</Source>
+                <Destination>DPI14</Destination>
+            </Link>
+            <Link id="Link221">
+                <Source>FW7</Source>
+                <Destination>CACHE4</Destination>
+            </Link>
+            <Link id="Link58">
+                <Source>FW7</Source>
+                <Destination>WEBSERVER3</Destination>
+            </Link>
+            <Link id="Link119">
+                <Source>FW7</Source>
+                <Destination>CACHE6</Destination>
+            </Link>
+            <Link id="Link30">
+                <Source>FW7</Source>
+                <Destination>WEBSERVER4</Destination>
+            </Link>
+            <Link id="Link245">
+                <Source>FW7</Source>
+                <Destination>WEBCLIENT8</Destination>
+            </Link>
+            <Link id="Link256">
+                <Source>FW7</Source>
+                <Destination>CACHE0</Destination>
+            </Link>
+            <Link id="Link101">
+                <Source>FW7</Source>
+                <Destination>WEBSERVER1</Destination>
+            </Link>
+            <Link id="Link203">
+                <Source>FW7</Source>
+                <Destination>DPI11</Destination>
+            </Link>
+            <Link id="Link169">
+                <Source>FW7</Source>
+                <Destination>VPN15</Destination>
+            </Link>
+            <Link id="Link257">
+                <Source>FW7</Source>
+                <Destination>VPN10</Destination>
+            </Link>
+            <Link id="Link252">
+                <Source>FW9</Source>
+                <Destination>DPI11</Destination>
+            </Link>
+            <Link id="Link185">
+                <Source>FW9</Source>
+                <Destination>FW12</Destination>
+            </Link>
+            <Link id="Link32">
+                <Source>FW9</Source>
+                <Destination>CACHE4</Destination>
+            </Link>
+            <Link id="Link76">
+                <Source>FW9</Source>
+                <Destination>VPN3</Destination>
+            </Link>
+            <Link id="Link198">
+                <Source>FW9</Source>
+                <Destination>WEBCLIENT3</Destination>
+            </Link>
+            <Link id="Link253">
+                <Source>FW9</Source>
+                <Destination>CACHE6</Destination>
+            </Link>
+            <Link id="Link47">
+                <Source>FW9</Source>
+                <Destination>VPN1</Destination>
+            </Link>
+            <Link id="Link13">
+                <Source>FW9</Source>
+                <Destination>WEBCLIENT6</Destination>
+            </Link>
+            <Link id="Link218">
+                <Source>FW9</Source>
+                <Destination>DPI14</Destination>
+            </Link>
+            <Link id="Link137">
+                <Source>FW9</Source>
+                <Destination>SPAM2</Destination>
+            </Link>
+            <Link id="Link202">
+                <Source>FW9</Source>
+                <Destination>VPN15</Destination>
+            </Link>
+            <Link id="Link242">
+                <Source>MAILCLIENT1</Source>
+                <Destination>CACHE0</Destination>
+            </Link>
+            <Link id="Link264">
+                <Source>MAILCLIENT1</Source>
+                <Destination>DPI8</Destination>
+            </Link>
+            <Link id="Link184">
+                <Source>MAILCLIENT1</Source>
+                <Destination>DPI14</Destination>
+            </Link>
+            <Link id="Link57">
+                <Source>MAILCLIENT1</Source>
+                <Destination>DPI5</Destination>
+            </Link>
+            <Link id="Link260">
+                <Source>MAILCLIENT1</Source>
+                <Destination>FW13</Destination>
+            </Link>
+            <Link id="Link2">
+                <Source>MAILCLIENT1</Source>
+                <Destination>VPN15</Destination>
+            </Link>
+            <Link id="Link259">
+                <Source>MAILCLIENT1</Source>
+                <Destination>FW7</Destination>
+            </Link>
+            <Link id="Link124">
+                <Source>MAILCLIENT1</Source>
+                <Destination>FW16</Destination>
+            </Link>
+            <Link id="Link95">
+                <Source>MAILCLIENT1</Source>
+                <Destination>DPI11</Destination>
+            </Link>
+            <Link id="Link156">
+                <Source>MAILCLIENT1</Source>
+                <Destination>SPAM2</Destination>
+            </Link>
+            <Link id="Link66">
+                <Source>VPN10</Source>
+                <Destination>WEBCLIENT6</Destination>
+            </Link>
+            <Link id="Link210">
+                <Source>VPN10</Source>
+                <Destination>CACHE0</Destination>
+            </Link>
+            <Link id="Link170">
+                <Source>VPN10</Source>
+                <Destination>VPN3</Destination>
+            </Link>
+            <Link id="Link128">
+                <Source>VPN10</Source>
+                <Destination>WEBSERVER2</Destination>
+            </Link>
+            <Link id="Link205">
+                <Source>VPN10</Source>
+                <Destination>WEBCLIENT0</Destination>
+            </Link>
+            <Link id="Link238">
+                <Source>VPN10</Source>
+                <Destination>FW9</Destination>
+            </Link>
+            <Link id="Link248">
+                <Source>VPN10</Source>
+                <Destination>WEBCLIENT8</Destination>
+            </Link>
+            <Link id="Link207">
+                <Source>VPN10</Source>
+                <Destination>MAILCLIENT2</Destination>
+            </Link>
+            <Link id="Link107">
+                <Source>VPN10</Source>
+                <Destination>DPI5</Destination>
+            </Link>
+            <Link id="Link74">
+                <Source>VPN10</Source>
+                <Destination>WEBCLIENT5</Destination>
+            </Link>
+            <Link id="Link146">
+                <Source>VPN10</Source>
+                <Destination>WEBSERVER4</Destination>
+            </Link>
+            <Link id="Link178">
+                <Source>VPN10</Source>
+                <Destination>DPI14</Destination>
+            </Link>
+            <Link id="Link94">
+                <Source>VPN10</Source>
+                <Destination>MAILCLIENT7</Destination>
+            </Link>
+            <Link id="Link213">
+                <Source>VPN10</Source>
+                <Destination>FW7</Destination>
+            </Link>
+            <Link id="Link131">
+                <Source>FW13</Source>
+                <Destination>CACHE0</Destination>
+            </Link>
+            <Link id="Link163">
+                <Source>FW13</Source>
+                <Destination>MAILCLIENT1</Destination>
+            </Link>
+            <Link id="Link196">
+                <Source>FW13</Source>
+                <Destination>VPN15</Destination>
+            </Link>
+            <Link id="Link121">
+                <Source>FW13</Source>
+                <Destination>FW9</Destination>
+            </Link>
+            <Link id="Link220">
+                <Source>FW13</Source>
+                <Destination>WEBCLIENT8</Destination>
+            </Link>
+            <Link id="Link224">
+                <Source>FW13</Source>
+                <Destination>DPI8</Destination>
+            </Link>
+            <Link id="Link268">
+                <Source>FW13</Source>
+                <Destination>WEBSERVER3</Destination>
+            </Link>
+            <Link id="Link153">
+                <Source>MAILCLIENT2</Source>
+                <Destination>CACHE6</Destination>
+            </Link>
+            <Link id="Link261">
+                <Source>MAILCLIENT2</Source>
+                <Destination>FW12</Destination>
+            </Link>
+            <Link id="Link172">
+                <Source>MAILCLIENT2</Source>
+                <Destination>FW7</Destination>
+            </Link>
+            <Link id="Link4">
+                <Source>MAILCLIENT2</Source>
+                <Destination>VPN15</Destination>
+            </Link>
+            <Link id="Link228">
+                <Source>MAILCLIENT2</Source>
+                <Destination>VPN10</Destination>
+            </Link>
+            <Link id="Link179">
+                <Source>MAILCLIENT2</Source>
+                <Destination>DPI5</Destination>
+            </Link>
+            <Link id="Link89">
+                <Source>FW12</Source>
+                <Destination>WEBSERVER2</Destination>
+            </Link>
+            <Link id="Link77">
+                <Source>FW12</Source>
+                <Destination>WEBSERVER4</Destination>
+            </Link>
+            <Link id="Link141">
+                <Source>FW12</Source>
+                <Destination>FW13</Destination>
+            </Link>
+            <Link id="Link174">
+                <Source>FW12</Source>
+                <Destination>WEBCLIENT5</Destination>
+            </Link>
+            <Link id="Link87">
+                <Source>FW12</Source>
+                <Destination>WEBCLIENT4</Destination>
+            </Link>
+            <Link id="Link111">
+                <Source>FW12</Source>
+                <Destination>MAILCLIENT1</Destination>
+            </Link>
+            <Link id="Link86">
+                <Source>FW12</Source>
+                <Destination>MAILCLIENT7</Destination>
+            </Link>
+            <Link id="Link181">
+                <Source>FW12</Source>
+                <Destination>CACHE6</Destination>
+            </Link>
+            <Link id="Link192">
+                <Source>FW12</Source>
+                <Destination>FW9</Destination>
+            </Link>
+            <Link id="Link91">
+                <Source>FW12</Source>
+                <Destination>WEBCLIENT0</Destination>
+            </Link>
+            <Link id="Link63">
+                <Source>FW12</Source>
+                <Destination>MAILSERVER0</Destination>
+            </Link>
+            <Link id="Link168">
+                <Source>FW12</Source>
+                <Destination>CACHE4</Destination>
+            </Link>
+            <Link id="Link7">
+                <Source>FW12</Source>
+                <Destination>WEBCLIENT3</Destination>
+            </Link>
+            <Link id="Link40">
+                <Source>FW12</Source>
+                <Destination>DPI8</Destination>
+            </Link>
+            <Link id="Link71">
+                <Source>FW12</Source>
+                <Destination>VPN1</Destination>
+            </Link>
+            <Link id="Link136">
+                <Source>FW12</Source>
+                <Destination>CACHE0</Destination>
+            </Link>
+            <Link id="Link143">
+                <Source>WEBCLIENT8</Source>
+                <Destination>FW13</Destination>
+            </Link>
+            <Link id="Link16">
+                <Source>WEBCLIENT8</Source>
+                <Destination>VPN15</Destination>
+            </Link>
+            <Link id="Link227">
+                <Source>WEBCLIENT8</Source>
+                <Destination>DPI8</Destination>
+            </Link>
+            <Link id="Link34">
+                <Source>MAILCLIENT7</Source>
+                <Destination>VPN10</Destination>
+            </Link>
+            <Link id="Link14">
+                <Source>MAILCLIENT7</Source>
+                <Destination>VPN15</Destination>
+            </Link>
+            <Link id="Link195">
+                <Source>MAILCLIENT7</Source>
+                <Destination>VPN1</Destination>
+            </Link>
+            <Link id="Link150">
+                <Source>MAILCLIENT7</Source>
+                <Destination>FW9</Destination>
+            </Link>
+            <Link id="Link127">
+                <Source>MAILCLIENT7</Source>
+                <Destination>DPI11</Destination>
+            </Link>
+            <Link id="Link180">
+                <Source>MAILCLIENT7</Source>
+                <Destination>FW7</Destination>
+            </Link>
+            <Link id="Link206">
+                <Source>MAILCLIENT7</Source>
+                <Destination>CACHE0</Destination>
+            </Link>
+            <Link id="Link144">
+                <Source>FW16</Source>
+                <Destination>DPI11</Destination>
+            </Link>
+            <Link id="Link165">
+                <Source>FW16</Source>
+                <Destination>MAILCLIENT2</Destination>
+            </Link>
+            <Link id="Link49">
+                <Source>FW16</Source>
+                <Destination>VPN10</Destination>
+            </Link>
+            <Link id="Link140">
+                <Source>FW16</Source>
+                <Destination>MAILCLIENT1</Destination>
+            </Link>
+            <Link id="Link80">
+                <Source>FW16</Source>
+                <Destination>WEBSERVER4</Destination>
+            </Link>
+            <Link id="Link215">
+                <Source>FW16</Source>
+                <Destination>CACHE4</Destination>
+            </Link>
+            <Link id="Link108">
+                <Source>FW16</Source>
+                <Destination>CACHE6</Destination>
+            </Link>
+            <Link id="Link223">
+                <Source>FW16</Source>
+                <Destination>WEBSERVER3</Destination>
+            </Link>
+            <Link id="Link112">
+                <Source>FW16</Source>
+                <Destination>DPI14</Destination>
+            </Link>
+            <Link id="Link123">
+                <Source>FW16</Source>
+                <Destination>WEBCLIENT4</Destination>
+            </Link>
+            <Link id="Link134">
+                <Source>FW16</Source>
+                <Destination>FW9</Destination>
+            </Link>
+            <Link id="Link222">
+                <Source>FW16</Source>
+                <Destination>MAILSERVER0</Destination>
+            </Link>
+            <Link id="Link118">
+                <Source>WEBCLIENT3</Source>
+                <Destination>CACHE0</Destination>
+            </Link>
+            <Link id="Link6">
+                <Source>WEBCLIENT3</Source>
+                <Destination>FW12</Destination>
+            </Link>
+            <Link id="Link255">
+                <Source>WEBCLIENT3</Source>
+                <Destination>DPI5</Destination>
+            </Link>
+            <Link id="Link83">
+                <Source>WEBCLIENT3</Source>
+                <Destination>CACHE6</Destination>
+            </Link>
+            <Link id="Link258">
+                <Source>WEBCLIENT3</Source>
+                <Destination>DPI14</Destination>
+            </Link>
+            <Link id="Link193">
+                <Source>WEBSERVER3</Source>
+                <Destination>DPI8</Destination>
+            </Link>
+            <Link id="Link24">
+                <Source>WEBSERVER3</Source>
+                <Destination>VPN1</Destination>
+            </Link>
+            <Link id="Link90">
+                <Source>WEBSERVER3</Source>
+                <Destination>DPI14</Destination>
+            </Link>
+            <Link id="Link113">
+                <Source>WEBSERVER3</Source>
+                <Destination>FW12</Destination>
+            </Link>
+            <Link id="Link246">
+                <Source>WEBSERVER3</Source>
+                <Destination>DPI5</Destination>
+            </Link>
+            <Link id="Link98">
+                <Source>WEBCLIENT4</Source>
+                <Destination>CACHE0</Destination>
+            </Link>
+            <Link id="Link265">
+                <Source>WEBCLIENT4</Source>
+                <Destination>CACHE6</Destination>
+            </Link>
+            <Link id="Link183">
+                <Source>WEBCLIENT4</Source>
+                <Destination>CACHE4</Destination>
+            </Link>
+            <Link id="Link190">
+                <Source>WEBCLIENT4</Source>
+                <Destination>SPAM2</Destination>
+            </Link>
+            <Link id="Link8">
+                <Source>WEBCLIENT4</Source>
+                <Destination>VPN15</Destination>
+            </Link>
+            <Link id="Link133">
+                <Source>WEBSERVER4</Source>
+                <Destination>FW16</Destination>
+            </Link>
+            <Link id="Link171">
+                <Source>WEBSERVER4</Source>
+                <Destination>DPI11</Destination>
+            </Link>
+            <Link id="Link182">
+                <Source>WEBSERVER4</Source>
+                <Destination>DPI5</Destination>
+            </Link>
+            <Link id="Link26">
+                <Source>WEBSERVER4</Source>
+                <Destination>VPN3</Destination>
+            </Link>
+            <Link id="Link217">
+                <Source>WEBSERVER4</Source>
+                <Destination>SPAM2</Destination>
+            </Link>
+            <Link id="Link157">
+                <Source>WEBSERVER4</Source>
+                <Destination>FW7</Destination>
+            </Link>
+            <Link id="Link148">
+                <Source>WEBSERVER4</Source>
+                <Destination>VPN1</Destination>
+            </Link>
+            <Link id="Link158">
+                <Source>WEBSERVER4</Source>
+                <Destination>CACHE4</Destination>
+            </Link>
+            <Link id="Link33">
+                <Source>VPN15</Source>
+                <Destination>WEBSERVER2</Destination>
+            </Link>
+            <Link id="Link240">
+                <Source>VPN15</Source>
+                <Destination>CACHE4</Destination>
+            </Link>
+            <Link id="Link188">
+                <Source>VPN15</Source>
+                <Destination>DPI5</Destination>
+            </Link>
+            <Link id="Link31">
+                <Source>VPN15</Source>
+                <Destination>WEBCLIENT5</Destination>
+            </Link>
+            <Link id="Link42">
+                <Source>VPN15</Source>
+                <Destination>CACHE6</Destination>
+            </Link>
+            <Link id="Link270">
+                <Source>VPN15</Source>
+                <Destination>VPN10</Destination>
+            </Link>
+            <Link id="Link15">
+                <Source>VPN15</Source>
+                <Destination>MAILCLIENT7</Destination>
+            </Link>
+            <Link id="Link3">
+                <Source>VPN15</Source>
+                <Destination>MAILCLIENT1</Destination>
+            </Link>
+            <Link id="Link5">
+                <Source>VPN15</Source>
+                <Destination>MAILCLIENT2</Destination>
+            </Link>
+            <Link id="Link17">
+                <Source>VPN15</Source>
+                <Destination>WEBCLIENT8</Destination>
+            </Link>
+            <Link id="Link50">
+                <Source>VPN15</Source>
+                <Destination>DPI11</Destination>
+            </Link>
+            <Link id="Link9">
+                <Source>VPN15</Source>
+                <Destination>WEBCLIENT4</Destination>
+            </Link>
+            <Link id="Link175">
+                <Source>WEBCLIENT5</Source>
+                <Destination>FW7</Destination>
+            </Link>
+            <Link id="Link99">
+                <Source>WEBCLIENT5</Source>
+                <Destination>DPI5</Destination>
+            </Link>
+            <Link id="Link10">
+                <Source>WEBCLIENT5</Source>
+                <Destination>VPN3</Destination>
+            </Link>
+            <Link id="Link41">
+                <Source>WEBCLIENT5</Source>
+                <Destination>DPI11</Destination>
+            </Link>
+            <Link id="Link51">
+                <Source>WEBCLIENT5</Source>
+                <Destination>FW13</Destination>
+            </Link>
+            <Link id="Link211">
+                <Source>WEBCLIENT5</Source>
+                <Destination>FW16</Destination>
+            </Link>
+            <Link id="Link236">
+                <Source>WEBCLIENT5</Source>
+                <Destination>CACHE4</Destination>
+            </Link>
+            <Link id="Link103">
+                <Source>WEBCLIENT5</Source>
+                <Destination>VPN1</Destination>
+            </Link>
+            <Link id="Link21">
+                <Source>CACHE4</Source>
+                <Destination>WEBSERVER1</Destination>
+            </Link>
+            <Link id="Link161">
+                <Source>CACHE4</Source>
+                <Destination>FW16</Destination>
+            </Link>
+            <Link id="Link271">
+                <Source>CACHE4</Source>
+                <Destination>WEBCLIENT8</Destination>
+            </Link>
+            <Link id="Link216">
+                <Source>CACHE4</Source>
+                <Destination>FW9</Destination>
+            </Link>
+            <Link id="Link204">
+                <Source>CACHE4</Source>
+                <Destination>WEBSERVER4</Destination>
+            </Link>
+            <Link id="Link226">
+                <Source>CACHE4</Source>
+                <Destination>DPI5</Destination>
+            </Link>
+            <Link id="Link39">
+                <Source>CACHE4</Source>
+                <Destination>FW13</Destination>
+            </Link>
+            <Link id="Link233">
+                <Source>CACHE4</Source>
+                <Destination>FW7</Destination>
+            </Link>
+            <Link id="Link104">
+                <Source>CACHE4</Source>
+                <Destination>DPI14</Destination>
+            </Link>
+            <Link id="Link247">
+                <Source>CACHE4</Source>
+                <Destination>WEBCLIENT6</Destination>
+            </Link>
+            <Link id="Link12">
+                <Source>WEBCLIENT6</Source>
+                <Destination>FW9</Destination>
+            </Link>
+            <Link id="Link38">
+                <Source>WEBCLIENT6</Source>
+                <Destination>DPI14</Destination>
+            </Link>
+            <Link id="Link160">
+                <Source>WEBCLIENT6</Source>
+                <Destination>DPI11</Destination>
+            </Link>
+            <Link id="Link173">
+                <Source>WEBCLIENT6</Source>
+                <Destination>CACHE0</Destination>
+            </Link>
+            <Link id="Link126">
+                <Source>WEBCLIENT6</Source>
+                <Destination>DPI5</Destination>
+            </Link>
+            <Link id="Link147">
+                <Source>WEBCLIENT6</Source>
+                <Destination>VPN1</Destination>
+            </Link>
+            <Link id="Link45">
+                <Source>CACHE6</Source>
+                <Destination>WEBCLIENT5</Destination>
+            </Link>
+            <Link id="Link142">
+                <Source>CACHE6</Source>
+                <Destination>FW13</Destination>
+            </Link>
+            <Link id="Link273">
+                <Source>CACHE6</Source>
+                <Destination>MAILCLIENT1</Destination>
+            </Link>
+            <Link id="Link166">
+                <Source>CACHE6</Source>
+                <Destination>WEBCLIENT4</Destination>
+            </Link>
+            <Link id="Link254">
+                <Source>CACHE6</Source>
+                <Destination>FW9</Destination>
+            </Link>
+            <Link id="Link132">
+                <Source>CACHE6</Source>
+                <Destination>VPN15</Destination>
+            </Link>
+            <Link id="Link59">
+                <Source>CACHE6</Source>
+                <Destination>VPN1</Destination>
+            </Link>
+            <Link id="Link1">
+                <Source>CACHE6</Source>
+                <Destination>WEBCLIENT0</Destination>
+            </Link>
+            <Link id="Link79">
+                <Source>CACHE6</Source>
+                <Destination>DPI11</Destination>
+            </Link>
+            <Link id="Link70">
+                <Source>CACHE6</Source>
+                <Destination>DPI5</Destination>
+            </Link>
+            <Link id="Link244">
+                <Source>CACHE6</Source>
+                <Destination>FW7</Destination>
+            </Link>
+            <Link id="Link82">
+                <Source>CACHE6</Source>
+                <Destination>WEBSERVER2</Destination>
+            </Link>
+            <Link id="Link263">
+                <Source>WEBCLIENT0</Source>
+                <Destination>CACHE4</Destination>
+            </Link>
+            <Link id="Link177">
+                <Source>WEBCLIENT0</Source>
+                <Destination>CACHE0</Destination>
+            </Link>
+            <Link id="Link232">
+                <Source>WEBCLIENT0</Source>
+                <Destination>VPN3</Destination>
+            </Link>
+            <Link id="Link0">
+                <Source>WEBCLIENT0</Source>
+                <Destination>CACHE6</Destination>
+            </Link>
+            <Link id="Link102">
+                <Source>WEBCLIENT0</Source>
+                <Destination>FW16</Destination>
+            </Link>
+            <Link id="Link267">
+                <Source>WEBCLIENT0</Source>
+                <Destination>FW9</Destination>
+            </Link>
+            <Link id="Link115">
+                <Source>WEBCLIENT0</Source>
+                <Destination>VPN1</Destination>
+            </Link>
+            <Link id="Link235">
+                <Source>WEBCLIENT0</Source>
+                <Destination>FW7</Destination>
+            </Link>
+            <Link id="Link78">
+                <Source>WEBSERVER1</Source>
+                <Destination>DPI8</Destination>
+            </Link>
+            <Link id="Link20">
+                <Source>WEBSERVER1</Source>
+                <Destination>CACHE4</Destination>
+            </Link>
+            <Link id="Link53">
+                <Source>WEBSERVER1</Source>
+                <Destination>FW9</Destination>
+            </Link>
+            <Link id="Link85">
+                <Source>WEBSERVER1</Source>
+                <Destination>CACHE0</Destination>
+            </Link>
+            <Link id="Link189">
+                <Source>WEBSERVER1</Source>
+                <Destination>FW7</Destination>
+            </Link>
+            <Link id="Link72">
+                <Source>WEBSERVER1</Source>
+                <Destination>VPN15</Destination>
+            </Link>
+            <Link id="Link67">
+                <Source>WEBSERVER2</Source>
+                <Destination>VPN3</Destination>
+            </Link>
+            <Link id="Link22">
+                <Source>WEBSERVER2</Source>
+                <Destination>DPI8</Destination>
+            </Link>
+            <Link id="Link262">
+                <Source>WEBSERVER2</Source>
+                <Destination>FW12</Destination>
+            </Link>
+            <Link id="Link37">
+                <Source>WEBSERVER2</Source>
+                <Destination>VPN10</Destination>
+            </Link>
+            <Link id="Link162">
+                <Source>WEBSERVER2</Source>
+                <Destination>SPAM2</Destination>
+            </Link>
+            <Link id="Link194">
+                <Source>WEBSERVER2</Source>
+                <Destination>FW9</Destination>
+            </Link>
+            <Link id="Link237">
+                <Source>WEBSERVER2</Source>
+                <Destination>CACHE0</Destination>
+            </Link>
+            <Link id="Link187">
+                <Source>MAILSERVER0</Source>
+                <Destination>CACHE6</Destination>
+            </Link>
+            <Link id="Link208">
+                <Source>MAILSERVER0</Source>
+                <Destination>FW7</Destination>
+            </Link>
+            <Link id="Link272">
+                <Source>MAILSERVER0</Source>
+                <Destination>CACHE4</Destination>
+            </Link>
+            <Link id="Link18">
+                <Source>MAILSERVER0</Source>
+                <Destination>DPI11</Destination>
+            </Link>
+            <Link id="Link65">
+                <Source>VPN1</Source>
+                <Destination>WEBCLIENT4</Destination>
+            </Link>
+            <Link id="Link122">
+                <Source>VPN1</Source>
+                <Destination>CACHE4</Destination>
+            </Link>
+            <Link id="Link75">
+                <Source>VPN1</Source>
+                <Destination>CACHE0</Destination>
+            </Link>
+            <Link id="Link231">
+                <Source>VPN1</Source>
+                <Destination>MAILCLIENT7</Destination>
+            </Link>
+            <Link id="Link25">
+                <Source>VPN1</Source>
+                <Destination>WEBSERVER3</Destination>
+            </Link>
+            <Link id="Link81">
+                <Source>VPN1</Source>
+                <Destination>DPI14</Destination>
+            </Link>
+            <Link id="Link92">
+                <Source>VPN1</Source>
+                <Destination>CACHE6</Destination>
+            </Link>
+            <Link id="Link138">
+                <Source>VPN1</Source>
+                <Destination>WEBCLIENT6</Destination>
+            </Link>
+            <Link id="Link239">
+                <Source>VPN1</Source>
+                <Destination>FW7</Destination>
+            </Link>
+            <Link id="Link266">
+                <Source>VPN1</Source>
+                <Destination>VPN3</Destination>
+            </Link>
+            <Link id="Link93">
+                <Source>VPN1</Source>
+                <Destination>FW9</Destination>
+            </Link>
+            <Link id="Link164">
+                <Source>VPN3</Source>
+                <Destination>DPI11</Destination>
+            </Link>
+            <Link id="Link230">
+                <Source>VPN3</Source>
+                <Destination>WEBCLIENT8</Destination>
+            </Link>
+            <Link id="Link11">
+                <Source>VPN3</Source>
+                <Destination>WEBCLIENT5</Destination>
+            </Link>
+            <Link id="Link64">
+                <Source>VPN3</Source>
+                <Destination>SPAM2</Destination>
+            </Link>
+            <Link id="Link176">
+                <Source>VPN3</Source>
+                <Destination>DPI8</Destination>
+            </Link>
+            <Link id="Link27">
+                <Source>VPN3</Source>
+                <Destination>WEBSERVER4</Destination>
+            </Link>
+            <Link id="Link35">
+                <Source>VPN3</Source>
+                <Destination>FW9</Destination>
+            </Link>
+            <Link id="Link229">
+                <Source>VPN3</Source>
+                <Destination>MAILSERVER0</Destination>
+            </Link>
+            <Link id="Link212">
+                <Source>VPN3</Source>
+                <Destination>FW16</Destination>
+            </Link>
+            <Link id="Link62">
+                <Source>VPN3</Source>
+                <Destination>MAILCLIENT1</Destination>
+            </Link>
+            <Link id="Link73">
+                <Source>VPN3</Source>
+                <Destination>DPI5</Destination>
+            </Link>
+            <Link id="Link56">
+                <Source>DPI5</Source>
+                <Destination>FW9</Destination>
+            </Link>
+            <Link id="Link44">
+                <Source>DPI5</Source>
+                <Destination>CACHE0</Destination>
+            </Link>
+            <Link id="Link55">
+                <Source>DPI5</Source>
+                <Destination>WEBCLIENT6</Destination>
+            </Link>
+            <Link id="Link88">
+                <Source>DPI5</Source>
+                <Destination>WEBCLIENT4</Destination>
+            </Link>
+            <Link id="Link130">
+                <Source>DPI5</Source>
+                <Destination>WEBSERVER3</Destination>
+            </Link>
+            <Link id="Link129">
+                <Source>DPI5</Source>
+                <Destination>MAILCLIENT2</Destination>
+            </Link>
+            <Link id="Link23">
+                <Source>DPI8</Source>
+                <Destination>WEBSERVER2</Destination>
+            </Link>
+            <Link id="Link120">
+                <Source>DPI8</Source>
+                <Destination>VPN1</Destination>
+            </Link>
+            <Link id="Link97">
+                <Source>DPI8</Source>
+                <Destination>VPN3</Destination>
+            </Link>
+            <Link id="Link110">
+                <Source>DPI8</Source>
+                <Destination>WEBCLIENT3</Destination>
+            </Link>
+            <Link id="Link48">
+                <Source>DPI8</Source>
+                <Destination>FW13</Destination>
+            </Link>
+            <Link id="Link249">
+                <Source>DPI8</Source>
+                <Destination>DPI14</Destination>
+            </Link>
+            <Link id="Link149">
+                <Source>DPI8</Source>
+                <Destination>MAILCLIENT7</Destination>
+            </Link>
+            <Link id="Link135">
+                <Source>DPI8</Source>
+                <Destination>DPI5</Destination>
+            </Link>
+            <Link id="Link145">
+                <Source>DPI8</Source>
+                <Destination>WEBSERVER1</Destination>
+            </Link>
+            <Link id="Link225">
+                <Source>DPI8</Source>
+                <Destination>CACHE4</Destination>
+            </Link>
+            <Link id="Link251">
+                <Source>DPI11</Source>
+                <Destination>FW16</Destination>
+            </Link>
+            <Link id="Link43">
+                <Source>DPI11</Source>
+                <Destination>DPI14</Destination>
+            </Link>
+            <Link id="Link54">
+                <Source>DPI11</Source>
+                <Destination>WEBCLIENT8</Destination>
+            </Link>
+            <Link id="Link139">
+                <Source>DPI11</Source>
+                <Destination>CACHE0</Destination>
+            </Link>
+            <Link id="Link19">
+                <Source>DPI11</Source>
+                <Destination>MAILSERVER0</Destination>
+            </Link>
+            <Link id="Link28">
+                <Source>DPI11</Source>
+                <Destination>WEBCLIENT4</Destination>
+            </Link>
+            <Link id="Link96">
+                <Source>DPI11</Source>
+                <Destination>FW13</Destination>
+            </Link>
+            <Link id="Link269">
+                <Source>DPI11</Source>
+                <Destination>DPI8</Destination>
+            </Link>
+            <Link id="Link241">
+                <Source>SPAM2</Source>
+                <Destination>CACHE4</Destination>
+            </Link>
+            <Link id="Link243">
+                <Source>SPAM2</Source>
+                <Destination>WEBCLIENT5</Destination>
+            </Link>
+            <Link id="Link36">
+                <Source>SPAM2</Source>
+                <Destination>WEBCLIENT4</Destination>
+            </Link>
+            <Link id="Link106">
+                <Source>SPAM2</Source>
+                <Destination>WEBSERVER1</Destination>
+            </Link>
+            <Link id="Link105">
+                <Source>SPAM2</Source>
+                <Destination>FW12</Destination>
+            </Link>
+            <Link id="Link234">
+                <Source>SPAM2</Source>
+                <Destination>DPI5</Destination>
+            </Link>
+            <Link id="Link159">
+                <Source>SPAM2</Source>
+                <Destination>MAILCLIENT1</Destination>
+            </Link>
+            <Link id="Link114">
+                <Source>SPAM2</Source>
+                <Destination>VPN15</Destination>
+            </Link>
+        </Links>
+        <Policies>
+            <ReachabilityPolicy id="Policy98">
+                <Source>WEBCLIENT8</Source>
+                <Destination>WEBSERVER2</Destination>
+                <isPositive>true</isPositive>
+                <Verification>
+                    <Time>2016-09-27T09:27:20.000+02:00</Time>
+                    <Message>Policy verificarion result true</Message>
+                    <Result>true</Result>
+                </Verification>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy97">
+                <Source>WEBCLIENT8</Source>
+                <Destination>MAILSERVER0</Destination>
+                <isPositive>false</isPositive>
+                <Verification>
+                    <Time>2016-09-27T08:02:20.000+02:00</Time>
+                    <Message>Policy verificarion result true</Message>
+                    <Result>true</Result>
+                </Verification>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy79">
+                <Source>MAILCLIENT2</Source>
+                <Destination>WEBSERVER2</Destination>
+                <isPositive>false</isPositive>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy109">
+                <Source>MAILSERVER0</Source>
+                <Destination>MAILCLIENT7</Destination>
+                <isPositive>true</isPositive>
+                <Verification>
+                    <Time>2016-09-27T10:52:20.000+02:00</Time>
+                    <Message>Policy verification result not true</Message>
+                    <Result>false</Result>
+                </Verification>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy106">
+                <Source>WEBSERVER3</Source>
+                <Destination>WEBCLIENT6</Destination>
+                <isPositive>true</isPositive>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy90">
+                <Source>WEBCLIENT6</Source>
+                <Destination>WEBSERVER3</Destination>
+                <isPositive>false</isPositive>
+                <Verification>
+                    <Time>2016-09-27T02:27:20.000+02:00</Time>
+                    <Message>Policy verificarion result true</Message>
+                    <Result>true</Result>
+                </Verification>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy107">
+                <Source>MAILSERVER0</Source>
+                <Destination>WEBCLIENT5</Destination>
+                <isPositive>true</isPositive>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy96">
+                <Source>WEBCLIENT8</Source>
+                <Destination>WEBSERVER2</Destination>
+                <isPositive>false</isPositive>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy102">
+                <Source>WEBSERVER2</Source>
+                <Destination>WEBCLIENT8</Destination>
+                <isPositive>true</isPositive>
+                <Verification>
+                    <Time>2016-09-27T11:33:20.000+02:00</Time>
+                    <Message>Policy verification result not true</Message>
+                    <Result>false</Result>
+                </Verification>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy95">
+                <Source>MAILCLIENT7</Source>
+                <Destination>MAILSERVER0</Destination>
+                <isPositive>false</isPositive>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy104">
+                <Source>WEBSERVER2</Source>
+                <Destination>MAILCLIENT2</Destination>
+                <isPositive>true</isPositive>
+                <Verification>
+                    <Time>2016-09-27T16:58:20.000+02:00</Time>
+                    <Message>Policy verification result not true</Message>
+                    <Result>false</Result>
+                </Verification>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy103">
+                <Source>MAILSERVER0</Source>
+                <Destination>MAILCLIENT2</Destination>
+                <isPositive>false</isPositive>
+                <Verification>
+                    <Time>2016-09-27T07:18:20.000+02:00</Time>
+                    <Message>Policy verificarion result true</Message>
+                    <Result>true</Result>
+                </Verification>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy89">
+                <Source>WEBCLIENT6</Source>
+                <Destination>WEBSERVER2</Destination>
+                <isPositive>true</isPositive>
+                <Verification>
+                    <Time>2016-09-27T13:45:20.000+02:00</Time>
+                    <Message>Policy verificarion result true</Message>
+                    <Result>true</Result>
+                </Verification>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy100">
+                <Source>WEBSERVER2</Source>
+                <Destination>WEBCLIENT6</Destination>
+                <isPositive>true</isPositive>
+                <Verification>
+                    <Time>2016-09-27T16:18:20.000+02:00</Time>
+                    <Message>Policy verification result not true</Message>
+                    <Result>false</Result>
+                </Verification>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy86">
+                <Source>WEBCLIENT5</Source>
+                <Destination>MAILSERVER0</Destination>
+                <isPositive>false</isPositive>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy81">
+                <Source>MAILCLIENT2</Source>
+                <Destination>MAILSERVER0</Destination>
+                <isPositive>false</isPositive>
+                <Verification>
+                    <Time>2016-09-27T08:33:20.000+02:00</Time>
+                    <Message>Policy verificarion result true</Message>
+                    <Result>true</Result>
+                </Verification>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy80">
+                <Source>MAILCLIENT2</Source>
+                <Destination>WEBSERVER2</Destination>
+                <isPositive>false</isPositive>
+                <Verification>
+                    <Time>2016-09-27T10:07:20.000+02:00</Time>
+                    <Message>Policy verificarion result true</Message>
+                    <Result>true</Result>
+                </Verification>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy85">
+                <Source>WEBCLIENT5</Source>
+                <Destination>MAILSERVER0</Destination>
+                <isPositive>true</isPositive>
+                <Verification>
+                    <Time>2016-09-27T20:10:20.000+02:00</Time>
+                    <Message>Policy verification result not true</Message>
+                    <Result>false</Result>
+                </Verification>
+            </ReachabilityPolicy>
+            <TraversalPolicy id="Policy99">
+                <Source>WEBCLIENT8</Source>
+                <Destination>WEBSERVER1</Destination>
+                <isPositive>false</isPositive>
+                <Devices>
+                    <Device>Anti-spam</Device>
+                    <Device>Mail client</Device>
+                    <Device>Web-cache</Device>
+                </Devices>
+            </TraversalPolicy>
+            <TraversalPolicy id="Policy111">
+                <Source>WEBSERVER1</Source>
+                <Destination>MAILCLIENT7</Destination>
+                <isPositive>true</isPositive>
+                <Devices>
+                    <Device>Web-cache</Device>
+                    <Device>Mail client</Device>
+                    <Device>Anti-spam</Device>
+                </Devices>
+            </TraversalPolicy>
+            <TraversalPolicy id="Policy110">
+                <Source>WEBSERVER1</Source>
+                <Destination>WEBCLIENT4</Destination>
+                <isPositive>false</isPositive>
+                <Devices>
+                    <Device>Firewall</Device>
+                </Devices>
+            </TraversalPolicy>
+            <TraversalPolicy id="Policy92">
+                <Source>MAILCLIENT7</Source>
+                <Destination>WEBSERVER1</Destination>
+                <isPositive>false</isPositive>
+                <Verification>
+                    <Time>2016-09-27T06:21:20.000+02:00</Time>
+                    <Message>Policy verification result not true</Message>
+                    <Result>false</Result>
+                </Verification>
+                <Devices>
+                    <Device>Anti-spam</Device>
+                    <Device>Mail server</Device>
+                    <Device>Web-cache</Device>
+                </Devices>
+            </TraversalPolicy>
+            <TraversalPolicy id="Policy91">
+                <Source>WEBCLIENT6</Source>
+                <Destination>MAILSERVER0</Destination>
+                <isPositive>true</isPositive>
+                <Verification>
+                    <Time>2016-09-27T16:15:20.000+02:00</Time>
+                    <Message>Policy verificarion result true</Message>
+                    <Result>true</Result>
+                </Verification>
+                <Devices>
+                    <Device>Mail server</Device>
+                    <Device>Web client</Device>
+                </Devices>
+            </TraversalPolicy>
+            <TraversalPolicy id="Policy105">
+                <Source>MAILSERVER0</Source>
+                <Destination>WEBCLIENT6</Destination>
+                <isPositive>true</isPositive>
+                <Devices>
+                    <Device>Mail server</Device>
+                    <Device>Web client</Device>
+                </Devices>
+            </TraversalPolicy>
+            <TraversalPolicy id="Policy108">
+                <Source>WEBSERVER2</Source>
+                <Destination>WEBCLIENT4</Destination>
+                <isPositive>false</isPositive>
+                <Devices>
+                    <Device>Web server</Device>
+                </Devices>
+            </TraversalPolicy>
+            <TraversalPolicy id="Policy101">
+                <Source>WEBSERVER1</Source>
+                <Destination>WEBCLIENT8</Destination>
+                <isPositive>true</isPositive>
+                <Devices>
+                    <Device>Anti-spam</Device>
+                    <Device>Mail client</Device>
+                    <Device>Web-cache</Device>
+                </Devices>
+            </TraversalPolicy>
+            <TraversalPolicy id="Policy94">
+                <Source>MAILCLIENT7</Source>
+                <Destination>WEBSERVER1</Destination>
+                <isPositive>false</isPositive>
+                <Verification>
+                    <Time>2016-09-27T18:57:20.000+02:00</Time>
+                    <Message>Policy verificarion result true</Message>
+                    <Result>true</Result>
+                </Verification>
+                <Devices>
+                    <Device>Web-cache</Device>
+                    <Device>Mail client</Device>
+                    <Device>Anti-spam</Device>
+                </Devices>
+            </TraversalPolicy>
+            <TraversalPolicy id="Policy93">
+                <Source>MAILCLIENT7</Source>
+                <Destination>MAILSERVER0</Destination>
+                <isPositive>false</isPositive>
+                <Devices>
+                    <Device>Anti-spam</Device>
+                    <Device>Mail client</Device>
+                </Devices>
+            </TraversalPolicy>
+            <TraversalPolicy id="Policy88">
+                <Source>WEBCLIENT5</Source>
+                <Destination>WEBSERVER1</Destination>
+                <isPositive>false</isPositive>
+                <Verification>
+                    <Time>2016-09-27T03:29:20.000+02:00</Time>
+                    <Message>Policy verificarion result true</Message>
+                    <Result>true</Result>
+                </Verification>
+                <Devices>
+                    <Device>NAT</Device>
+                    <Device>Mail server</Device>
+                    <Device>Mail client</Device>
+                </Devices>
+            </TraversalPolicy>
+            <TraversalPolicy id="Policy87">
+                <Source>WEBCLIENT5</Source>
+                <Destination>WEBSERVER2</Destination>
+                <isPositive>true</isPositive>
+                <Devices>
+                    <Device>Web client</Device>
+                </Devices>
+            </TraversalPolicy>
+            <TraversalPolicy id="Policy84">
+                <Source>WEBCLIENT4</Source>
+                <Destination>WEBSERVER2</Destination>
+                <isPositive>true</isPositive>
+                <Devices>
+                    <Device>Web server</Device>
+                </Devices>
+            </TraversalPolicy>
+            <TraversalPolicy id="Policy112">
+                <Source>MAILSERVER0</Source>
+                <Destination>MAILCLIENT7</Destination>
+                <isPositive>false</isPositive>
+                <Verification>
+                    <Time>2016-09-27T14:48:20.000+02:00</Time>
+                    <Message>Policy verificarion result true</Message>
+                    <Result>true</Result>
+                </Verification>
+                <Devices>
+                    <Device>Anti-spam</Device>
+                    <Device>Mail client</Device>
+                </Devices>
+            </TraversalPolicy>
+            <TraversalPolicy id="Policy83">
+                <Source>WEBCLIENT4</Source>
+                <Destination>WEBSERVER1</Destination>
+                <isPositive>true</isPositive>
+                <Devices>
+                    <Device>Firewall</Device>
+                </Devices>
+            </TraversalPolicy>
+            <TraversalPolicy id="Policy82">
+                <Source>WEBCLIENT4</Source>
+                <Destination>MAILSERVER0</Destination>
+                <isPositive>false</isPositive>
+                <Devices>
+                    <Device>Mail server</Device>
+                </Devices>
+            </TraversalPolicy>
+        </Policies>
+    </NFFG>
+    <NFFG name="Nffg2" last_update_time="02:15:20.000+02:00">
+        <Nodes>
+            <Node id="CACHE1">
+                <Service>Web-cache</Service>
+            </Node>
+            <Node id="FW9">
+                <Service>Firewall</Service>
+            </Node>
+            <Node id="VPN8">
+                <Service>VPN gateway</Service>
+            </Node>
+            <Node id="MAILCLIENT4">
+                <Service>Mail client</Service>
+            </Node>
+            <Node id="MAILCLIENT7">
+                <Service>Mail client</Service>
+            </Node>
+            <Node id="MAILCLIENT6">
+                <Service>Mail client</Service>
+            </Node>
+            <Node id="WEBCLIENT3">
+                <Service>Web client</Service>
+            </Node>
+            <Node id="WEBSERVER3">
+                <Service>Web server</Service>
+            </Node>
+            <Node id="CACHE2">
+                <Service>Web-cache</Service>
+            </Node>
+            <Node id="WEBSERVER4">
+                <Service>Web server</Service>
+            </Node>
+            <Node id="WEBCLIENT5">
+                <Service>Web client</Service>
+            </Node>
+            <Node id="WEBSERVER5">
+                <Service>Web server</Service>
+            </Node>
+            <Node id="CACHE4">
+                <Service>Web-cache</Service>
+            </Node>
+            <Node id="WEBCLIENT0">
+                <Service>Web client</Service>
+            </Node>
+            <Node id="WEBSERVER0">
+                <Service>Web server</Service>
+            </Node>
+            <Node id="WEBCLIENT1">
+                <Service>Web client</Service>
+            </Node>
+            <Node id="WEBCLIENT2">
+                <Service>Web client</Service>
+            </Node>
+            <Node id="MAILSERVER2">
+                <Service>Mail server</Service>
+            </Node>
+            <Node id="WEBSERVER8">
+                <Service>Web server</Service>
+            </Node>
+            <Node id="MAILSERVER7">
+                <Service>Mail server</Service>
+            </Node>
+            <Node id="WEBSERVER9">
+                <Service>Web server</Service>
+            </Node>
+            <Node id="MAILSERVER6">
+                <Service>Mail server</Service>
+            </Node>
+            <Node id="MAILSERVER1">
+                <Service>Mail server</Service>
+            </Node>
+            <Node id="NAT6">
+                <Service>NAT</Service>
+            </Node>
+            <Node id="NAT7">
+                <Service>NAT</Service>
+            </Node>
+            <Node id="DPI0">
+                <Service>DPI</Service>
+            </Node>
+            <Node id="DPI5">
+                <Service>DPI</Service>
+            </Node>
+            <Node id="SPAM3">
+                <Service>Anti-spam</Service>
+            </Node>
+        </Nodes>
+        <Links>
+            <Link id="Link142">
+                <Source>CACHE1</Source>
+                <Destination>WEBSERVER0</Destination>
+            </Link>
+            <Link id="Link33">
+                <Source>CACHE1</Source>
+                <Destination>WEBSERVER8</Destination>
+            </Link>
+            <Link id="Link129">
+                <Source>CACHE1</Source>
+                <Destination>WEBSERVER5</Destination>
+            </Link>
+            <Link id="Link96">
+                <Source>CACHE1</Source>
+                <Destination>CACHE4</Destination>
+            </Link>
+            <Link id="Link123">
+                <Source>CACHE1</Source>
+                <Destination>WEBCLIENT5</Destination>
+            </Link>
+            <Link id="Link23">
+                <Source>FW9</Source>
+                <Destination>WEBSERVER3</Destination>
+            </Link>
+            <Link id="Link31">
+                <Source>FW9</Source>
+                <Destination>MAILSERVER7</Destination>
+            </Link>
+            <Link id="Link121">
+                <Source>FW9</Source>
+                <Destination>WEBSERVER4</Destination>
+            </Link>
+            <Link id="Link1">
+                <Source>FW9</Source>
+                <Destination>WEBCLIENT0</Destination>
+            </Link>
+            <Link id="Link57">
+                <Source>FW9</Source>
+                <Destination>WEBSERVER5</Destination>
+            </Link>
+            <Link id="Link5">
+                <Source>FW9</Source>
+                <Destination>WEBCLIENT2</Destination>
+            </Link>
+            <Link id="Link107">
+                <Source>FW9</Source>
+                <Destination>DPI0</Destination>
+            </Link>
+            <Link id="Link73">
+                <Source>FW9</Source>
+                <Destination>WEBSERVER0</Destination>
+            </Link>
+            <Link id="Link95">
+                <Source>FW9</Source>
+                <Destination>WEBSERVER9</Destination>
+            </Link>
+            <Link id="Link126">
+                <Source>FW9</Source>
+                <Destination>WEBCLIENT5</Destination>
+            </Link>
+            <Link id="Link56">
+                <Source>VPN8</Source>
+                <Destination>WEBSERVER8</Destination>
+            </Link>
+            <Link id="Link152">
+                <Source>VPN8</Source>
+                <Destination>SPAM3</Destination>
+            </Link>
+            <Link id="Link43">
+                <Source>VPN8</Source>
+                <Destination>WEBCLIENT2</Destination>
+            </Link>
+            <Link id="Link106">
+                <Source>VPN8</Source>
+                <Destination>MAILCLIENT4</Destination>
+            </Link>
+            <Link id="Link139">
+                <Source>VPN8</Source>
+                <Destination>NAT7</Destination>
+            </Link>
+            <Link id="Link138">
+                <Source>VPN8</Source>
+                <Destination>MAILSERVER7</Destination>
+            </Link>
+            <Link id="Link41">
+                <Source>VPN8</Source>
+                <Destination>CACHE2</Destination>
+            </Link>
+            <Link id="Link83">
+                <Source>VPN8</Source>
+                <Destination>NAT6</Destination>
+            </Link>
+            <Link id="Link64">
+                <Source>MAILCLIENT4</Source>
+                <Destination>DPI0</Destination>
+            </Link>
+            <Link id="Link127">
+                <Source>MAILCLIENT4</Source>
+                <Destination>CACHE2</Destination>
+            </Link>
+            <Link id="Link135">
+                <Source>MAILCLIENT4</Source>
+                <Destination>NAT6</Destination>
+            </Link>
+            <Link id="Link8">
+                <Source>MAILCLIENT4</Source>
+                <Destination>NAT7</Destination>
+            </Link>
+            <Link id="Link148">
+                <Source>MAILCLIENT4</Source>
+                <Destination>VPN8</Destination>
+            </Link>
+            <Link id="Link75">
+                <Source>MAILCLIENT7</Source>
+                <Destination>CACHE1</Destination>
+            </Link>
+            <Link id="Link14">
+                <Source>MAILCLIENT7</Source>
+                <Destination>CACHE4</Destination>
+            </Link>
+            <Link id="Link58">
+                <Source>MAILCLIENT7</Source>
+                <Destination>DPI5</Destination>
+            </Link>
+            <Link id="Link12">
+                <Source>MAILCLIENT6</Source>
+                <Destination>DPI0</Destination>
+            </Link>
+            <Link id="Link98">
+                <Source>MAILCLIENT6</Source>
+                <Destination>VPN8</Destination>
+            </Link>
+            <Link id="Link74">
+                <Source>MAILCLIENT6</Source>
+                <Destination>SPAM3</Destination>
+            </Link>
+            <Link id="Link62">
+                <Source>MAILCLIENT6</Source>
+                <Destination>FW9</Destination>
+            </Link>
+            <Link id="Link88">
+                <Source>WEBCLIENT3</Source>
+                <Destination>CACHE1</Destination>
+            </Link>
+            <Link id="Link49">
+                <Source>WEBCLIENT3</Source>
+                <Destination>NAT7</Destination>
+            </Link>
+            <Link id="Link6">
+                <Source>WEBCLIENT3</Source>
+                <Destination>CACHE4</Destination>
+            </Link>
+            <Link id="Link147">
+                <Source>WEBCLIENT3</Source>
+                <Destination>NAT6</Destination>
+            </Link>
+            <Link id="Link22">
+                <Source>WEBSERVER3</Source>
+                <Destination>FW9</Destination>
+            </Link>
+            <Link id="Link155">
+                <Source>WEBSERVER3</Source>
+                <Destination>DPI5</Destination>
+            </Link>
+            <Link id="Link120">
+                <Source>CACHE2</Source>
+                <Destination>MAILSERVER2</Destination>
+            </Link>
+            <Link id="Link143">
+                <Source>CACHE2</Source>
+                <Destination>MAILSERVER6</Destination>
+            </Link>
+            <Link id="Link37">
+                <Source>CACHE2</Source>
+                <Destination>NAT7</Destination>
+            </Link>
+            <Link id="Link35">
+                <Source>CACHE2</Source>
+                <Destination>WEBSERVER9</Destination>
+            </Link>
+            <Link id="Link119">
+                <Source>CACHE2</Source>
+                <Destination>WEBSERVER0</Destination>
+            </Link>
+            <Link id="Link39">
+                <Source>CACHE2</Source>
+                <Destination>WEBSERVER4</Destination>
+            </Link>
+            <Link id="Link118">
+                <Source>CACHE2</Source>
+                <Destination>MAILCLIENT4</Destination>
+            </Link>
+            <Link id="Link52">
+                <Source>CACHE2</Source>
+                <Destination>MAILCLIENT7</Destination>
+            </Link>
+            <Link id="Link51">
+                <Source>CACHE2</Source>
+                <Destination>WEBCLIENT1</Destination>
+            </Link>
+            <Link id="Link72">
+                <Source>CACHE2</Source>
+                <Destination>MAILSERVER7</Destination>
+            </Link>
+            <Link id="Link24">
+                <Source>WEBSERVER4</Source>
+                <Destination>CACHE4</Destination>
+            </Link>
+            <Link id="Link137">
+                <Source>WEBSERVER4</Source>
+                <Destination>DPI5</Destination>
+            </Link>
+            <Link id="Link10">
+                <Source>WEBCLIENT5</Source>
+                <Destination>CACHE4</Destination>
+            </Link>
+            <Link id="Link69">
+                <Source>WEBCLIENT5</Source>
+                <Destination>DPI5</Destination>
+            </Link>
+            <Link id="Link145">
+                <Source>WEBCLIENT5</Source>
+                <Destination>DPI0</Destination>
+            </Link>
+            <Link id="Link104">
+                <Source>WEBCLIENT5</Source>
+                <Destination>SPAM3</Destination>
+            </Link>
+            <Link id="Link82">
+                <Source>WEBCLIENT5</Source>
+                <Destination>NAT7</Destination>
+            </Link>
+            <Link id="Link97">
+                <Source>WEBSERVER5</Source>
+                <Destination>VPN8</Destination>
+            </Link>
+            <Link id="Link26">
+                <Source>WEBSERVER5</Source>
+                <Destination>NAT7</Destination>
+            </Link>
+            <Link id="Link70">
+                <Source>WEBSERVER5</Source>
+                <Destination>SPAM3</Destination>
+            </Link>
+            <Link id="Link116">
+                <Source>WEBSERVER5</Source>
+                <Destination>NAT6</Destination>
+            </Link>
+            <Link id="Link29">
+                <Source>CACHE4</Source>
+                <Destination>MAILSERVER6</Destination>
+            </Link>
+            <Link id="Link67">
+                <Source>CACHE4</Source>
+                <Destination>WEBCLIENT2</Destination>
+            </Link>
+            <Link id="Link89">
+                <Source>CACHE4</Source>
+                <Destination>WEBSERVER0</Destination>
+            </Link>
+            <Link id="Link11">
+                <Source>CACHE4</Source>
+                <Destination>WEBCLIENT5</Destination>
+            </Link>
+            <Link id="Link54">
+                <Source>CACHE4</Source>
+                <Destination>WEBSERVER3</Destination>
+            </Link>
+            <Link id="Link132">
+                <Source>CACHE4</Source>
+                <Destination>DPI0</Destination>
+            </Link>
+            <Link id="Link154">
+                <Source>CACHE4</Source>
+                <Destination>SPAM3</Destination>
+            </Link>
+            <Link id="Link15">
+                <Source>CACHE4</Source>
+                <Destination>MAILCLIENT7</Destination>
+            </Link>
+            <Link id="Link48">
+                <Source>CACHE4</Source>
+                <Destination>VPN8</Destination>
+            </Link>
+            <Link id="Link25">
+                <Source>CACHE4</Source>
+                <Destination>WEBSERVER4</Destination>
+            </Link>
+            <Link id="Link92">
+                <Source>CACHE4</Source>
+                <Destination>WEBCLIENT1</Destination>
+            </Link>
+            <Link id="Link80">
+                <Source>CACHE4</Source>
+                <Destination>MAILSERVER7</Destination>
+            </Link>
+            <Link id="Link7">
+                <Source>CACHE4</Source>
+                <Destination>WEBCLIENT3</Destination>
+            </Link>
+            <Link id="Link136">
+                <Source>CACHE4</Source>
+                <Destination>CACHE1</Destination>
+            </Link>
+            <Link id="Link66">
+                <Source>WEBCLIENT0</Source>
+                <Destination>CACHE4</Destination>
+            </Link>
+            <Link id="Link0">
+                <Source>WEBCLIENT0</Source>
+                <Destination>FW9</Destination>
+            </Link>
+            <Link id="Link102">
+                <Source>WEBCLIENT0</Source>
+                <Destination>CACHE1</Destination>
+            </Link>
+            <Link id="Link157">
+                <Source>WEBCLIENT0</Source>
+                <Destination>CACHE2</Destination>
+            </Link>
+            <Link id="Link84">
+                <Source>WEBCLIENT0</Source>
+                <Destination>NAT7</Destination>
+            </Link>
+            <Link id="Link16">
+                <Source>WEBSERVER0</Source>
+                <Destination>SPAM3</Destination>
+            </Link>
+            <Link id="Link117">
+                <Source>WEBSERVER0</Source>
+                <Destination>DPI5</Destination>
+            </Link>
+            <Link id="Link77">
+                <Source>WEBCLIENT1</Source>
+                <Destination>CACHE4</Destination>
+            </Link>
+            <Link id="Link76">
+                <Source>WEBCLIENT1</Source>
+                <Destination>CACHE2</Destination>
+            </Link>
+            <Link id="Link2">
+                <Source>WEBCLIENT1</Source>
+                <Destination>NAT6</Destination>
+            </Link>
+            <Link id="Link105">
+                <Source>WEBCLIENT1</Source>
+                <Destination>NAT7</Destination>
+            </Link>
+            <Link id="Link79">
+                <Source>WEBCLIENT2</Source>
+                <Destination>CACHE4</Destination>
+            </Link>
+            <Link id="Link150">
+                <Source>WEBCLIENT2</Source>
+                <Destination>SPAM3</Destination>
+            </Link>
+            <Link id="Link81">
+                <Source>WEBCLIENT2</Source>
+                <Destination>CACHE2</Destination>
+            </Link>
+            <Link id="Link4">
+                <Source>WEBCLIENT2</Source>
+                <Destination>FW9</Destination>
+            </Link>
+            <Link id="Link50">
+                <Source>WEBCLIENT2</Source>
+                <Destination>VPN8</Destination>
+            </Link>
+            <Link id="Link99">
+                <Source>MAILSERVER2</Source>
+                <Destination>NAT6</Destination>
+            </Link>
+            <Link id="Link20">
+                <Source>MAILSERVER2</Source>
+                <Destination>NAT7</Destination>
+            </Link>
+            <Link id="Link156">
+                <Source>MAILSERVER2</Source>
+                <Destination>CACHE2</Destination>
+            </Link>
+            <Link id="Link125">
+                <Source>MAILSERVER2</Source>
+                <Destination>VPN8</Destination>
+            </Link>
+            <Link id="Link32">
+                <Source>WEBSERVER8</Source>
+                <Destination>CACHE1</Destination>
+            </Link>
+            <Link id="Link100">
+                <Source>WEBSERVER8</Source>
+                <Destination>SPAM3</Destination>
+            </Link>
+            <Link id="Link134">
+                <Source>WEBSERVER8</Source>
+                <Destination>FW9</Destination>
+            </Link>
+            <Link id="Link78">
+                <Source>MAILSERVER7</Source>
+                <Destination>CACHE1</Destination>
+            </Link>
+            <Link id="Link111">
+                <Source>MAILSERVER7</Source>
+                <Destination>NAT6</Destination>
+            </Link>
+            <Link id="Link108">
+                <Source>MAILSERVER7</Source>
+                <Destination>CACHE2</Destination>
+            </Link>
+            <Link id="Link30">
+                <Source>MAILSERVER7</Source>
+                <Destination>FW9</Destination>
+            </Link>
+            <Link id="Link34">
+                <Source>WEBSERVER9</Source>
+                <Destination>CACHE2</Destination>
+            </Link>
+            <Link id="Link94">
+                <Source>WEBSERVER9</Source>
+                <Destination>NAT6</Destination>
+            </Link>
+            <Link id="Link144">
+                <Source>MAILSERVER6</Source>
+                <Destination>VPN8</Destination>
+            </Link>
+            <Link id="Link59">
+                <Source>MAILSERVER6</Source>
+                <Destination>DPI5</Destination>
+            </Link>
+            <Link id="Link46">
+                <Source>MAILSERVER6</Source>
+                <Destination>FW9</Destination>
+            </Link>
+            <Link id="Link28">
+                <Source>MAILSERVER6</Source>
+                <Destination>CACHE4</Destination>
+            </Link>
+            <Link id="Link55">
+                <Source>MAILSERVER1</Source>
+                <Destination>NAT6</Destination>
+            </Link>
+            <Link id="Link42">
+                <Source>MAILSERVER1</Source>
+                <Destination>SPAM3</Destination>
+            </Link>
+            <Link id="Link18">
+                <Source>MAILSERVER1</Source>
+                <Destination>DPI5</Destination>
+            </Link>
+            <Link id="Link44">
+                <Source>NAT6</Source>
+                <Destination>MAILCLIENT7</Destination>
+            </Link>
+            <Link id="Link47">
+                <Source>NAT6</Source>
+                <Destination>CACHE4</Destination>
+            </Link>
+            <Link id="Link128">
+                <Source>NAT6</Source>
+                <Destination>MAILSERVER7</Destination>
+            </Link>
+            <Link id="Link3">
+                <Source>NAT6</Source>
+                <Destination>WEBCLIENT1</Destination>
+            </Link>
+            <Link id="Link113">
+                <Source>NAT6</Source>
+                <Destination>WEBCLIENT2</Destination>
+            </Link>
+            <Link id="Link101">
+                <Source>NAT6</Source>
+                <Destination>MAILSERVER6</Destination>
+            </Link>
+            <Link id="Link61">
+                <Source>NAT6</Source>
+                <Destination>WEBSERVER3</Destination>
+            </Link>
+            <Link id="Link115">
+                <Source>NAT6</Source>
+                <Destination>SPAM3</Destination>
+            </Link>
+            <Link id="Link158">
+                <Source>NAT6</Source>
+                <Destination>FW9</Destination>
+            </Link>
+            <Link id="Link153">
+                <Source>NAT7</Source>
+                <Destination>WEBSERVER0</Destination>
+            </Link>
+            <Link id="Link21">
+                <Source>NAT7</Source>
+                <Destination>MAILSERVER2</Destination>
+            </Link>
+            <Link id="Link65">
+                <Source>NAT7</Source>
+                <Destination>WEBSERVER3</Destination>
+            </Link>
+            <Link id="Link133">
+                <Source>NAT7</Source>
+                <Destination>CACHE2</Destination>
+            </Link>
+            <Link id="Link27">
+                <Source>NAT7</Source>
+                <Destination>WEBSERVER5</Destination>
+            </Link>
+            <Link id="Link151">
+                <Source>NAT7</Source>
+                <Destination>WEBCLIENT5</Destination>
+            </Link>
+            <Link id="Link91">
+                <Source>NAT7</Source>
+                <Destination>WEBCLIENT3</Destination>
+            </Link>
+            <Link id="Link149">
+                <Source>NAT7</Source>
+                <Destination>CACHE4</Destination>
+            </Link>
+            <Link id="Link9">
+                <Source>NAT7</Source>
+                <Destination>MAILCLIENT4</Destination>
+            </Link>
+            <Link id="Link114">
+                <Source>NAT7</Source>
+                <Destination>WEBSERVER9</Destination>
+            </Link>
+            <Link id="Link87">
+                <Source>DPI0</Source>
+                <Destination>MAILSERVER6</Destination>
+            </Link>
+            <Link id="Link122">
+                <Source>DPI0</Source>
+                <Destination>WEBSERVER8</Destination>
+            </Link>
+            <Link id="Link36">
+                <Source>DPI0</Source>
+                <Destination>CACHE2</Destination>
+            </Link>
+            <Link id="Link13">
+                <Source>DPI0</Source>
+                <Destination>MAILCLIENT6</Destination>
+            </Link>
+            <Link id="Link68">
+                <Source>DPI0</Source>
+                <Destination>CACHE4</Destination>
+            </Link>
+            <Link id="Link124">
+                <Source>DPI0</Source>
+                <Destination>FW9</Destination>
+            </Link>
+            <Link id="Link40">
+                <Source>DPI0</Source>
+                <Destination>WEBCLIENT0</Destination>
+            </Link>
+            <Link id="Link71">
+                <Source>DPI0</Source>
+                <Destination>DPI5</Destination>
+            </Link>
+            <Link id="Link93">
+                <Source>DPI0</Source>
+                <Destination>WEBCLIENT3</Destination>
+            </Link>
+            <Link id="Link45">
+                <Source>DPI5</Source>
+                <Destination>MAILSERVER6</Destination>
+            </Link>
+            <Link id="Link130">
+                <Source>DPI5</Source>
+                <Destination>NAT7</Destination>
+            </Link>
+            <Link id="Link141">
+                <Source>DPI5</Source>
+                <Destination>VPN8</Destination>
+            </Link>
+            <Link id="Link86">
+                <Source>DPI5</Source>
+                <Destination>MAILCLIENT6</Destination>
+            </Link>
+            <Link id="Link110">
+                <Source>DPI5</Source>
+                <Destination>CACHE2</Destination>
+            </Link>
+            <Link id="Link140">
+                <Source>DPI5</Source>
+                <Destination>CACHE1</Destination>
+            </Link>
+            <Link id="Link19">
+                <Source>DPI5</Source>
+                <Destination>MAILSERVER1</Destination>
+            </Link>
+            <Link id="Link85">
+                <Source>DPI5</Source>
+                <Destination>MAILSERVER2</Destination>
+            </Link>
+            <Link id="Link112">
+                <Source>DPI5</Source>
+                <Destination>WEBSERVER9</Destination>
+            </Link>
+            <Link id="Link159">
+                <Source>DPI5</Source>
+                <Destination>WEBSERVER4</Destination>
+            </Link>
+            <Link id="Link60">
+                <Source>DPI5</Source>
+                <Destination>WEBCLIENT3</Destination>
+            </Link>
+            <Link id="Link131">
+                <Source>SPAM3</Source>
+                <Destination>WEBSERVER4</Destination>
+            </Link>
+            <Link id="Link53">
+                <Source>SPAM3</Source>
+                <Destination>WEBCLIENT2</Destination>
+            </Link>
+            <Link id="Link38">
+                <Source>SPAM3</Source>
+                <Destination>VPN8</Destination>
+            </Link>
+            <Link id="Link109">
+                <Source>SPAM3</Source>
+                <Destination>MAILCLIENT4</Destination>
+            </Link>
+            <Link id="Link90">
+                <Source>SPAM3</Source>
+                <Destination>CACHE4</Destination>
+            </Link>
+            <Link id="Link17">
+                <Source>SPAM3</Source>
+                <Destination>WEBSERVER0</Destination>
+            </Link>
+            <Link id="Link63">
+                <Source>SPAM3</Source>
+                <Destination>WEBCLIENT1</Destination>
+            </Link>
+            <Link id="Link146">
+                <Source>SPAM3</Source>
+                <Destination>CACHE1</Destination>
+            </Link>
+            <Link id="Link103">
+                <Source>SPAM3</Source>
+                <Destination>WEBSERVER5</Destination>
+            </Link>
+        </Links>
+        <Policies>
+            <ReachabilityPolicy id="Policy78">
+                <Source>WEBSERVER4</Source>
+                <Destination>MAILCLIENT6</Destination>
+                <isPositive>false</isPositive>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy55">
+                <Source>WEBCLIENT3</Source>
+                <Destination>WEBSERVER5</Destination>
+                <isPositive>false</isPositive>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy77">
+                <Source>WEBSERVER3</Source>
+                <Destination>MAILCLIENT7</Destination>
+                <isPositive>true</isPositive>
+                <Verification>
+                    <Time>2016-09-25T22:42:20.000+02:00</Time>
+                    <Message>Policy verification result not true</Message>
+                    <Result>false</Result>
+                </Verification>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy54">
+                <Source>WEBCLIENT3</Source>
+                <Destination>WEBSERVER0</Destination>
+                <isPositive>true</isPositive>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy75">
+                <Source>MAILSERVER1</Source>
+                <Destination>WEBCLIENT0</Destination>
+                <isPositive>true</isPositive>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy59">
+                <Source>MAILCLIENT6</Source>
+                <Destination>MAILSERVER2</Destination>
+                <isPositive>true</isPositive>
+                <Verification>
+                    <Time>2016-09-25T23:37:20.000+02:00</Time>
+                    <Message>Policy verificarion result true</Message>
+                    <Result>true</Result>
+                </Verification>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy52">
+                <Source>WEBCLIENT1</Source>
+                <Destination>MAILSERVER2</Destination>
+                <isPositive>false</isPositive>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy74">
+                <Source>MAILSERVER2</Source>
+                <Destination>MAILCLIENT6</Destination>
+                <isPositive>true</isPositive>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy72">
+                <Source>WEBSERVER0</Source>
+                <Destination>WEBCLIENT3</Destination>
+                <isPositive>false</isPositive>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy71">
+                <Source>WEBSERVER5</Source>
+                <Destination>WEBCLIENT3</Destination>
+                <isPositive>false</isPositive>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy48">
+                <Source>WEBCLIENT1</Source>
+                <Destination>MAILSERVER7</Destination>
+                <isPositive>true</isPositive>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy47">
+                <Source>WEBCLIENT0</Source>
+                <Destination>MAILSERVER1</Destination>
+                <isPositive>false</isPositive>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy69">
+                <Source>MAILCLIENT7</Source>
+                <Destination>MAILSERVER2</Destination>
+                <isPositive>true</isPositive>
+                <Verification>
+                    <Time>2016-09-25T11:15:20.000+02:00</Time>
+                    <Message>Policy verificarion result true</Message>
+                    <Result>true</Result>
+                </Verification>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy63">
+                <Source>MAILCLIENT7</Source>
+                <Destination>WEBSERVER3</Destination>
+                <isPositive>true</isPositive>
+                <Verification>
+                    <Time>2016-09-25T17:36:20.000+02:00</Time>
+                    <Message>Policy verificarion result true</Message>
+                    <Result>true</Result>
+                </Verification>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy61">
+                <Source>MAILCLIENT6</Source>
+                <Destination>WEBSERVER3</Destination>
+                <isPositive>true</isPositive>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy60">
+                <Source>MAILCLIENT6</Source>
+                <Destination>WEBSERVER4</Destination>
+                <isPositive>true</isPositive>
+            </ReachabilityPolicy>
+            <TraversalPolicy id="Policy56">
+                <Source>MAILCLIENT6</Source>
+                <Destination>MAILSERVER1</Destination>
+                <isPositive>true</isPositive>
+                <Devices>
+                    <Device>VPN gateway</Device>
+                    <Device>Web client</Device>
+                </Devices>
+            </TraversalPolicy>
+            <TraversalPolicy id="Policy76">
+                <Source>WEBSERVER5</Source>
+                <Destination>MAILCLIENT6</Destination>
+                <isPositive>false</isPositive>
+                <Verification>
+                    <Time>2016-09-26T02:03:20.000+02:00</Time>
+                    <Message>Policy verificarion result true</Message>
+                    <Result>true</Result>
+                </Verification>
+                <Devices>
+                    <Device>VPN gateway</Device>
+                    <Device>Mail client</Device>
+                    <Device>Anti-spam</Device>
+                </Devices>
+            </TraversalPolicy>
+            <TraversalPolicy id="Policy53">
+                <Source>WEBCLIENT3</Source>
+                <Destination>WEBSERVER0</Destination>
+                <isPositive>true</isPositive>
+                <Verification>
+                    <Time>2016-09-25T20:35:20.000+02:00</Time>
+                    <Message>Policy verification result not true</Message>
+                    <Result>false</Result>
+                </Verification>
+                <Devices>
+                    <Device>Mail server</Device>
+                </Devices>
+            </TraversalPolicy>
+            <TraversalPolicy id="Policy58">
+                <Source>MAILCLIENT6</Source>
+                <Destination>MAILSERVER1</Destination>
+                <isPositive>true</isPositive>
+                <Verification>
+                    <Time>2016-09-25T20:25:20.000+02:00</Time>
+                    <Message>Policy verificarion result true</Message>
+                    <Result>true</Result>
+                </Verification>
+                <Devices>
+                    <Device>Web server</Device>
+                    <Device>Web client</Device>
+                    <Device>Web-cache</Device>
+                </Devices>
+            </TraversalPolicy>
+            <TraversalPolicy id="Policy57">
+                <Source>MAILCLIENT6</Source>
+                <Destination>WEBSERVER5</Destination>
+                <isPositive>true</isPositive>
+                <Devices>
+                    <Device>VPN gateway</Device>
+                    <Device>Mail client</Device>
+                    <Device>Anti-spam</Device>
+                </Devices>
+            </TraversalPolicy>
+            <TraversalPolicy id="Policy70">
+                <Source>WEBSERVER3</Source>
+                <Destination>MAILCLIENT7</Destination>
+                <isPositive>true</isPositive>
+                <Verification>
+                    <Time>2016-09-25T08:05:20.000+02:00</Time>
+                    <Message>Policy verification result not true</Message>
+                    <Result>false</Result>
+                </Verification>
+                <Devices>
+                    <Device>Firewall</Device>
+                    <Device>Mail server</Device>
+                    <Device>VPN gateway</Device>
+                </Devices>
+            </TraversalPolicy>
+            <TraversalPolicy id="Policy51">
+                <Source>WEBCLIENT1</Source>
+                <Destination>WEBSERVER5</Destination>
+                <isPositive>false</isPositive>
+                <Devices>
+                    <Device>Firewall</Device>
+                </Devices>
+            </TraversalPolicy>
+            <TraversalPolicy id="Policy73">
+                <Source>WEBSERVER0</Source>
+                <Destination>MAILCLIENT7</Destination>
+                <isPositive>true</isPositive>
+                <Verification>
+                    <Time>2016-09-25T16:43:20.000+02:00</Time>
+                    <Message>Policy verification result not true</Message>
+                    <Result>false</Result>
+                </Verification>
+                <Devices>
+                    <Device>NAT</Device>
+                </Devices>
+            </TraversalPolicy>
+            <TraversalPolicy id="Policy50">
+                <Source>WEBCLIENT1</Source>
+                <Destination>MAILSERVER7</Destination>
+                <isPositive>false</isPositive>
+                <Verification>
+                    <Time>2016-09-25T11:01:20.000+02:00</Time>
+                    <Message>Policy verificarion result true</Message>
+                    <Result>true</Result>
+                </Verification>
+                <Devices>
+                    <Device>VPN gateway</Device>
+                </Devices>
+            </TraversalPolicy>
+            <TraversalPolicy id="Policy67">
+                <Source>MAILCLIENT7</Source>
+                <Destination>WEBSERVER3</Destination>
+                <isPositive>true</isPositive>
+                <Devices>
+                    <Device>Firewall</Device>
+                    <Device>Mail server</Device>
+                    <Device>VPN gateway</Device>
+                </Devices>
+            </TraversalPolicy>
+            <TraversalPolicy id="Policy66">
+                <Source>MAILCLIENT7</Source>
+                <Destination>WEBSERVER4</Destination>
+                <isPositive>true</isPositive>
+                <Devices>
+                    <Device>Web server</Device>
+                </Devices>
+            </TraversalPolicy>
+            <TraversalPolicy id="Policy65">
+                <Source>MAILCLIENT7</Source>
+                <Destination>MAILSERVER2</Destination>
+                <isPositive>true</isPositive>
+                <Devices>
+                    <Device>VPN gateway</Device>
+                    <Device>Web server</Device>
+                </Devices>
+            </TraversalPolicy>
+            <TraversalPolicy id="Policy64">
+                <Source>MAILCLIENT7</Source>
+                <Destination>WEBSERVER0</Destination>
+                <isPositive>false</isPositive>
+                <Verification>
+                    <Time>2016-09-25T12:29:20.000+02:00</Time>
+                    <Message>Policy verification result not true</Message>
+                    <Result>false</Result>
+                </Verification>
+                <Devices>
+                    <Device>NAT</Device>
+                </Devices>
+            </TraversalPolicy>
+            <TraversalPolicy id="Policy49">
+                <Source>WEBCLIENT1</Source>
+                <Destination>MAILSERVER2</Destination>
+                <isPositive>false</isPositive>
+                <Verification>
+                    <Time>2016-09-26T00:54:20.000+02:00</Time>
+                    <Message>Policy verification result not true</Message>
+                    <Result>false</Result>
+                </Verification>
+                <Devices>
+                    <Device>NAT</Device>
+                    <Device>Anti-spam</Device>
+                </Devices>
+            </TraversalPolicy>
+            <TraversalPolicy id="Policy68">
+                <Source>MAILCLIENT7</Source>
+                <Destination>WEBSERVER3</Destination>
+                <isPositive>false</isPositive>
+                <Devices>
+                    <Device>Anti-spam</Device>
+                    <Device>Firewall</Device>
+                    <Device>DPI</Device>
+                </Devices>
+            </TraversalPolicy>
+            <TraversalPolicy id="Policy62">
+                <Source>MAILCLIENT7</Source>
+                <Destination>WEBSERVER3</Destination>
+                <isPositive>true</isPositive>
+                <Verification>
+                    <Time>2016-09-25T07:05:20.000+02:00</Time>
+                    <Message>Policy verificarion result true</Message>
+                    <Result>true</Result>
+                </Verification>
+                <Devices>
+                    <Device>VPN gateway</Device>
+                    <Device>DPI</Device>
+                    <Device>Web client</Device>
+                </Devices>
+            </TraversalPolicy>
+        </Policies>
+    </NFFG>
+    <NFFG name="Nffg1" last_update_time="10:42:20.000+02:00">
+        <Nodes>
+            <Node id="MAILSERVER2">
+                <Service>Mail server</Service>
+            </Node>
+            <Node id="CACHE0">
+                <Service>Web-cache</Service>
+            </Node>
+            <Node id="MAILCLIENT0">
+                <Service>Mail client</Service>
+            </Node>
+            <Node id="MAILCLIENT5">
+                <Service>Mail client</Service>
+            </Node>
+            <Node id="MAILCLIENT4">
+                <Service>Mail client</Service>
+            </Node>
+            <Node id="WEBCLIENT7">
+                <Service>Web client</Service>
+            </Node>
+            <Node id="NAT1">
+                <Service>NAT</Service>
+            </Node>
+            <Node id="MAILCLIENT8">
+                <Service>Mail client</Service>
+            </Node>
+            <Node id="MAILCLIENT6">
+                <Service>Mail client</Service>
+            </Node>
+            <Node id="WEBCLIENT3">
+                <Service>Web client</Service>
+            </Node>
+            <Node id="WEBSERVER3">
+                <Service>Web server</Service>
+            </Node>
+            <Node id="CACHE2">
+                <Service>Web-cache</Service>
+            </Node>
+            <Node id="WEBSERVER4">
+                <Service>Web server</Service>
+            </Node>
+            <Node id="WEBSERVER5">
+                <Service>Web server</Service>
+            </Node>
+            <Node id="WEBSERVER0">
+                <Service>Web server</Service>
+            </Node>
+            <Node id="WEBCLIENT1">
+                <Service>Web client</Service>
+            </Node>
+            <Node id="WEBSERVER1">
+                <Service>Web server</Service>
+            </Node>
+            <Node id="WEBCLIENT2">
+                <Service>Web client</Service>
+            </Node>
+        </Nodes>
+        <Links>
+            <Link id="Link22">
+                <Source>MAILSERVER2</Source>
+                <Destination>NAT1</Destination>
+            </Link>
+            <Link id="Link46">
+                <Source>MAILSERVER2</Source>
+                <Destination>CACHE0</Destination>
+            </Link>
+            <Link id="Link11">
+                <Source>CACHE0</Source>
+                <Destination>MAILCLIENT5</Destination>
+            </Link>
+            <Link id="Link44">
+                <Source>CACHE0</Source>
+                <Destination>WEBCLIENT1</Destination>
+            </Link>
+            <Link id="Link21">
+                <Source>CACHE0</Source>
+                <Destination>WEBSERVER1</Destination>
+            </Link>
+            <Link id="Link43">
+                <Source>CACHE0</Source>
+                <Destination>NAT1</Destination>
+            </Link>
+            <Link id="Link48">
+                <Source>CACHE0</Source>
+                <Destination>MAILCLIENT8</Destination>
+            </Link>
+            <Link id="Link58">
+                <Source>CACHE0</Source>
+                <Destination>WEBSERVER4</Destination>
+            </Link>
+            <Link id="Link19">
+                <Source>CACHE0</Source>
+                <Destination>WEBSERVER0</Destination>
+            </Link>
+            <Link id="Link29">
+                <Source>CACHE0</Source>
+                <Destination>WEBSERVER5</Destination>
+            </Link>
+            <Link id="Link5">
+                <Source>CACHE0</Source>
+                <Destination>WEBCLIENT2</Destination>
+            </Link>
+            <Link id="Link40">
+                <Source>CACHE0</Source>
+                <Destination>MAILSERVER2</Destination>
+            </Link>
+            <Link id="Link45">
+                <Source>MAILCLIENT0</Source>
+                <Destination>CACHE2</Destination>
+            </Link>
+            <Link id="Link0">
+                <Source>MAILCLIENT0</Source>
+                <Destination>NAT1</Destination>
+            </Link>
+            <Link id="Link10">
+                <Source>MAILCLIENT5</Source>
+                <Destination>CACHE0</Destination>
+            </Link>
+            <Link id="Link39">
+                <Source>MAILCLIENT5</Source>
+                <Destination>CACHE2</Destination>
+            </Link>
+            <Link id="Link31">
+                <Source>MAILCLIENT4</Source>
+                <Destination>CACHE2</Destination>
+            </Link>
+            <Link id="Link41">
+                <Source>MAILCLIENT4</Source>
+                <Destination>CACHE0</Destination>
+            </Link>
+            <Link id="Link8">
+                <Source>MAILCLIENT4</Source>
+                <Destination>NAT1</Destination>
+            </Link>
+            <Link id="Link54">
+                <Source>WEBCLIENT7</Source>
+                <Destination>CACHE0</Destination>
+            </Link>
+            <Link id="Link14">
+                <Source>WEBCLIENT7</Source>
+                <Destination>NAT1</Destination>
+            </Link>
+            <Link id="Link57">
+                <Source>WEBCLIENT7</Source>
+                <Destination>CACHE2</Destination>
+            </Link>
+            <Link id="Link23">
+                <Source>NAT1</Source>
+                <Destination>MAILSERVER2</Destination>
+            </Link>
+            <Link id="Link42">
+                <Source>NAT1</Source>
+                <Destination>MAILCLIENT6</Destination>
+            </Link>
+            <Link id="Link27">
+                <Source>NAT1</Source>
+                <Destination>WEBSERVER4</Destination>
+            </Link>
+            <Link id="Link15">
+                <Source>NAT1</Source>
+                <Destination>WEBCLIENT7</Destination>
+            </Link>
+            <Link id="Link37">
+                <Source>NAT1</Source>
+                <Destination>WEBSERVER1</Destination>
+            </Link>
+            <Link id="Link36">
+                <Source>NAT1</Source>
+                <Destination>WEBSERVER0</Destination>
+            </Link>
+            <Link id="Link1">
+                <Source>NAT1</Source>
+                <Destination>MAILCLIENT0</Destination>
+            </Link>
+            <Link id="Link3">
+                <Source>NAT1</Source>
+                <Destination>WEBCLIENT1</Destination>
+            </Link>
+            <Link id="Link17">
+                <Source>NAT1</Source>
+                <Destination>MAILCLIENT8</Destination>
+            </Link>
+            <Link id="Link51">
+                <Source>NAT1</Source>
+                <Destination>MAILCLIENT5</Destination>
+            </Link>
+            <Link id="Link9">
+                <Source>NAT1</Source>
+                <Destination>MAILCLIENT4</Destination>
+            </Link>
+            <Link id="Link16">
+                <Source>MAILCLIENT8</Source>
+                <Destination>NAT1</Destination>
+            </Link>
+            <Link id="Link59">
+                <Source>MAILCLIENT8</Source>
+                <Destination>CACHE0</Destination>
+            </Link>
+            <Link id="Link12">
+                <Source>MAILCLIENT6</Source>
+                <Destination>CACHE2</Destination>
+            </Link>
+            <Link id="Link32">
+                <Source>MAILCLIENT6</Source>
+                <Destination>NAT1</Destination>
+            </Link>
+            <Link id="Link47">
+                <Source>WEBCLIENT3</Source>
+                <Destination>CACHE0</Destination>
+            </Link>
+            <Link id="Link6">
+                <Source>WEBCLIENT3</Source>
+                <Destination>CACHE2</Destination>
+            </Link>
+            <Link id="Link24">
+                <Source>WEBSERVER3</Source>
+                <Destination>CACHE2</Destination>
+            </Link>
+            <Link id="Link50">
+                <Source>WEBSERVER3</Source>
+                <Destination>NAT1</Destination>
+            </Link>
+            <Link id="Link55">
+                <Source>CACHE2</Source>
+                <Destination>MAILCLIENT8</Destination>
+            </Link>
+            <Link id="Link53">
+                <Source>CACHE2</Source>
+                <Destination>MAILCLIENT0</Destination>
+            </Link>
+            <Link id="Link38">
+                <Source>CACHE2</Source>
+                <Destination>WEBSERVER5</Destination>
+            </Link>
+            <Link id="Link49">
+                <Source>CACHE2</Source>
+                <Destination>MAILCLIENT4</Destination>
+            </Link>
+            <Link id="Link25">
+                <Source>CACHE2</Source>
+                <Destination>WEBSERVER3</Destination>
+            </Link>
+            <Link id="Link13">
+                <Source>CACHE2</Source>
+                <Destination>MAILCLIENT6</Destination>
+            </Link>
+            <Link id="Link30">
+                <Source>CACHE2</Source>
+                <Destination>MAILCLIENT5</Destination>
+            </Link>
+            <Link id="Link7">
+                <Source>CACHE2</Source>
+                <Destination>WEBCLIENT3</Destination>
+            </Link>
+            <Link id="Link26">
+                <Source>WEBSERVER4</Source>
+                <Destination>NAT1</Destination>
+            </Link>
+            <Link id="Link56">
+                <Source>WEBSERVER5</Source>
+                <Destination>NAT1</Destination>
+            </Link>
+            <Link id="Link28">
+                <Source>WEBSERVER5</Source>
+                <Destination>CACHE0</Destination>
+            </Link>
+            <Link id="Link18">
+                <Source>WEBSERVER0</Source>
+                <Destination>CACHE0</Destination>
+            </Link>
+            <Link id="Link34">
+                <Source>WEBCLIENT1</Source>
+                <Destination>CACHE0</Destination>
+            </Link>
+            <Link id="Link2">
+                <Source>WEBCLIENT1</Source>
+                <Destination>NAT1</Destination>
+            </Link>
+            <Link id="Link20">
+                <Source>WEBSERVER1</Source>
+                <Destination>CACHE0</Destination>
+            </Link>
+            <Link id="Link52">
+                <Source>WEBSERVER1</Source>
+                <Destination>NAT1</Destination>
+            </Link>
+            <Link id="Link33">
+                <Source>WEBCLIENT2</Source>
+                <Destination>CACHE2</Destination>
+            </Link>
+            <Link id="Link35">
+                <Source>WEBCLIENT2</Source>
+                <Destination>NAT1</Destination>
+            </Link>
+            <Link id="Link4">
+                <Source>WEBCLIENT2</Source>
+                <Destination>CACHE0</Destination>
+            </Link>
+        </Links>
+        <Policies>
+            <ReachabilityPolicy id="Policy34">
+                <Source>WEBCLIENT7</Source>
+                <Destination>WEBSERVER3</Destination>
+                <isPositive>true</isPositive>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy33">
+                <Source>WEBCLIENT7</Source>
+                <Destination>WEBSERVER4</Destination>
+                <isPositive>true</isPositive>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy38">
+                <Source>WEBSERVER4</Source>
+                <Destination>WEBCLIENT7</Destination>
+                <isPositive>true</isPositive>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy15">
+                <Source>MAILCLIENT0</Source>
+                <Destination>WEBSERVER1</Destination>
+                <isPositive>true</isPositive>
+                <Verification>
+                    <Time>2016-09-26T02:19:20.000+02:00</Time>
+                    <Message>Policy verification result not true</Message>
+                    <Result>false</Result>
+                </Verification>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy35">
+                <Source>WEBCLIENT7</Source>
+                <Destination>WEBSERVER0</Destination>
+                <isPositive>false</isPositive>
+                <Verification>
+                    <Time>2016-09-25T15:09:20.000+02:00</Time>
+                    <Message>Policy verificarion result true</Message>
+                    <Result>true</Result>
+                </Verification>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy17">
+                <Source>MAILCLIENT0</Source>
+                <Destination>WEBSERVER1</Destination>
+                <isPositive>true</isPositive>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy39">
+                <Source>WEBSERVER4</Source>
+                <Destination>WEBCLIENT1</Destination>
+                <isPositive>true</isPositive>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy30">
+                <Source>MAILCLIENT5</Source>
+                <Destination>MAILSERVER2</Destination>
+                <isPositive>false</isPositive>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy21">
+                <Source>WEBCLIENT1</Source>
+                <Destination>WEBSERVER3</Destination>
+                <isPositive>false</isPositive>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy20">
+                <Source>WEBCLIENT1</Source>
+                <Destination>WEBSERVER4</Destination>
+                <isPositive>true</isPositive>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy42">
+                <Source>MAILSERVER2</Source>
+                <Destination>WEBCLIENT2</Destination>
+                <isPositive>false</isPositive>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy27">
+                <Source>WEBCLIENT3</Source>
+                <Destination>WEBSERVER5</Destination>
+                <isPositive>false</isPositive>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy26">
+                <Source>WEBCLIENT2</Source>
+                <Destination>MAILSERVER2</Destination>
+                <isPositive>false</isPositive>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy25">
+                <Source>WEBCLIENT2</Source>
+                <Destination>MAILSERVER2</Destination>
+                <isPositive>true</isPositive>
+                <Verification>
+                    <Time>2016-09-25T15:07:20.000+02:00</Time>
+                    <Message>Policy verificarion result true</Message>
+                    <Result>true</Result>
+                </Verification>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy46">
+                <Source>WEBSERVER3</Source>
+                <Destination>WEBCLIENT3</Destination>
+                <isPositive>true</isPositive>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy29">
+                <Source>MAILCLIENT4</Source>
+                <Destination>MAILSERVER2</Destination>
+                <isPositive>true</isPositive>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy28">
+                <Source>WEBCLIENT3</Source>
+                <Destination>WEBSERVER3</Destination>
+                <isPositive>false</isPositive>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy41">
+                <Source>WEBSERVER1</Source>
+                <Destination>MAILCLIENT0</Destination>
+                <isPositive>true</isPositive>
+            </ReachabilityPolicy>
+            <TraversalPolicy id="Policy32">
+                <Source>MAILCLIENT5</Source>
+                <Destination>WEBSERVER3</Destination>
+                <isPositive>true</isPositive>
+                <Devices>
+                    <Device>NAT</Device>
+                </Devices>
+            </TraversalPolicy>
+            <TraversalPolicy id="Policy31">
+                <Source>MAILCLIENT5</Source>
+                <Destination>WEBSERVER1</Destination>
+                <isPositive>true</isPositive>
+                <Devices>
+                    <Device>Mail server</Device>
+                </Devices>
+            </TraversalPolicy>
+            <TraversalPolicy id="Policy16">
+                <Source>MAILCLIENT0</Source>
+                <Destination>WEBSERVER4</Destination>
+                <isPositive>false</isPositive>
+                <Devices>
+                    <Device>Mail server</Device>
+                </Devices>
+            </TraversalPolicy>
+            <TraversalPolicy id="Policy37">
+                <Source>WEBSERVER0</Source>
+                <Destination>WEBCLIENT1</Destination>
+                <isPositive>true</isPositive>
+                <Verification>
+                    <Time>2016-09-25T19:24:20.000+02:00</Time>
+                    <Message>Policy verification result not true</Message>
+                    <Result>false</Result>
+                </Verification>
+                <Devices>
+                    <Device>Mail server</Device>
+                </Devices>
+            </TraversalPolicy>
+            <TraversalPolicy id="Policy36">
+                <Source>MAILCLIENT8</Source>
+                <Destination>WEBSERVER4</Destination>
+                <isPositive>true</isPositive>
+                <Devices>
+                    <Device>Web client</Device>
+                    <Device>Mail server</Device>
+                </Devices>
+            </TraversalPolicy>
+            <TraversalPolicy id="Policy19">
+                <Source>WEBCLIENT1</Source>
+                <Destination>WEBSERVER4</Destination>
+                <isPositive>true</isPositive>
+                <Devices>
+                    <Device>Web server</Device>
+                </Devices>
+            </TraversalPolicy>
+            <TraversalPolicy id="Policy18">
+                <Source>MAILCLIENT0</Source>
+                <Destination>WEBSERVER0</Destination>
+                <isPositive>false</isPositive>
+                <Verification>
+                    <Time>2016-09-25T17:34:20.000+02:00</Time>
+                    <Message>Policy verification result not true</Message>
+                    <Result>false</Result>
+                </Verification>
+                <Devices>
+                    <Device>Web server</Device>
+                    <Device>Web-cache</Device>
+                </Devices>
+            </TraversalPolicy>
+            <TraversalPolicy id="Policy23">
+                <Source>WEBCLIENT1</Source>
+                <Destination>WEBSERVER0</Destination>
+                <isPositive>false</isPositive>
+                <Verification>
+                    <Time>2016-09-25T16:44:20.000+02:00</Time>
+                    <Message>Policy verification result not true</Message>
+                    <Result>false</Result>
+                </Verification>
+                <Devices>
+                    <Device>Mail server</Device>
+                </Devices>
+            </TraversalPolicy>
+            <TraversalPolicy id="Policy45">
+                <Source>WEBSERVER0</Source>
+                <Destination>MAILCLIENT0</Destination>
+                <isPositive>false</isPositive>
+                <Verification>
+                    <Time>2016-09-26T01:41:20.000+02:00</Time>
+                    <Message>Policy verification result not true</Message>
+                    <Result>false</Result>
+                </Verification>
+                <Devices>
+                    <Device>Web server</Device>
+                    <Device>Web-cache</Device>
+                </Devices>
+            </TraversalPolicy>
+            <TraversalPolicy id="Policy22">
+                <Source>WEBCLIENT1</Source>
+                <Destination>WEBSERVER0</Destination>
+                <isPositive>true</isPositive>
+                <Verification>
+                    <Time>2016-09-25T18:57:20.000+02:00</Time>
+                    <Message>Policy verification result not true</Message>
+                    <Result>false</Result>
+                </Verification>
+                <Devices>
+                    <Device>Mail client</Device>
+                    <Device>Firewall</Device>
+                    <Device>Web client</Device>
+                </Devices>
+            </TraversalPolicy>
+            <TraversalPolicy id="Policy44">
+                <Source>WEBSERVER0</Source>
+                <Destination>WEBCLIENT2</Destination>
+                <isPositive>true</isPositive>
+                <Verification>
+                    <Time>2016-09-25T17:55:20.000+02:00</Time>
+                    <Message>Policy verificarion result true</Message>
+                    <Result>true</Result>
+                </Verification>
+                <Devices>
+                    <Device>VPN gateway</Device>
+                    <Device>Mail client</Device>
+                </Devices>
+            </TraversalPolicy>
+            <TraversalPolicy id="Policy43">
+                <Source>WEBSERVER4</Source>
+                <Destination>MAILCLIENT8</Destination>
+                <isPositive>false</isPositive>
+                <Devices>
+                    <Device>Web client</Device>
+                    <Device>Mail server</Device>
+                </Devices>
+            </TraversalPolicy>
+            <TraversalPolicy id="Policy24">
+                <Source>WEBCLIENT2</Source>
+                <Destination>WEBSERVER0</Destination>
+                <isPositive>false</isPositive>
+                <Devices>
+                    <Device>VPN gateway</Device>
+                    <Device>Mail client</Device>
+                </Devices>
+            </TraversalPolicy>
+            <TraversalPolicy id="Policy40">
+                <Source>WEBSERVER4</Source>
+                <Destination>MAILCLIENT0</Destination>
+                <isPositive>true</isPositive>
+                <Verification>
+                    <Time>2016-09-25T22:33:20.000+02:00</Time>
+                    <Message>Policy verification result not true</Message>
+                    <Result>false</Result>
+                </Verification>
+                <Devices>
+                    <Device>Mail server</Device>
+                </Devices>
+            </TraversalPolicy>
+        </Policies>
+    </NFFG>
+    <NFFG name="Nffg0" last_update_time="00:40:20.000+02:00">
+        <Nodes>
+            <Node id="MAILSERVER2">
+                <Service>Mail server</Service>
+            </Node>
+            <Node id="CACHE0">
+                <Service>Web-cache</Service>
+            </Node>
+            <Node id="WEBCLIENT3">
+                <Service>Web client</Service>
+            </Node>
+            <Node id="WEBCLIENT4">
+                <Service>Web client</Service>
+            </Node>
+            <Node id="WEBCLIENT5">
+                <Service>Web client</Service>
+            </Node>
+            <Node id="WEBCLIENT6">
+                <Service>Web client</Service>
+            </Node>
+            <Node id="MAILCLIENT1">
+                <Service>Mail client</Service>
+            </Node>
+            <Node id="MAILSERVER1">
+                <Service>Mail server</Service>
+            </Node>
+            <Node id="MAILCLIENT0">
+                <Service>Mail client</Service>
+            </Node>
+            <Node id="MAILSERVER0">
+                <Service>Mail server</Service>
+            </Node>
+            <Node id="WEBCLIENT2">
+                <Service>Web client</Service>
+            </Node>
+        </Nodes>
+        <Links>
+            <Link id="Link18">
+                <Source>MAILSERVER2</Source>
+                <Destination>CACHE0</Destination>
+            </Link>
+            <Link id="Link11">
+                <Source>CACHE0</Source>
+                <Destination>WEBCLIENT5</Destination>
+            </Link>
+            <Link id="Link15">
+                <Source>CACHE0</Source>
+                <Destination>MAILSERVER0</Destination>
+            </Link>
+            <Link id="Link1">
+                <Source>CACHE0</Source>
+                <Destination>MAILCLIENT0</Destination>
+            </Link>
+            <Link id="Link13">
+                <Source>CACHE0</Source>
+                <Destination>WEBCLIENT6</Destination>
+            </Link>
+            <Link id="Link3">
+                <Source>CACHE0</Source>
+                <Destination>MAILCLIENT1</Destination>
+            </Link>
+            <Link id="Link19">
+                <Source>CACHE0</Source>
+                <Destination>MAILSERVER2</Destination>
+            </Link>
+            <Link id="Link5">
+                <Source>CACHE0</Source>
+                <Destination>WEBCLIENT2</Destination>
+            </Link>
+            <Link id="Link17">
+                <Source>CACHE0</Source>
+                <Destination>MAILSERVER1</Destination>
+            </Link>
+            <Link id="Link7">
+                <Source>CACHE0</Source>
+                <Destination>WEBCLIENT3</Destination>
+            </Link>
+            <Link id="Link9">
+                <Source>CACHE0</Source>
+                <Destination>WEBCLIENT4</Destination>
+            </Link>
+            <Link id="Link6">
+                <Source>WEBCLIENT3</Source>
+                <Destination>CACHE0</Destination>
+            </Link>
+            <Link id="Link8">
+                <Source>WEBCLIENT4</Source>
+                <Destination>CACHE0</Destination>
+            </Link>
+            <Link id="Link10">
+                <Source>WEBCLIENT5</Source>
+                <Destination>CACHE0</Destination>
+            </Link>
+            <Link id="Link12">
+                <Source>WEBCLIENT6</Source>
+                <Destination>CACHE0</Destination>
+            </Link>
+            <Link id="Link2">
+                <Source>MAILCLIENT1</Source>
+                <Destination>CACHE0</Destination>
+            </Link>
+            <Link id="Link16">
+                <Source>MAILSERVER1</Source>
+                <Destination>CACHE0</Destination>
+            </Link>
+            <Link id="Link0">
+                <Source>MAILCLIENT0</Source>
+                <Destination>CACHE0</Destination>
+            </Link>
+            <Link id="Link14">
+                <Source>MAILSERVER0</Source>
+                <Destination>CACHE0</Destination>
+            </Link>
+            <Link id="Link4">
+                <Source>WEBCLIENT2</Source>
+                <Destination>CACHE0</Destination>
+            </Link>
+        </Links>
+        <Policies>
+            <ReachabilityPolicy id="Policy1">
+                <Source>MAILCLIENT1</Source>
+                <Destination>MAILSERVER1</Destination>
+                <isPositive>false</isPositive>
+                <Verification>
+                    <Time>2016-09-24T23:53:20.000+02:00</Time>
+                    <Message>Policy verification result not true</Message>
+                    <Result>false</Result>
+                </Verification>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy12">
+                <Source>MAILSERVER1</Source>
+                <Destination>WEBCLIENT5</Destination>
+                <isPositive>false</isPositive>
+                <Verification>
+                    <Time>2016-09-24T23:53:20.000+02:00</Time>
+                    <Message>Policy verificarion result true</Message>
+                    <Result>true</Result>
+                </Verification>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy0">
+                <Source>MAILCLIENT1</Source>
+                <Destination>MAILSERVER1</Destination>
+                <isPositive>false</isPositive>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy10">
+                <Source>MAILSERVER1</Source>
+                <Destination>MAILCLIENT1</Destination>
+                <isPositive>false</isPositive>
+                <Verification>
+                    <Time>2016-09-24T23:53:20.000+02:00</Time>
+                    <Message>Policy verificarion result true</Message>
+                    <Result>true</Result>
+                </Verification>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy14">
+                <Source>MAILSERVER0</Source>
+                <Destination>WEBCLIENT2</Destination>
+                <isPositive>false</isPositive>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy9">
+                <Source>MAILSERVER1</Source>
+                <Destination>MAILCLIENT1</Destination>
+                <isPositive>false</isPositive>
+                <Verification>
+                    <Time>2016-09-24T23:53:20.000+02:00</Time>
+                    <Message>Policy verificarion result true</Message>
+                    <Result>true</Result>
+                </Verification>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy7">
+                <Source>WEBCLIENT5</Source>
+                <Destination>MAILSERVER1</Destination>
+                <isPositive>true</isPositive>
+                <Verification>
+                    <Time>2016-09-24T23:53:20.000+02:00</Time>
+                    <Message>Policy verification result not true</Message>
+                    <Result>false</Result>
+                </Verification>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy4">
+                <Source>WEBCLIENT3</Source>
+                <Destination>MAILSERVER0</Destination>
+                <isPositive>false</isPositive>
+            </ReachabilityPolicy>
+            <ReachabilityPolicy id="Policy2">
+                <Source>WEBCLIENT2</Source>
+                <Destination>MAILSERVER0</Destination>
+                <isPositive>false</isPositive>
+                <Verification>
+                    <Time>2016-09-24T23:53:20.000+02:00</Time>
+                    <Message>Policy verification result not true</Message>
+                    <Result>false</Result>
+                </Verification>
+            </ReachabilityPolicy>
+            <TraversalPolicy id="Policy11">
+                <Source>MAILSERVER0</Source>
+                <Destination>WEBCLIENT6</Destination>
+                <isPositive>true</isPositive>
+                <Devices>
+                    <Device>NAT</Device>
+                </Devices>
+            </TraversalPolicy>
+            <TraversalPolicy id="Policy13">
+                <Source>MAILSERVER2</Source>
+                <Destination>WEBCLIENT3</Destination>
+                <isPositive>true</isPositive>
+                <Verification>
+                    <Time>2016-09-24T23:53:20.000+02:00</Time>
+                    <Message>Policy verificarion result true</Message>
+                    <Result>true</Result>
+                </Verification>
+                <Devices>
+                    <Device>Web-cache</Device>
+                </Devices>
+            </TraversalPolicy>
+            <TraversalPolicy id="Policy8">
+                <Source>WEBCLIENT6</Source>
+                <Destination>MAILSERVER0</Destination>
+                <isPositive>false</isPositive>
+                <Verification>
+                    <Time>2016-09-24T23:53:20.000+02:00</Time>
+                    <Message>Policy verificarion result true</Message>
+                    <Result>true</Result>
+                </Verification>
+                <Devices>
+                    <Device>NAT</Device>
+                </Devices>
+            </TraversalPolicy>
+            <TraversalPolicy id="Policy6">
+                <Source>WEBCLIENT5</Source>
+                <Destination>MAILSERVER0</Destination>
+                <isPositive>true</isPositive>
+                <Verification>
+                    <Time>2016-09-24T23:53:20.000+02:00</Time>
+                    <Message>Policy verificarion result true</Message>
+                    <Result>true</Result>
+                </Verification>
+                <Devices>
+                    <Device>Mail server</Device>
+                    <Device>Web client</Device>
+                    <Device>Anti-spam</Device>
+                </Devices>
+            </TraversalPolicy>
+            <TraversalPolicy id="Policy5">
+                <Source>WEBCLIENT4</Source>
+                <Destination>MAILSERVER0</Destination>
+                <isPositive>true</isPositive>
+                <Verification>
+                    <Time>2016-09-24T23:53:20.000+02:00</Time>
+                    <Message>Policy verification result not true</Message>
+                    <Result>false</Result>
+                </Verification>
+                <Devices>
+                    <Device>Anti-spam</Device>
+                </Devices>
+            </TraversalPolicy>
+            <TraversalPolicy id="Policy3">
+                <Source>WEBCLIENT3</Source>
+                <Destination>MAILSERVER2</Destination>
+                <isPositive>false</isPositive>
+                <Verification>
+                    <Time>2016-09-24T23:53:20.000+02:00</Time>
+                    <Message>Policy verification result not true</Message>
+                    <Result>false</Result>
+                </Verification>
+                <Devices>
+                    <Device>Web-cache</Device>
+                </Devices>
+            </TraversalPolicy>
+        </Policies>
+    </NFFG>
+    <Catalog>
+        <SingleService name="DPI"/>
+        <SingleService name="Web-cache"/>
+        <SingleService name="Firewall"/>
+        <SingleService name="Mail client"/>
+        <SingleService name="VPN gateway"/>
+        <SingleService name="Web client"/>
+        <SingleService name="Web server"/>
+        <SingleService name="Mail server"/>
+        <SingleService name="Anti-spam"/>
+        <SingleService name="NAT"/>
+    </Catalog>
+</RootNetwork>
