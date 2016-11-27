@@ -49,7 +49,15 @@ public class LinkReaderCode implements LinkReader{
 	public NodeReader getSourceNode() {
 		return this.linkSourceNode;
 	}
-
+	
+	public void setSourceNode(NodeReader nodeReader){
+		this.linkSourceNode = nodeReader;
+	}
+	
+	public void setDestinationNode(NodeReader nodeReader){
+		this.linkDestinationNode = nodeReader;
+	}
+	
 	public String toString(){
 		return "LinkReader -> Name: "+this.linkName+" - Source: "+this.linkSourceNode.getName()+" - Destination: "+this.linkDestinationNode.getName();
 	}

@@ -15,7 +15,7 @@ public class NodeReaderCode implements NodeReader{
 	private String nodeName;
 	private FunctionalType nodeFunctionalType;
 	private Set<LinkReader> nodeLinksList;
-
+	
 	public NodeReaderCode(NodeType node, NFFGType nffg){
 		this.nodeName = node.getId();
 		this.nodeFunctionalType = covertServiceToFunctional(node.getService());
@@ -27,7 +27,8 @@ public class NodeReaderCode implements NodeReader{
 		for(LinkType link: nffg.getLinks().getLink()){
 			if(link.getSource().equals(node.getId())){
 				linkReader = new LinkReaderCode(nffg, link);
-				System.out.println(linkReader.toString());
+				((LinkReaderCode) linkReader).setSourceNode(this);
+				System.out.println("SOURCE UPDATE"+linkReader.toString());
 				nodeLinksList.add(linkReader);
 			}
 		}

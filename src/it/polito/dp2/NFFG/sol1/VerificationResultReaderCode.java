@@ -19,7 +19,10 @@ public class VerificationResultReaderCode implements VerificationResultReader {
 
 	public VerificationResultReaderCode(NFFGType nffg, NffgReader nffgReader, ReachabilityPolicyType policy){
 		System.out.println("policy: "+policy);
-		System.out.println("Verification: "+policy.getVerification());
+		System.out.println("Id: "+policy.getId());
+		System.out.println("VerificationMessage: "+policy.getVerification().getMessage());
+		System.out.println("VerificationTime: "+policy.getVerification().getTime());
+		System.out.println("VerificationReuslt: "+policy.getVerification().isResult());	
 		this.verificationResult = policy.getVerification().isResult();
 		this.verificationResultMsg = policy.getVerification().getMessage(); 
 		this.XMLGregVerificationTime = policy.getVerification().getTime();

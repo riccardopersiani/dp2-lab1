@@ -27,7 +27,7 @@ public class TraversalPolicyReaderCode implements TraversalPolicyReader{
 		
 		this.traversalPolicyName = traversalPolicy.getId();
 		this.isPositive = traversalPolicy.isIsPositive();
-		this.verificationResultReader = new VerificationResusltReaderCode(nffg, traversalPolicy);
+		//this.verificationResultReader = new VerificationResultReaderCode(nffg, traversalPolicy);
 		this.nffgReader = new NffgReaderCode(nffg);
 		
 		this.traversalDevices = new HashSet<FunctionalType>();
