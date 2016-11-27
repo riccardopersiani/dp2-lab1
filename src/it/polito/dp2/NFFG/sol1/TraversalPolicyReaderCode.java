@@ -23,23 +23,28 @@ public class TraversalPolicyReaderCode implements TraversalPolicyReader{
 	private NodeReader traversalSourceNode;
 	private Set<FunctionalType> traversalDevices;
 	
-	public TraversalPolicyReaderCode(NFFGType nffg, TraversalPolicyType traversalPolicy){
+	public TraversalPolicyReaderCode(NFFGType nffg, NffgReader nffgReader, TraversalPolicyType traversalPolicy){
 		
 		this.traversalPolicyName = traversalPolicy.getId();
 		this.isPositive = traversalPolicy.isIsPositive();
-		//this.verificationResultReader = new VerificationResultReaderCode(nffg, traversalPolicy);
-		this.nffgReader = new NffgReaderCode(nffg);
+		this.nffgReader = nffgReader;
+
+		this.verificationResultReader = new VerificationResultReaderCode(nffg, nffgReader, traversalPolicy);
 		
+		if(traversalPolicy.getVerification() == null){
+			this.verificationResultReader = null;
+		}
+			
 		this.traversalDevices = new HashSet<FunctionalType>();
 				
 		for(NodeType node: nffg.getNodes().getNode()){
 			if(node.equals(traversalPolicy.getDestination())){
-				this.traversalDestinationNode = new NodeReaderCode(node,nffg);
+				this.traversalDestinationNode = nffgReader.getNode(node.getId());
 			}
 		}
 		for(NodeType node: nffg.getNodes().getNode()){
 			if(node.equals(traversalPolicy.getDestination())){
-				this.traversalSourceNode = new NodeReaderCode(node,nffg);
+				this.traversalSourceNode = nffgReader.getNode(node.getId());
 			}
 		}
 		// Scroll the Devices list

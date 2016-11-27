@@ -18,16 +18,25 @@ public class VerificationResultReaderCode implements VerificationResultReader {
 	private XMLGregorianCalendar XMLGregVerificationTime;
 
 	public VerificationResultReaderCode(NFFGType nffg, NffgReader nffgReader, ReachabilityPolicyType policy){
-		System.out.println("policy: "+policy);
-		System.out.println("Id: "+policy.getId());
+		if(policy.getVerification() == null){
+			System.out.println("NO VERIFICATION");
+			this.verificationResult = null;
+			this.verificationResultMsg = null; 
+			this.XMLGregVerificationTime = null;
+			this.verificationPolicyReader = new PolicyReaderCode(nffg, nffgReader, policy, this);
+		} else {
+		System.out.println("VERIFICATION");
 		System.out.println("VerificationMessage: "+policy.getVerification().getMessage());
 		System.out.println("VerificationTime: "+policy.getVerification().getTime());
 		System.out.println("VerificationReuslt: "+policy.getVerification().isResult());	
+	
 		this.verificationResult = policy.getVerification().isResult();
 		this.verificationResultMsg = policy.getVerification().getMessage(); 
 		this.XMLGregVerificationTime = policy.getVerification().getTime();
 		this.verificationPolicyReader = new PolicyReaderCode(nffg, nffgReader, policy, this);
+		}
 	}
+
 	@Override
 	public PolicyReader getPolicy() {
 		return this.verificationPolicyReader;

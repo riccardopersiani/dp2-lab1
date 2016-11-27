@@ -28,7 +28,7 @@ public class NodeReaderCode implements NodeReader{
 			if(link.getSource().equals(node.getId())){
 				linkReader = new LinkReaderCode(nffg, link);
 				((LinkReaderCode) linkReader).setSourceNode(this);
-				System.out.println("SOURCE UPDATE"+linkReader.toString());
+				//System.out.println("SOURCE UPDATE"+linkReader.toString());
 				nodeLinksList.add(linkReader);
 			}
 		}

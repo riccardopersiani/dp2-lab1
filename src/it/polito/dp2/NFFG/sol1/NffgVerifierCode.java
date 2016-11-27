@@ -11,8 +11,6 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
-import javax.xml.transform.Source;
-import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 
@@ -24,7 +22,6 @@ import it.polito.dp2.NFFG.PolicyReader;
 import it.polito.dp2.NFFG.ReachabilityPolicyReader;
 import it.polito.dp2.NFFG.TraversalPolicyReader;
 import it.polito.dp2.NFFG.sol1.jaxb.NFFGType;
-import it.polito.dp2.NFFG.sol1.jaxb.ObjectFactory;
 import it.polito.dp2.NFFG.sol1.jaxb.ReachabilityPolicyType;
 import it.polito.dp2.NFFG.sol1.jaxb.RootNetworkType;
 import it.polito.dp2.NFFG.sol1.jaxb.TraversalPolicyType;
@@ -54,14 +51,13 @@ public class NffgVerifierCode implements NffgVerifier {
 			
 			for(ReachabilityPolicyType reachabilityPolicy: nffg.getPolicies().getReachabilityPolicy()){
 				System.out.println("Inside reachability for{}");
-				System.out.println("nffg: "+nffg);
-				System.out.println("reachabilityPolicy: "+reachabilityPolicy);
 				ReachabilityPolicyReader reachabilityReader = new ReachabilityPolicyReaderCode(nffg, nffgReader, reachabilityPolicy);
 				policyReaders.add(reachabilityReader);
 			}
+			
 			for(TraversalPolicyType traversalPolicy: nffg.getPolicies().getTraversalPolicy()){
 				System.out.println("Inside traversal for{}");
-				TraversalPolicyReader traversalReader = new TraversalPolicyReaderCode(nffg, traversalPolicy);
+				TraversalPolicyReader traversalReader = new TraversalPolicyReaderCode(nffg, nffgReader, traversalPolicy);
 				policyReaders.add(traversalReader);
 			}
 		}	

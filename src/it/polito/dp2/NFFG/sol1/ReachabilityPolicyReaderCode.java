@@ -16,34 +16,35 @@ public class ReachabilityPolicyReaderCode implements ReachabilityPolicyReader {
 	private String reachabilityPolicyName;
 	private NodeReader reachabilityDestinationNode;
 	private NodeReader reachabilitySourceNode;
+	
 
 
 	public ReachabilityPolicyReaderCode(NFFGType nffg,NffgReader nffgReader, ReachabilityPolicyType reachabilityPolicy){
-		System.out.println("reachabilityPolicy.getId(): "+reachabilityPolicy.getId());
 		this.reachabilityPolicyName = reachabilityPolicy.getId();
-		System.out.println("reachabilityPolicy.isIsPositive(): "+reachabilityPolicy.isIsPositive());
 		this.isPositive = reachabilityPolicy.isIsPositive();
-		System.out.println("nffgReader: "+nffgReader.toString());
 		this.nffgReader = nffgReader;
-		System.out.println("Before new VerificationResusltReaderCode()");
-		this.verificationResultReader = new VerificationResultReaderCode(nffg, nffgReader, reachabilityPolicy);
 		
+		this.verificationResultReader = new VerificationResultReaderCode(nffg, nffgReader, reachabilityPolicy);	
+		
+		if(reachabilityPolicy.getVerification() == null){
+			this.verificationResultReader = null;
+		}
 
 		for(NodeType node: nffg.getNodes().getNode()){
 			System.out.println("Inside reachability getSource()");
 			if(node.equals(reachabilityPolicy.getSource())){
-				this.reachabilitySourceNode = new NodeReaderCode(node,nffg);
+				this.reachabilitySourceNode = nffgReader.getNode(node.getId());
 			}
 		}
 		
 		for(NodeType node: nffg.getNodes().getNode()){
 			System.out.println("Inside reachability getDestination()");
 			if(node.equals(reachabilityPolicy.getDestination())){
-				this.reachabilityDestinationNode = new NodeReaderCode(node,nffg);
+				this.reachabilityDestinationNode = nffgReader.getNode(node.getId());
 			}
 		}
-
 	}
+	
 	@Override
 	public NffgReader getNffg() {
 		return this.nffgReader;
