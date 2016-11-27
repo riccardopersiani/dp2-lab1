@@ -16,33 +16,32 @@ public class ReachabilityPolicyReaderCode implements ReachabilityPolicyReader {
 	private String reachabilityPolicyName;
 	private NodeReader reachabilityDestinationNode;
 	private NodeReader reachabilitySourceNode;
-	
-
 
 	public ReachabilityPolicyReaderCode(NFFGType nffg,NffgReader nffgReader, ReachabilityPolicyType reachabilityPolicy){
 		this.reachabilityPolicyName = reachabilityPolicy.getId();
 		this.isPositive = reachabilityPolicy.isIsPositive();
 		this.nffgReader = nffgReader;
-		
 		this.verificationResultReader = new VerificationResultReaderCode(nffg, nffgReader, reachabilityPolicy);	
 		
+		//TODO is necessary? or is necessary to put null field inside verifier?
 		if(reachabilityPolicy.getVerification() == null){
 			this.verificationResultReader = null;
 		}
 
+		// Set the source node of the reachability policy
 		for(NodeType node: nffg.getNodes().getNode()){
-			System.out.println("Inside reachability getSource()");
 			if(node.equals(reachabilityPolicy.getSource())){
 				this.reachabilitySourceNode = nffgReader.getNode(node.getId());
 			}
 		}
 		
+		// Set the destination node of the reachability policy
 		for(NodeType node: nffg.getNodes().getNode()){
-			System.out.println("Inside reachability getDestination()");
 			if(node.equals(reachabilityPolicy.getDestination())){
 				this.reachabilityDestinationNode = nffgReader.getNode(node.getId());
 			}
 		}
+		
 	}
 	
 	@Override
