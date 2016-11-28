@@ -42,15 +42,15 @@
 <!ELEMENT ReachabilityPolicy (Source , Destination)>
 <!ATTLIST ReachabilityPolicy
 	verification_result (true | false) #IMPLIED
-	verification_time CDATA #REQUIRED
-	verification_message CDATA #REQUIRED
+	verification_time CDATA #IMPLIED
+	verification_message CDATA #IMPLIED
 	isPositive	(true | false)	#REQUIRED				
 >
 <!ELEMENT TraversalPolicy (Source, Destination, Devices)>	
 <!ATTLIST TraversalPolicy
 	verification_result (true | false) #IMPLIED
-	verification_time CDATA #REQUIRED
-	verification_message CDATA #REQUIRED
+	verification_time CDATA #IMPLIED
+	verification_message CDATA #IMPLIED
 	isPositive	(true | false)	#REQUIRED				
 >
 <!ELEMENT Devices (Device+)>

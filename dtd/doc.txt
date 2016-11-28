@@ -29,7 +29,7 @@ Every "Policy" has a policy_name which must be unique within the NFFG, in this w
 
 There are two different types of policy: reachability and traversal.
 "ReachabilityPolicy" with the following attribute list: result which is IMPLIED, this field could be used to verify if the property associated with the policy is satisfied; 
-verification_time and verification_message which are simply strings that describes the time when the verification is performed and the verification output message;
+verification_time and verification_message which are simply strings that describes the time when the verification is performed and the verification output message(are IMPLIED because verification can be null);
 isPositive which is a CDATA field and describe if a policy is positive or not.
 Finally, it contains the elements "Source" and "Destination" described before, which represent the initial node and the final node where the policy is applied.
 The difference from "Link" here is that is possible to have other nodes between source and destination.

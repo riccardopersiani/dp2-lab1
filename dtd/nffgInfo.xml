@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE RootNetwork SYSTEM "nffgInfo.dtd" >
+
+<RootNetwork>
+
+	<NFFG NFFG_name="NFFG1" last_update_time="">
+		<Nodes>
+			<Node node_name="NODE1">
+				<Service service_name="NAT" />
+			</Node>
+			<Node node_name="NODE2">
+				<Service service_name="Firewall" />
+			</Node>
+			<Node node_name="NODE3">
+				<Service service_name="DPI" />
+			</Node>
+		</Nodes>
+		<Links>
+			<Link link_name="LINK1">
+				<Source source_name="NODE1" />
+				<Destination destination_name="NODE2" />
+			</Link>
+			<Link link_name="LINK2">
+				<Source source_name="NODE2" />
+				<Destination destination_name="NODE1" />
+			</Link>
+			<Link link_name="LINK3">
+				<Source source_name="NODE2" />
+				<Destination destination_name="NODE3" />
+			</Link>
+
+			<Link link_name="LINK4">
+				<Source source_name="NODE3" />
+				<Destination destination_name="NODE2" />
+			</Link>
+		</Links>
+		<Policies>
+			<Policy policy_name="POLICY1">
+				<ReachabilityPolicy isPositive="true">
+					<Source source_name="NODE1" />
+					<Destination destination_name="NODE3" />
+				</ReachabilityPolicy>
+			</Policy>
+			<Policy policy_name="POLICY2">
+				<ReachabilityPolicy verification_message="Ok" verification_time="13:00:01" verification_result="true" isPositive="true">
+					<Source source_name="NODE2" />
+					<Destination destination_name="NODE1" />
+				</ReachabilityPolicy>
+			</Policy>
+			<Policy policy_name="POLICY3">
+				<TraversalPolicy verification_message="OK" verification_time="12:00:05" verification_result="false" isPositive="false">
+					<Source source_name="NODE3" />
+					<Destination destination_name="NODE1" />
+					<Devices>
+						<Device service_name="NAT" />
+						<Device service_name="Firewall" />
+					</Devices>
+				</TraversalPolicy>
+			</Policy>
+		</Policies>
+	</NFFG>
+	
+	<Catalog>
+		<SingleService service_name="NAT" />
+		<SingleService service_name="Firewall" />
+		<SingleService service_name="DPI" />
+		<SingleService service_name="Web_client" />
+		<SingleService service_name="Web_server" />
+		<SingleService service_name="Cache" />
+		<SingleService service_name="Anti-spam" />
+		<SingleService service_name="Mail_client" />
+		<SingleService service_name="Mail_server" />
+		<SingleService service_name="VPN_gateway" />
+	</Catalog>
+	
+</RootNetwork>
