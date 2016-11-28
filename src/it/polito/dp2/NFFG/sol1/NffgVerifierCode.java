@@ -4,7 +4,9 @@ import static javax.xml.XMLConstants.W3C_XML_SCHEMA_NS_URI;
 
 import java.io.File;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 import javax.xml.bind.JAXBContext;
@@ -30,6 +32,8 @@ public class NffgVerifierCode implements NffgVerifier {
 
 	private Set<NffgReader> nffgReaders;
 	private Set<PolicyReader> policyReaders;
+	
+	private Map<NffgReader,Set<PolicyReader>> policyMap;
 
 	public static final String XSD_NAME = "xsd/NffgInfo.xsd";
 	public static final String PACKAGE = "it.polito.dp2.NFFG.sol1.jaxb";
@@ -39,6 +43,8 @@ public class NffgVerifierCode implements NffgVerifier {
 
 		nffgReaders = new HashSet<NffgReader>();
 		policyReaders = new HashSet<PolicyReader>();
+		
+		policyMap = new HashMap<NffgReader,Set<PolicyReader>>();
 
 		String fileName = System.getProperty("it.polito.dp2.NFFG.sol1.NffgInfo.file");
 		RootNetworkType root = null;
@@ -60,6 +66,7 @@ public class NffgVerifierCode implements NffgVerifier {
 				TraversalPolicyReader traversalReader = new TraversalPolicyReaderCode(nffg, nffgReader, traversalPolicy);
 				policyReaders.add(traversalReader);
 			}
+			policyMap.put(nffgReader, policyReaders);
 		}	
 	}
 
@@ -75,25 +82,33 @@ public class NffgVerifierCode implements NffgVerifier {
 				return nffgReader;
 			}
 		}
-		//TODO
 		return null;
 	}
 
 	@Override
 	public Set<PolicyReader> getPolicies() {
-		// TODO Auto-generated method stub
 		return policyReaders;
 	}
 
 	@Override
+	//Filtering policies by nffg name
 	public Set<PolicyReader> getPolicies(String arg0) {
-		// TODO Auto-generated method stub
+		for(NffgReader nffgReader: nffgReaders){
+			if(nffgReader.equals(arg0)){
+				return policyReaders;
+			}
+		}
 		return null;
 	}
 
 	@Override
 	public Set<PolicyReader> getPolicies(Calendar arg0) {
 		// TODO Auto-generated method stub
+		for(PolicyReader policyReader: policyReaders){
+			if(policyReader.equals(arg0)){
+				return policyReaders;
+			}
+		}
 		return null;
 	}
 	
@@ -121,7 +136,8 @@ public class NffgVerifierCode implements NffgVerifier {
 		jaxbUnmarshaller.setSchema(schema);
 		// Set the input file to be unmarshalled 
 		System.out.println("Unmarshaling Done!!");
-		//RootNetworkType root = (RootNetworkType)jaxbUnmarshaller.unmarshal(inputFile);	
+		//RootNetworkType root = (RootNetworkType)jaxbUnmarshaller.unmarshal(inputFile);
+		//TODO fix this warning
 		JAXBElement<RootNetworkType> root = (JAXBElement<RootNetworkType>) jaxbUnmarshaller.unmarshal(inputFile);
 		RootNetworkType r = root.getValue();
 		return r;

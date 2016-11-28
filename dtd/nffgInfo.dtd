@@ -16,7 +16,7 @@
 <!ATTLIST Link
 	link_name ID #REQUIRED		
 >	
-<!ELEMENT Policy (ReachabilityPolicy | TraversalPolicy)> <!-- Correggere -->
+<!ELEMENT Policy (ReachabilityPolicy | TraversalPolicy)>
 <!ATTLIST Policy
 	policy_name ID #REQUIRED
 >	

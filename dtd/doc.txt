@@ -25,7 +25,8 @@ A "Service" is a functionality offered by a node and has a pointer to a "SingleS
 
 "Policies" as well as "Nodes" and "Links" is a container for "Policy" elements.
 
-Every "Policy" has a policy_name which must be unique within the NFFG, in this way i can distinguish them inside the network.
+Every "Policy" has a policy_name which must be unique within the NFFG, does not matter if it is a reachability policy or a traversal policy. 
+In this way i can distinguish and them inside the network.
 
 There are two different types of policy: reachability and traversal.
 "ReachabilityPolicy" with the following attribute list: result which is IMPLIED, this field could be used to verify if the property associated with the policy is satisfied; 
