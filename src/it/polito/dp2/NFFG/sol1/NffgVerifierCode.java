@@ -30,43 +30,43 @@ import it.polito.dp2.NFFG.sol1.jaxb.TraversalPolicyType;
 
 public class NffgVerifierCode implements NffgVerifier {
 
-	private Set<NffgReader> nffgReaders;
-	private Set<PolicyReader> policyReaders;
-	
-	private Map<NffgReader,Set<PolicyReader>> policyMap;
-
-	public static final String XSD_NAME = "xsd/NffgInfo.xsd";
+	public static final String XSD_NAME = "xsd/nffgInfo.xsd";
 	public static final String PACKAGE = "it.polito.dp2.NFFG.sol1.jaxb";
+	
+	private Set<NffgReader> nffgReaders; //Contains all the Nffgs
+	private Set<PolicyReader> policyReaders;	// Contains all the Policies
+	
+	private Set<PolicyReader> oneNffgPolicies; //Contains the policy for one nffg
+	private Map<NffgReader,Set<PolicyReader>> nffgPoliciesMap; //Contains a map of all policies for every nffg
 
 	public NffgVerifierCode() throws SAXException, JAXBException{	
-		System.out.println("START NffgVerifierCode!!");
 
 		nffgReaders = new HashSet<NffgReader>();
 		policyReaders = new HashSet<PolicyReader>();
-		
-		policyMap = new HashMap<NffgReader,Set<PolicyReader>>();
+		nffgPoliciesMap = new HashMap<NffgReader,Set<PolicyReader>>();
 
+		//TODO lo metto fuori?
 		String fileName = System.getProperty("it.polito.dp2.NFFG.sol1.NffgInfo.file");
-		RootNetworkType root = null;
-		root = doUnmarshall(new File(fileName));
-		System.out.println("root: "+root);
+		RootNetworkType root = doUnmarshall(new File(fileName));
 
 		for(NFFGType nffg : root.getNFFG()) {
+			oneNffgPolicies = new HashSet<PolicyReader>();
 			NffgReader nffgReader = new NffgReaderCode(nffg);
 			nffgReaders.add(nffgReader);
 			
 			for(ReachabilityPolicyType reachabilityPolicy: nffg.getPolicies().getReachabilityPolicy()){
-				System.out.println("Inside reachability for{}");
 				ReachabilityPolicyReader reachabilityReader = new ReachabilityPolicyReaderCode(nffg, nffgReader, reachabilityPolicy);
-				policyReaders.add(reachabilityReader);
+				policyReaders.add(reachabilityReader); //TODO remove?
+				oneNffgPolicies.add(reachabilityReader);
 			}
 			
 			for(TraversalPolicyType traversalPolicy: nffg.getPolicies().getTraversalPolicy()){
-				System.out.println("Inside traversal for{}");
 				TraversalPolicyReader traversalReader = new TraversalPolicyReaderCode(nffg, nffgReader, traversalPolicy);
-				policyReaders.add(traversalReader);
+				policyReaders.add(traversalReader); //TODO remove?
+				oneNffgPolicies.add(traversalReader);
+
 			}
-			policyMap.put(nffgReader, policyReaders);
+			nffgPoliciesMap.put(nffgReader, oneNffgPolicies);
 		}	
 	}
 
@@ -95,7 +95,7 @@ public class NffgVerifierCode implements NffgVerifier {
 	public Set<PolicyReader> getPolicies(String arg0) {
 		for(NffgReader nffgReader: nffgReaders){
 			if(nffgReader.equals(arg0)){
-				return policyReaders;
+				return nffgPoliciesMap.get(nffgReader);
 			}
 		}
 		return null;

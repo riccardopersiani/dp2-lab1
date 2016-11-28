@@ -12,9 +12,8 @@ import it.polito.dp2.NFFG.NodeReader;
 import it.polito.dp2.NFFG.sol1.jaxb.NFFGType;
 import it.polito.dp2.NFFG.sol1.jaxb.NodeType;
 
-public class NffgReaderCode implements NffgReader {
+public class NffgReaderCode extends NamedEntityReaderCode implements NffgReader {
 
-	private String nffgName;
 	private XMLGregorianCalendar XMLGregorianlastUpdateTime; 
 	private Calendar lastUpdateTime;
 	private Set<NodeReader> nodeReaders;
@@ -22,7 +21,7 @@ public class NffgReaderCode implements NffgReader {
 	private Set<LinkReader> linkReaders;
 	
 	public NffgReaderCode(NFFGType nffg) {
-		this.nffgName = nffg.getName();
+		super(nffg.getName());
 		this.XMLGregorianlastUpdateTime = nffg.getLastUpdateTime();
 		this.lastUpdateTime = this.XMLGregorianlastUpdateTime.toGregorianCalendar();
 
@@ -51,11 +50,6 @@ public class NffgReaderCode implements NffgReader {
 				}
 			}
 		}
-	}
-	
-	@Override
-	public String getName() {
-		return this.nffgName;
 	}
 
 	@Override

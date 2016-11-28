@@ -38,7 +38,7 @@ import it.polito.dp2.NFFG.sol1.jaxb.VerificationType;
 
 public class NffgInfoSerializer {
 
-	public static final String XSD_NAME = "xsd/NffgInfo.xsd";
+	public static final String XSD_NAME = "xsd/nffgInfo.xsd";
 	public static final String PACKAGE = "it.polito.dp2.NFFG.sol1.jaxb";
 	//private static final String XSD_LOCATION = "";
 	int cache = 0;

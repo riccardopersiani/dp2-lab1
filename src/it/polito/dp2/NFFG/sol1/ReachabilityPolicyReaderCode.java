@@ -8,17 +8,18 @@ import it.polito.dp2.NFFG.sol1.jaxb.NFFGType;
 import it.polito.dp2.NFFG.sol1.jaxb.NodeType;
 import it.polito.dp2.NFFG.sol1.jaxb.ReachabilityPolicyType;
 
-public class ReachabilityPolicyReaderCode implements ReachabilityPolicyReader {
+public class ReachabilityPolicyReaderCode extends NamedEntityReaderCode implements ReachabilityPolicyReader {
 
 	private NffgReader nffgReader;
 	private VerificationResultReader verificationResultReader;
 	private Boolean isPositive;
-	private String reachabilityPolicyName;
 	private NodeReader reachabilityDestinationNode;
 	private NodeReader reachabilitySourceNode;
 
 	public ReachabilityPolicyReaderCode(NFFGType nffg,NffgReader nffgReader, ReachabilityPolicyType reachabilityPolicy){
-		this.reachabilityPolicyName = reachabilityPolicy.getId();
+		
+		super(reachabilityPolicy.getId());
+		
 		this.isPositive = reachabilityPolicy.isIsPositive();
 		this.nffgReader = nffgReader;
 		this.verificationResultReader = new VerificationResultReaderCode(nffg, nffgReader, reachabilityPolicy);	
@@ -57,11 +58,6 @@ public class ReachabilityPolicyReaderCode implements ReachabilityPolicyReader {
 	@Override
 	public Boolean isPositive() {
 		return this.isPositive;
-	}
-
-	@Override
-	public String getName() {
-		return this.reachabilityPolicyName;
 	}
 
 	@Override

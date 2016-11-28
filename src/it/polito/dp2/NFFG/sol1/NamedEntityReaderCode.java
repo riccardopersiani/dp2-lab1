@@ -14,7 +14,6 @@ public class NamedEntityReaderCode implements NamedEntityReader {
 	
 	@Override
 	public String getName() {
-		// TODO Auto-generated method stub
 		return entityName;
 	}
 

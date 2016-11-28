@@ -6,10 +6,11 @@ import it.polito.dp2.NFFG.FunctionalType;
 import it.polito.dp2.NFFG.LinkReader;
 import it.polito.dp2.NFFG.NodeReader;
 
-public class NodeReaderUncomplete implements NodeReader{
+public class NodeReaderUncomplete extends NamedEntityReaderCode implements NodeReader{
 	private String nodeName;
 	
 	public NodeReaderUncomplete(String nameNode){
+		super(nameNode);
 		this.nodeName = nameNode;
 	}
 	

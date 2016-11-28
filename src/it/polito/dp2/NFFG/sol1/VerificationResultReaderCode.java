@@ -20,13 +20,11 @@ public class VerificationResultReaderCode implements VerificationResultReader {
 	public VerificationResultReaderCode(NFFGType nffg, NffgReader nffgReader, ReachabilityPolicyType policy){
 		
 		if(policy.getVerification() == null){
-			System.out.println("NO VERIFICATION");
 			this.verificationResult = null;
 			this.verificationResultMsg = null; 
 			this.XMLGregVerificationTime = null;
 			this.verificationPolicyReader = new PolicyReaderCode(nffg, nffgReader, policy, this);
 		} else {
-			System.out.println("VERIFICATION");
 			this.verificationResult = policy.getVerification().isResult();
 			this.verificationResultMsg = policy.getVerification().getMessage(); 
 			this.XMLGregVerificationTime = policy.getVerification().getTime();

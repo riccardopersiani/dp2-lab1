@@ -13,19 +13,19 @@ import it.polito.dp2.NFFG.sol1.jaxb.NodeType;
 import it.polito.dp2.NFFG.sol1.jaxb.ServiceType;
 import it.polito.dp2.NFFG.sol1.jaxb.TraversalPolicyType;
 
-public class TraversalPolicyReaderCode implements TraversalPolicyReader{
+public class TraversalPolicyReaderCode extends NamedEntityReaderCode implements TraversalPolicyReader{
 
 	private NffgReader nffgReader;
 	private VerificationResultReader verificationResultReader;
 	private Boolean isPositive;
-	private String traversalPolicyName;
 	private NodeReader traversalDestinationNode;
 	private NodeReader traversalSourceNode;
 	private Set<FunctionalType> traversalDevices;
 	
 	public TraversalPolicyReaderCode(NFFGType nffg, NffgReader nffgReader, TraversalPolicyType traversalPolicy){
 		
-		this.traversalPolicyName = traversalPolicy.getId();
+		super(traversalPolicy.getId());
+		
 		this.isPositive = traversalPolicy.isIsPositive();
 		this.nffgReader = nffgReader;
 
@@ -77,11 +77,6 @@ public class TraversalPolicyReaderCode implements TraversalPolicyReader{
 	@Override
 	public Boolean isPositive() {
 		return this.isPositive;
-	}
-
-	@Override
-	public String getName() {
-		return this.traversalPolicyName;
 	}
 
 	@Override

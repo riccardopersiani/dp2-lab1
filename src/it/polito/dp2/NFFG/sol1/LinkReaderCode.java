@@ -6,15 +6,15 @@ import it.polito.dp2.NFFG.sol1.jaxb.LinkType;
 import it.polito.dp2.NFFG.sol1.jaxb.NFFGType;
 import it.polito.dp2.NFFG.sol1.jaxb.NodeType;
 
-public class LinkReaderCode implements LinkReader{
+public class LinkReaderCode extends NamedEntityReaderCode implements LinkReader {
 
-	private String linkName;
 	private NodeReader linkDestinationNode;
 	private NodeReader linkSourceNode;
 
 	public LinkReaderCode(NFFGType nffg, LinkType link){
-
-		this.linkName = link.getId();	
+		
+		super(link.getId());
+		
 		NodeReader nodus = null;
 
 		//Looking for the Source Node
@@ -36,11 +36,6 @@ public class LinkReaderCode implements LinkReader{
 	}
 
 	@Override
-	public String getName() {
-		return this.linkName;
-	}
-
-	@Override
 	public NodeReader getDestinationNode() {
 		return this.linkDestinationNode;
 	}
@@ -59,6 +54,6 @@ public class LinkReaderCode implements LinkReader{
 	}
 	
 	public String toString(){
-		return "LinkReader -> Name: "+this.linkName+" - Source: "+this.linkSourceNode.getName()+" - Destination: "+this.linkDestinationNode.getName();
+		return "LinkReader -> Name: "+this.getName()+" - Source: "+this.linkSourceNode.getName()+" - Destination: "+this.linkDestinationNode.getName();
 	}
 }

@@ -11,13 +11,13 @@ import it.polito.dp2.NFFG.sol1.jaxb.NFFGType;
 import it.polito.dp2.NFFG.sol1.jaxb.NodeType;
 import it.polito.dp2.NFFG.sol1.jaxb.ServiceType;
 
-public class NodeReaderCode implements NodeReader{
-	private String nodeName;
+public class NodeReaderCode extends NamedEntityReaderCode implements NodeReader{
 	private FunctionalType nodeFunctionalType;
 	private Set<LinkReader> nodeLinksList;
 	
 	public NodeReaderCode(NodeType node, NFFGType nffg){
-		this.nodeName = node.getId();
+		super(node.getId());
+		
 		this.nodeFunctionalType = covertServiceToFunctional(node.getService());
 		LinkReader linkReader = null;
 		
@@ -28,16 +28,10 @@ public class NodeReaderCode implements NodeReader{
 			if(link.getSource().equals(node.getId())){
 				linkReader = new LinkReaderCode(nffg, link);
 				((LinkReaderCode) linkReader).setSourceNode(this);
-				//System.out.println("SOURCE UPDATE"+linkReader.toString());
 				nodeLinksList.add(linkReader);
 			}
 		}
 		System.out.println(this.toString());
-	}
-
-	@Override
-	public String getName() {
-		return this.nodeName;
 	}
 
 	@Override
@@ -51,7 +45,7 @@ public class NodeReaderCode implements NodeReader{
 	}
 	
 	public String toString(){
-		return "NodeReader -> Name: "+this.nodeName+" - Function: "+this.nodeFunctionalType.toString();
+		return "NodeReader -> Name: "+this.getName()+" - Function: "+this.nodeFunctionalType.toString();
 	}
 
 	private FunctionalType covertServiceToFunctional(ServiceType service){

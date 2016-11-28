@@ -9,41 +9,22 @@
 <!-- Source diverso da destination in link? -->
 <!-- oneServiceforEachServiceID Optional because of the keyref? -->
 
-
 	<xsd:element name="RootNetwork" type="nffg:RootNetworkType">
 		
-		<!-- ***** Keys Definition ***** -->
-		<!-- The *KEY* is the attribute (name) in [SingleService], which is in {Catalog} -->
-		<xsd:key name="FunctionKey"> 
-			<xsd:selector xpath="nffg:Catalog/nffg:SingleService"/>
-			<xsd:field xpath="@name"/>
-		</xsd:key>
-		<!-- The KEYREF is the element [Service] present {Node} ->(name)[SingleService] which is in {Catalog} -->
-		<xsd:keyref name="FunctionKeyRef" refer="nffg:FunctionKey"> 
-			<xsd:selector xpath="nffg:NFFG/nffg:Nodes/nffg:Node"/>
-			<xsd:field xpath="nffg:Service"/>
-		</xsd:keyref>	 
-	
-		<!-- ***** Uniques Definition ***** -->	
+		<!-- ***** Unique Definition ***** -->	
 		<!-- (id) in [NFFG] must be unique -->
-		<xsd:unique name="oneNFFGforEachNFFGID"> 
+		<xsd:unique name="oneNffgForEachNffgId"> 
 			<xsd:selector xpath="nffg:NFFG"/>
 			<xsd:field xpath="@name"/>
 		</xsd:unique>
-		
-		 <!-- UNIQUE SERVICE ID OPTIONAL because of keyref??? -->
-		<xsd:unique name="oneServiceforEachServiceID">
-			<xsd:selector xpath="nffg:Catalog/nffg:SignleService"/>
-			<xsd:field xpath="@name"/>
-		</xsd:unique>		
+				
 	</xsd:element> <!-- *** END of RootNetwork element *** -->
-	
-	<!-- ***** Types Definition ***** -->
-	
+		
 	<xsd:complexType name="RootNetworkType"> <!-- RootNetwork uses this type -->
 		<xsd:sequence>
 			<xsd:element name="NFFG" type="nffg:NFFGType" maxOccurs="unbounded">
-				<!-- The *KEY* is the attribute (id) in [Node], which is in {NFFG} -->  
+				<!-- ***** Keys Definition ***** -->	
+				<!-- The *KEY* is the attribute (id) in [Node], which is in {Nodes} -->  
 				<xsd:key name="NodeKey">
 					<xsd:selector xpath="nffg:Nodes/nffg:Node"/>
 					<xsd:field xpath="@id"/>
@@ -55,7 +36,7 @@
 				</xsd:keyref>
 				<!-- The KEYREF is the element (DestinationNode) present [Link] ->(id)[Node] which is in {NFFG} -->		
 				<xsd:keyref name="DestinationLinkKeyRef" refer="nffg:NodeKey">
-					<xsd:selector xpath="nffg:Link/nffg:Links"/>
+					<xsd:selector xpath="nffg:Links/nffg:Link"/>
 					<xsd:field xpath="nffg:Destination"/>
 				</xsd:keyref>
 				<!-- The KEYREF is the element (SourceNode) present [Policy] ->(id)[Node] which is in {NFFG} -->
@@ -78,18 +59,21 @@
 					<xsd:selector xpath="nffg:Policies/nffg:TraversalPolicy"/>
 					<xsd:field xpath="nffg:Destination"/>
 				</xsd:keyref>		
-				<!-- UNIQUE NODE ID OPTIONAL because of keyref??? -->
-				<xsd:unique name="oneNodeforEachNodeID">
-					<xsd:selector xpath="nffg:NFFG/nffg:Nodes/nffg:Node"/>
-					<xsd:field xpath="@id"/>
-				</xsd:unique>
 				<!-- (id) in [Link] must be unique -->
 				<xsd:unique name="oneLinkforEachLinkID"> 
-					<xsd:selector xpath="nffg:NFFG/nffg:Links/nffg:Link"/>
+					<xsd:selector xpath="nffg:Links/nffg:Link"/>
 					<xsd:field xpath="@id"/>
 				</xsd:unique>
-			</xsd:element>
-			<xsd:element name="Catalog" type="nffg:CatalogType" maxOccurs="unbounded">
+				<!-- (id) in [ReachabilityPolicy] must be unique -->
+				<xsd:unique name="oneReachabilityPolicyforEachPolicyID"> 
+					<xsd:selector xpath="nffg:Policies/nffg:ReachabilityPolicy"/>
+					<xsd:field xpath="@id"/>
+				</xsd:unique>
+				<!-- (id) in [ReachabilityPolicy] must be unique -->
+				<xsd:unique name="oneTraversalPolicyforEachPolicyID"> 
+					<xsd:selector xpath="nffg:Policies/nffg:TraversalPolicy"/>
+					<xsd:field xpath="@id"/>
+				</xsd:unique>
 			</xsd:element>
 		</xsd:sequence>
 	</xsd:complexType>
@@ -101,7 +85,7 @@
 			<xsd:element name="Policies" type="nffg:PoliciesType" minOccurs="0" maxOccurs="1"/>
 		</xsd:sequence>
 		<xsd:attribute name="name" type="xsd:string" use="required"/>
-		<xsd:attribute name="last_update_time" type="xsd:time"/>
+		<xsd:attribute name="last_update_time" type="xsd:dateTime"/>
 	</xsd:complexType>
 	
 	<xsd:complexType name="NodesType">
@@ -113,8 +97,7 @@
 	<xsd:complexType name="LinksType">
 		<xsd:sequence>
 				<xsd:element name="Link" type="nffg:LinkType" maxOccurs="unbounded">
-					<!-- UNIQUE NODE ID OPTIONAL because of keyref??? -->
-					<xsd:unique name="LINK">
+					<xsd:unique name="SourceDifferentFromDestination">
 						<xsd:selector xpath="nffg:Link"/>
 						<xsd:field xpath="Source | Destination"/>
 					</xsd:unique>
@@ -126,17 +109,6 @@
 		<xsd:sequence>
 			<xsd:element name="ReachabilityPolicy" type="nffg:ReachabilityPolicyType" minOccurs="0" maxOccurs="unbounded" />
 			<xsd:element name="TraversalPolicy" type="nffg:TraversalPolicyType" minOccurs="0" maxOccurs="unbounded" />
-		</xsd:sequence>
-	</xsd:complexType>
-	
-	
-	<xsd:complexType name="CatalogType"> <!-- Catalog uses this type -->
-		<xsd:sequence>
-			<xsd:element name="SingleService" maxOccurs="unbounded">
-				<xsd:complexType>
-					<xsd:attribute name="name" use="required" type="nffg:ServiceType"/>
-				</xsd:complexType>
-			</xsd:element>
 		</xsd:sequence>
 	</xsd:complexType>
 	

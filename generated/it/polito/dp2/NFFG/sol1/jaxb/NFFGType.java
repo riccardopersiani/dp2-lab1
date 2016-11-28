@@ -2,7 +2,7 @@
 // Questo file è stato generato dall'architettura JavaTM per XML Binding (JAXB) Reference Implementation, v2.2.8-b130911.1802 
 // Vedere <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Qualsiasi modifica a questo file andrà persa durante la ricompilazione dello schema di origine. 
-// Generato il: 2016.11.27 alle 06:12:39 PM CET 
+// Generato il: 2016.11.28 alle 02:52:20 PM CET 
 //
 
 
@@ -32,7 +32,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="Policies" type="{http://www.riccardopersiani.com/Schema}PoliciesType" minOccurs="0"/>
  *       &lt;/sequence>
  *       &lt;attribute name="name" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
- *       &lt;attribute name="last_update_time" type="{http://www.w3.org/2001/XMLSchema}time" />
+ *       &lt;attribute name="last_update_time" type="{http://www.w3.org/2001/XMLSchema}dateTime" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -57,7 +57,7 @@ public class NFFGType {
     @XmlAttribute(name = "name", required = true)
     protected String name;
     @XmlAttribute(name = "last_update_time")
-    @XmlSchemaType(name = "time")
+    @XmlSchemaType(name = "dateTime")
     protected XMLGregorianCalendar lastUpdateTime;
 
     /**

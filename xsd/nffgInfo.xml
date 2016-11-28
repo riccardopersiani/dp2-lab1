@@ -2,11 +2,10 @@
 <!DOCTYPE xml>
 <RootNetwork xmlns="http://www.riccardopersiani.com/Schema"
 		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		 xsi:schemaLocation="http://www.riccardopersiani.com/Schema file:///C:/Users/Riccardo/workspace/DP2_Assignement1/xsd/nffgInfo.xsd"
+		 xsi:schemaLocation="http://www.riccardopersiani.com/Schema nffgInfo.xsd"
 		 >
 	
 	<NFFG name="NFFG1">
-	
 		<Nodes>
 			<Node id="Node1">
 				<Service>NAT</Service>
@@ -28,21 +27,21 @@
 			</Link>
 			<Link id="Link2">
 				<Source>Node2</Source>
-				<Destination>Node2</Destination>			
+				<Destination>Node3</Destination>			
 			</Link>
-			<Link id="Link2">
+			<Link id="Link3">
 				<Source>Node3</Source>
 				<Destination>Node4</Destination>			
 			</Link>
-			<Link id="Link2">
-				<Source>Node3</Source>
-				<Destination>Node4</Destination>			
+			<Link id="Link4">
+				<Source>Node4</Source>
+				<Destination>Node3</Destination>			
 			</Link>
 		</Links>	
 		<Policies>
-			<ReachabilityPolicy id="r1">
+			<ReachabilityPolicy id="ReachabilityPolicy1">
 				<Source>Node2</Source>
-				<Destination>Node3</Destination>
+				<Destination>Node4</Destination>
 				<isPositive>true</isPositive>
 				<Verification>
 					<Time>2016-10-24T13:00:00</Time>
@@ -50,8 +49,13 @@
 					<Result>true</Result>
 				</Verification> 
 			</ReachabilityPolicy>
+			<ReachabilityPolicy id="ReachabilityPolicy2">
+				<Source>Node2</Source>
+				<Destination>Node4</Destination>
+				<isPositive>true</isPositive>
+			</ReachabilityPolicy>
 		
-			<TraversalPolicy id="t1">
+			<TraversalPolicy id="TraversalPolicy1">
 				<Source>Node2</Source>
 				<Destination>Node3</Destination>
 				<isPositive>false</isPositive>			
@@ -61,26 +65,10 @@
 					<Result>false</Result>
 				</Verification> 
 				<Devices>
-					<Device>Mail server</Device>
-					<Device>NAT</Device>
-					<Device>Firewall</Device>
-					<Device>DPI</Device>
+					<Device>Mail client</Device>
 				</Devices>
 			</TraversalPolicy>
 		</Policies>
 	</NFFG>
-	
-	<Catalog>
-		<SingleService name="Firewall"/>
-		<SingleService name="Web-cache"/>
-		<SingleService name="NAT"/>
-		<SingleService name="VPN gateway"/>
-		<SingleService name="Anti-spam"/>
-		<SingleService name="Mail client"/>
-		<SingleService name="Mail server"/>
-		<SingleService name="Web client"/>
-		<SingleService name="Web server"/>
-		<SingleService name="DPI"/>	
-	</Catalog>
 
 </RootNetwork>
