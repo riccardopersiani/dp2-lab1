@@ -3,7 +3,7 @@
 
 <RootNetwork>
 
-	<NFFG NFFG_name="NFFG1" last_update_time="">
+	<NFFG NFFG_name="NFFG1" last_update_time="12:00:34">
 		<Nodes>
 			<Node node_name="NODE1">
 				<Service service_name="NAT" />

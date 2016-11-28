@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE xml>
+<RootNetwork xmlns="http://www.riccardopersiani.com/Schema"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://www.riccardopersiani.com/Schema file:///C:/Users/Riccardo/workspace/DP2_Assignement1/xsd/nffgInfo.xsd"
+		 >
+	
+	<NFFG name="NFFG1">
+	
+		<Nodes>
+			<Node id="Node1">
+				<Service>NAT</Service>
+			</Node>
+			<Node id="Node2">
+				<Service>Mail client</Service>
+			</Node>
+			<Node id="Node3">
+				<Service>DPI</Service>
+			</Node>
+			<Node id="Node4">
+				<Service>Mail server</Service>
+			</Node>
+		</Nodes>
+		<Links>
+			<Link id="Link1">
+				<Source>Node1</Source>
+				<Destination>Node2</Destination>			
+			</Link>
+			<Link id="Link2">
+				<Source>Node2</Source>
+				<Destination>Node2</Destination>			
+			</Link>
+			<Link id="Link2">
+				<Source>Node3</Source>
+				<Destination>Node4</Destination>			
+			</Link>
+			<Link id="Link2">
+				<Source>Node3</Source>
+				<Destination>Node4</Destination>			
+			</Link>
+		</Links>	
+		<Policies>
+			<ReachabilityPolicy id="r1">
+				<Source>Node2</Source>
+				<Destination>Node3</Destination>
+				<isPositive>true</isPositive>
+				<Verification>
+					<Time>2016-10-24T13:00:00</Time>
+					<Message>Ok</Message>
+					<Result>true</Result>
+				</Verification> 
+			</ReachabilityPolicy>
+		
+			<TraversalPolicy id="t1">
+				<Source>Node2</Source>
+				<Destination>Node3</Destination>
+				<isPositive>false</isPositive>			
+				<Verification>
+					<Time>2016-10-24T13:00:00</Time>
+					<Message>Ok</Message>
+					<Result>false</Result>
+				</Verification> 
+				<Devices>
+					<Device>Mail server</Device>
+					<Device>NAT</Device>
+					<Device>Firewall</Device>
+					<Device>DPI</Device>
+				</Devices>
+			</TraversalPolicy>
+		</Policies>
+	</NFFG>
+	
+	<Catalog>
+		<SingleService name="Firewall"/>
+		<SingleService name="Web-cache"/>
+		<SingleService name="NAT"/>
+		<SingleService name="VPN gateway"/>
+		<SingleService name="Anti-spam"/>
+		<SingleService name="Mail client"/>
+		<SingleService name="Mail server"/>
+		<SingleService name="Web client"/>
+		<SingleService name="Web server"/>
+		<SingleService name="DPI"/>	
+	</Catalog>
+
+</RootNetwork>
