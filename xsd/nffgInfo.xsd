@@ -6,72 +6,51 @@
         targetNamespace="http://www.riccardopersiani.com/Schema"
         elementFormDefault="qualified">
 
-<!-- Source diverso da destination in link? -->
-<!-- oneServiceforEachServiceID Optional because of the keyref? -->
-
-	<xsd:element name="RootNetwork" type="nffg:RootNetworkType">
-		
-		<!-- ***** Unique Definition ***** -->	
-		<!-- (id) in [NFFG] must be unique -->
+	<xsd:element name="RootNetwork" type="nffg:RootNetworkType">	
+		<!-- the (id) of [NFFG] must be globally unique -->
 		<xsd:unique name="oneNffgForEachNffgId"> 
 			<xsd:selector xpath="nffg:NFFG"/>
 			<xsd:field xpath="@name"/>
 		</xsd:unique>
-				
-	</xsd:element> <!-- *** END of RootNetwork element *** -->
+		<!-- (id) in [Policy] must be globally unique -->
+		<xsd:unique name="onePolicyforEachPolicyId"> 
+			<xsd:selector xpath="nffg:NFFG/nffg:Policies/*"/>
+			<xsd:field xpath="@id"/>
+		</xsd:unique>				
+	</xsd:element>
 		
 	<xsd:complexType name="RootNetworkType"> <!-- RootNetwork uses this type -->
 		<xsd:sequence>
 			<xsd:element name="NFFG" type="nffg:NFFGType" maxOccurs="unbounded">
-				<!-- ***** Keys Definition ***** -->	
+				<!-- (id) in [Node] must be unique locally, inside the NFFG -->
 				<!-- The *KEY* is the attribute (id) in [Node], which is in {Nodes} -->  
 				<xsd:key name="NodeKey">
 					<xsd:selector xpath="nffg:Nodes/nffg:Node"/>
 					<xsd:field xpath="@id"/>
 				</xsd:key>
-				<!-- The KEYREF is the element (SourceNode) present [Link] ->(id)[Node] which is in {NFFG} -->
+				<!-- The KEYREF is the element (Source) present [Link] ->(id)[Node] -->
 				<xsd:keyref name="SourceLinkKeyRef" refer="nffg:NodeKey">
 					<xsd:selector xpath="nffg:Links/nffg:Link"/>
 					<xsd:field xpath="nffg:Source"/>
 				</xsd:keyref>
-				<!-- The KEYREF is the element (DestinationNode) present [Link] ->(id)[Node] which is in {NFFG} -->		
+				<!-- The KEYREF is the element (Destination) present [Link] ->(id)[Node]-->		
 				<xsd:keyref name="DestinationLinkKeyRef" refer="nffg:NodeKey">
 					<xsd:selector xpath="nffg:Links/nffg:Link"/>
 					<xsd:field xpath="nffg:Destination"/>
 				</xsd:keyref>
-				<!-- The KEYREF is the element (SourceNode) present [Policy] ->(id)[Node] which is in {NFFG} -->
+				<!-- The KEYREF is the element (Source) present [ReachabilityPolicy] ->(id)[Node] -->
 				<xsd:keyref name="SourceReachabilityPolicyKeyRef" refer="nffg:NodeKey">
 					<xsd:selector xpath="nffg:Policies/nffg:ReachabilityPolicy"/>
 					<xsd:field xpath="nffg:Source"/>
 				</xsd:keyref>
-				<!-- The KEYREF is the element (DestinationNode) present [Policy] ->(id)[Node] which is in {NFFG} -->
+				<!-- The KEYREF is the element (Destination) present [ReachabilityPolicy] ->(id)[Node] -->
 				<xsd:keyref name="DestinationReachabilityPolicyKeyRef" refer="nffg:NodeKey">
 					<xsd:selector xpath="nffg:Policies/nffg:ReachabilityPolicy"/>
 					<xsd:field xpath="nffg:Destination"/>
-				</xsd:keyref>	
-				<!-- The KEYREF is the element (SourceNode) present [Policy] ->(id)[Node] which is in {NFFG} -->
-				<xsd:keyref name="SourceTraversalPolicyKeyRef" refer="nffg:NodeKey">
-					<xsd:selector xpath="nffg:Policies/nffg:TraversalPolicy"/>
-					<xsd:field xpath="nffg:Source"/>
-				</xsd:keyref>
-				<!-- The KEYREF is the element (DestinationNode) present [Policy] ->(id)[Node] which is in {NFFG} -->
-				<xsd:keyref name="DestinationTraversalPolicyKeyRef" refer="nffg:NodeKey">
-					<xsd:selector xpath="nffg:Policies/nffg:TraversalPolicy"/>
-					<xsd:field xpath="nffg:Destination"/>
 				</xsd:keyref>		
-				<!-- (id) in [Link] must be unique -->
+				<!-- (id) in [Link] must be unique locally, inside the NFFG -->
 				<xsd:unique name="oneLinkforEachLinkID"> 
 					<xsd:selector xpath="nffg:Links/nffg:Link"/>
-					<xsd:field xpath="@id"/>
-				</xsd:unique>
-				<!-- (id) in [ReachabilityPolicy] must be unique -->
-				<xsd:unique name="oneReachabilityPolicyforEachPolicyID"> 
-					<xsd:selector xpath="nffg:Policies/nffg:ReachabilityPolicy"/>
-					<xsd:field xpath="@id"/>
-				</xsd:unique>
-				<!-- (id) in [ReachabilityPolicy] must be unique -->
-				<xsd:unique name="oneTraversalPolicyforEachPolicyID"> 
-					<xsd:selector xpath="nffg:Policies/nffg:TraversalPolicy"/>
 					<xsd:field xpath="@id"/>
 				</xsd:unique>
 			</xsd:element>
@@ -80,9 +59,9 @@
 	
 	<xsd:complexType name="NFFGType"> <!-- NFFG uses this type -->
 		<xsd:sequence>
-			<xsd:element name="Nodes" type="nffg:NodesType" maxOccurs="1"/>
-			<xsd:element name="Links" type="nffg:LinksType" maxOccurs="1"/> 
-			<xsd:element name="Policies" type="nffg:PoliciesType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Nodes" type="nffg:NodesType"/>
+			<xsd:element name="Links" type="nffg:LinksType"/> 
+			<xsd:element name="Policies" type="nffg:PoliciesType" minOccurs="0"/>
 		</xsd:sequence>
 		<xsd:attribute name="name" type="xsd:string" use="required"/>
 		<xsd:attribute name="last_update_time" type="xsd:dateTime"/>
@@ -90,18 +69,13 @@
 	
 	<xsd:complexType name="NodesType">
 		<xsd:sequence>
-			<xsd:element name="Node" type="nffg:NodeType" maxOccurs="unbounded"/>
+			<xsd:element name="Node" type="nffg:NodeType" minOccurs="2" maxOccurs="unbounded"/>
 		</xsd:sequence>
 	</xsd:complexType>
 	
 	<xsd:complexType name="LinksType">
 		<xsd:sequence>
-				<xsd:element name="Link" type="nffg:LinkType" maxOccurs="unbounded">
-					<xsd:unique name="SourceDifferentFromDestination">
-						<xsd:selector xpath="nffg:Link"/>
-						<xsd:field xpath="Source | Destination"/>
-					</xsd:unique>
-				</xsd:element> 
+				<xsd:element name="Link" type="nffg:LinkType" maxOccurs="unbounded"/>
 		</xsd:sequence>
 	</xsd:complexType>
 	
@@ -118,21 +92,6 @@
 		</xsd:sequence>
 		<xsd:attribute name="id" type="xsd:string" use="required"/>
 	</xsd:complexType>
-	
-	<xsd:simpleType name="ServiceType"><!-- SingleService in Catalog uses this type -->
-		<xsd:restriction base="xsd:string">
-			<xsd:enumeration value="Firewall"/>
-			<xsd:enumeration value="DPI"/>
-			<xsd:enumeration value="NAT"/>
-			<xsd:enumeration value="Anti-spam"/>
-			<xsd:enumeration value="Web-cache"/>
-			<xsd:enumeration value="VPN gateway"/>
-			<xsd:enumeration value="Web server"/>
-			<xsd:enumeration value="Web client"/>
-			<xsd:enumeration value="Mail server"/>
-			<xsd:enumeration value="Mail client"/>
-		</xsd:restriction>
-	</xsd:simpleType>
 	
 	<xsd:complexType name="LinkType"> <!-- Link uses this type -->
 		<xsd:sequence>
@@ -156,7 +115,7 @@
 		<xsd:complexContent>
 			<xsd:extension base="nffg:ReachabilityPolicyType">
 				<xsd:sequence>
-					<xsd:element name="Devices" type="nffg:DevicesListType"/>
+					<xsd:element name="Devices" type="nffg:DevicesListType" maxOccurs="unbounded"/>
 				</xsd:sequence>
 			</xsd:extension>
 		</xsd:complexContent>
@@ -175,5 +134,20 @@
 			<xsd:element name="Device" type="nffg:ServiceType" maxOccurs="unbounded"/>
 		</xsd:sequence>
 	</xsd:complexType>
+		
+	<xsd:simpleType name="ServiceType"><!-- SingleService in Catalog uses this type -->
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Firewall"/>
+			<xsd:enumeration value="DPI"/>
+			<xsd:enumeration value="NAT"/>
+			<xsd:enumeration value="Anti-spam"/>
+			<xsd:enumeration value="Web-cache"/>
+			<xsd:enumeration value="VPN gateway"/>
+			<xsd:enumeration value="Web server"/>
+			<xsd:enumeration value="Web client"/>
+			<xsd:enumeration value="Mail server"/>
+			<xsd:enumeration value="Mail client"/>
+		</xsd:restriction>
+	</xsd:simpleType>
 	
 </xsd:schema>

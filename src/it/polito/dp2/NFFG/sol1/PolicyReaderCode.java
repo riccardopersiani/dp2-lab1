@@ -36,7 +36,7 @@ public class PolicyReaderCode extends NamedEntityReaderCode implements PolicyRea
 		return this.policyIsPositive;
 	}
 	
-	public String toString(){ //TODO
+	public String toString(){
 		return "PolicyReader -> Name: "+this.getName()+", NffgReader: "+this.policyNffgReader.toString()+", ";
 	}
 

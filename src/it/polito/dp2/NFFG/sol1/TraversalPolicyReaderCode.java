@@ -28,7 +28,6 @@ public class TraversalPolicyReaderCode extends NamedEntityReaderCode implements 
 		
 		this.isPositive = traversalPolicy.isIsPositive();
 		this.nffgReader = nffgReader;
-
 		this.verificationResultReader = new VerificationResultReaderCode(nffg, nffgReader, traversalPolicy);
 		
 		if(traversalPolicy.getVerification() == null){
@@ -42,14 +41,14 @@ public class TraversalPolicyReaderCode extends NamedEntityReaderCode implements 
 				this.traversalDestinationNode = nffgReader.getNode(node.getId());
 			}
 		}
+		
 		for(NodeType node: nffg.getNodes().getNode()){
 			if(node.equals(traversalPolicy.getDestination())){
 				this.traversalSourceNode = nffgReader.getNode(node.getId());
 			}
 		}
-		// Scroll the Devices list
+		
 		for(ServiceType service: traversalPolicy.getDevices().getDevice()){
-			// Convert ServiceType to FunctionalType and add it in the Set<FunctionalType>
 			traversalDevices.add(covertServiceToFunctional(service));
 		}
 	}
@@ -83,6 +82,7 @@ public class TraversalPolicyReaderCode extends NamedEntityReaderCode implements 
 	public Set<FunctionalType> getTraversedFuctionalTypes() {
 		return this.traversalDevices;
 	}
+	
 	private FunctionalType covertServiceToFunctional(ServiceType service){
 		FunctionalType functional = FunctionalType.CACHE;
 		switch(service){

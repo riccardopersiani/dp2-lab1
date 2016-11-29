@@ -21,7 +21,6 @@ import javax.xml.validation.SchemaFactory;
 import org.xml.sax.SAXException;
 
 import it.polito.dp2.NFFG.*;
-import it.polito.dp2.NFFG.sol1.jaxb.CatalogType;
 import it.polito.dp2.NFFG.sol1.jaxb.DevicesListType;
 import it.polito.dp2.NFFG.sol1.jaxb.LinkType;
 import it.polito.dp2.NFFG.sol1.jaxb.LinksType;
@@ -40,17 +39,6 @@ public class NffgInfoSerializer {
 
 	public static final String XSD_NAME = "xsd/nffgInfo.xsd";
 	public static final String PACKAGE = "it.polito.dp2.NFFG.sol1.jaxb";
-	//private static final String XSD_LOCATION = "";
-	int cache = 0;
-	int dpi = 0;
-	int fw = 0;
-	int nat = 0;
-	int spam = 0;
-	int vpn = 0;
-	int web_client = 0;
-	int mail_client = 0;
-	int mail_server = 0;
-	int web_server = 0;
 
 	private NffgVerifier monitor;
 
@@ -76,20 +64,16 @@ public class NffgInfoSerializer {
 	}
 
 	public void FromJavaToXml(PrintStream filename){	
-		try {// Create Context, where is looking for classes
+		try {
 			JAXBContext jaxbContext = JAXBContext.newInstance("it.polito.dp2.NFFG.sol1.jaxb");
-			// Create the marshaler
 			Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
-			// Create Schema;
-			Schema schema = null;
-			// TODO
-			schema = SchemaFactory.newInstance(W3C_XML_SCHEMA_NS_URI).newSchema(new File(XSD_NAME));
-			// Output pretty printed
+			Schema schema = SchemaFactory.newInstance(W3C_XML_SCHEMA_NS_URI).newSchema(new File(XSD_NAME));
+
 			jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);   
-			//jaxbMarshaller.setProperty(Marshaller.JAXB_SCHEMA_LOCATION, XSD_LOCATION+" "+XSD_NAME);
 			jaxbMarshaller.setSchema(schema);
 			jaxbMarshaller.marshal(root, filename);
 			jaxbMarshaller.marshal(root, System.out);
+
 		} catch (JAXBException e) {
 			System.err.println("Error creating the new instance of the JAXBContent");
 			e.printStackTrace();
@@ -107,7 +91,7 @@ public class NffgInfoSerializer {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		try {// Initialize the NFFG Serializer
+		try {
 			NffgInfoSerializer serializer = new NffgInfoSerializer();
 			serializer.createNffgsStructure();
 			PrintStream fpout = new PrintStream(new File(args[0]));
@@ -155,14 +139,14 @@ public class NffgInfoSerializer {
 		for (PolicyReader pr: Policyset) {
 			try{
 				/*** Create TraversalPolicy ***/
-				TraversalPolicyType TraversalPolicy =new ObjectFactory().createTraversalPolicyType();			    
+				TraversalPolicyType TraversalPolicy = new ObjectFactory().createTraversalPolicyType();			    
 				// Set a single traversal policy
 				TraversalPolicyReader policy = (TraversalPolicyReader) pr;
 				// Get the list of traversed devices in the single policy
 				Set<FunctionalType> FunctionalSet = policy.getTraversedFuctionalTypes();
 				/*** Create Devices ***/
 				DevicesListType Devices = new ObjectFactory().createDevicesListType();
-				
+
 				// Select each device traversed by the policy 
 				for(FunctionalType f: FunctionalSet) {
 					ServiceType Service = covertFunctionalToService(f);
@@ -212,11 +196,10 @@ public class NffgInfoSerializer {
 				ReachabilityPolicy.setSource(policy.getSourceNode().getName());
 				ReachabilityPolicy.setDestination(policy.getDestinationNode().getName());
 				ReachabilityPolicy.setIsPositive(policy.isPositive());
-				
+
 				VerificationType Verification = new ObjectFactory().createVerificationType();
 				VerificationResultReader result = policy.getResult();
-				if (result == null){
-				} else{
+				if (result != null){
 					// Set <attribute name="last_update_time">
 					Calendar verificationTime = result.getVerificationTime();
 					XMLGregorianCalendar verificationTimeXGC;
@@ -244,7 +227,7 @@ public class NffgInfoSerializer {
 		ServiceType service = ServiceType.WEB_CACHE;
 		switch(functional){
 		case CACHE: service = ServiceType.WEB_CACHE;
-				    break;
+					break;
 		case DPI: service = ServiceType.DPI;
 					break;
 		case FW: service = ServiceType.FIREWALL;
@@ -266,90 +249,8 @@ public class NffgInfoSerializer {
 		}
 		return service;
 	}
-	
-	void addNewServiceToCatalog(FunctionalType functional, CatalogType Catalog){
-		ServiceType service = ServiceType.WEB_CACHE;			
 
-		switch(functional){
-		case CACHE: service = ServiceType.WEB_CACHE;
-		if(cache == 0){ CatalogType.SingleService s = new ObjectFactory().createCatalogTypeSingleService();
-		s.setName(service);
-		Catalog.getSingleService().add(s);
-		cache = 1;
-		}
-		break;
-		case DPI: service = ServiceType.DPI;
-		if(dpi == 0){ CatalogType.SingleService s = new ObjectFactory().createCatalogTypeSingleService();
-		s.setName(service);
-		Catalog.getSingleService().add(s);
-		dpi = 1;
-		}
-		break;
-		case FW: service = ServiceType.FIREWALL;
-		if(fw == 0){ CatalogType.SingleService s = new ObjectFactory().createCatalogTypeSingleService();
-		s.setName(service);
-		Catalog.getSingleService().add(s);
-		fw = 1;
-		}
-		break;
-		case NAT: service = ServiceType.NAT;
-		if(nat == 0){ CatalogType.SingleService s = new ObjectFactory().createCatalogTypeSingleService();
-		s.setName(service);
-		Catalog.getSingleService().add(s);
-		nat = 1;
-		}
-		break;
-		case SPAM: service = ServiceType.ANTI_SPAM;
-		if(spam == 0){ CatalogType.SingleService s = new ObjectFactory().createCatalogTypeSingleService();
-		s.setName(service);
-		Catalog.getSingleService().add(s);
-		spam = 1;
-		}
-		break;
-		case VPN: service = ServiceType.VPN_GATEWAY;
-		if(vpn == 0){ CatalogType.SingleService s = new ObjectFactory().createCatalogTypeSingleService();
-		s.setName(service);
-		Catalog.getSingleService().add(s);
-		vpn = 1;
-		}
-		break;
-		case WEB_CLIENT: service = ServiceType.WEB_CLIENT;
-		if(web_client == 0){ CatalogType.SingleService s = new ObjectFactory().createCatalogTypeSingleService();
-		s.setName(service);
-		Catalog.getSingleService().add(s);
-		web_client = 1;
-		}
-		break;
-		case WEB_SERVER: service = ServiceType.WEB_SERVER;
-		if(web_server == 0){ CatalogType.SingleService s = new ObjectFactory().createCatalogTypeSingleService();
-		s.setName(service);
-		Catalog.getSingleService().add(s);
-		web_server = 1;
-		}
-		break;
-		case MAIL_SERVER: service = ServiceType.MAIL_SERVER;
-		if(mail_server == 0){ CatalogType.SingleService s = new ObjectFactory().createCatalogTypeSingleService();
-		s.setName(service);
-		Catalog.getSingleService().add(s);
-		mail_server = 1;
-		}
-		break;
-		case MAIL_CLIENT: service = ServiceType.MAIL_CLIENT;
-		if(mail_client == 0){ CatalogType.SingleService s = new ObjectFactory().createCatalogTypeSingleService();
-		s.setName(service);
-		Catalog.getSingleService().add(s);
-		mail_client = 1;
-		}
-		break;
-		}
-
-	}
-	
 	private void createNffgsStructure() {
-		/** Create one Catalog **/
-		CatalogType Catalog = new ObjectFactory().createCatalogType();
-		// Add a single Catalog to the root
-		rootNetwork.getCatalog().add(Catalog);	
 		// Get the list of NFFGs
 		Set<NffgReader> NFFGset = monitor.getNffgs();
 
@@ -389,8 +290,6 @@ public class NffgInfoSerializer {
 				Node.setService(covertFunctionalToService(nr.getFuncType()));
 				// Add a single Node to the Nodes
 				Nodes.getNode().add(Node);
-				// Add new SingleService to Catalog
-				addNewServiceToCatalog(nr.getFuncType(), Catalog);
 				// Get the list of links
 				Set<LinkReader> linkSet = nr.getLinks();
 

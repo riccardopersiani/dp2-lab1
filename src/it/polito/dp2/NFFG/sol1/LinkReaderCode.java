@@ -25,7 +25,6 @@ public class LinkReaderCode extends NamedEntityReaderCode implements LinkReader 
 			}
 		}
 
-		//TODO Try to subsubstitute the for inside the other
 		//Looking for the Destination node
 		for(NodeType node: nffg.getNodes().getNode()){	
 			if(node.getId().equals(link.getDestination())){

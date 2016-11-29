@@ -1,1 +1,5 @@
-Xsd description...
+This project was developed by Riccardo Persiani for the course of Distributed Programming II, taught by Professor Ricardo Sisto at the Technical Univerity of Turin.
+In particular this document refers to the Assignment 1 - part a, released in early October.
+
+This W3C XML Schema is the implementation of a System that manages Network Function Forwarding Graphs(NF-FGs), where network devices offer services listed in a catalog.
+The root is named "RootNetwork" which has no attributes and contains one or more "NFFG" and one and only one "Catalog". 

@@ -16,7 +16,7 @@ public class ReachabilityPolicyReaderCode extends NamedEntityReaderCode implemen
 	private NodeReader reachabilityDestinationNode;
 	private NodeReader reachabilitySourceNode;
 
-	public ReachabilityPolicyReaderCode(NFFGType nffg,NffgReader nffgReader, ReachabilityPolicyType reachabilityPolicy){
+	public ReachabilityPolicyReaderCode(NFFGType nffg, NffgReader nffgReader, ReachabilityPolicyType reachabilityPolicy){
 		
 		super(reachabilityPolicy.getId());
 		
@@ -24,7 +24,6 @@ public class ReachabilityPolicyReaderCode extends NamedEntityReaderCode implemen
 		this.nffgReader = nffgReader;
 		this.verificationResultReader = new VerificationResultReaderCode(nffg, nffgReader, reachabilityPolicy);	
 		
-		//TODO is necessary? or is necessary to put null field inside verifier?
 		if(reachabilityPolicy.getVerification() == null){
 			this.verificationResultReader = null;
 		}

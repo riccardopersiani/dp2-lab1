@@ -3,7 +3,7 @@
 
 <RootNetwork>
 
-	<NFFG NFFG_name="NFFG1" last_update_time="12:00:34">
+	<NFFG NFFG_name="NFFG1" last_update_time="2016-10-24T13:00:00">
 		<Nodes>
 			<Node node_name="NODE1">
 				<Service service_name="NAT" />
@@ -42,13 +42,13 @@
 				</ReachabilityPolicy>
 			</Policy>
 			<Policy policy_name="POLICY2">
-				<ReachabilityPolicy verification_message="Ok" verification_time="13:00:01" verification_result="true" isPositive="true">
+				<ReachabilityPolicy verification_message="Ok" verification_time="2016-12-24T13:00:00" verification_result="true" isPositive="true">
 					<Source source_name="NODE2" />
 					<Destination destination_name="NODE1" />
 				</ReachabilityPolicy>
 			</Policy>
 			<Policy policy_name="POLICY3">
-				<TraversalPolicy verification_message="OK" verification_time="12:00:05" verification_result="false" isPositive="false">
+				<TraversalPolicy verification_message="Ok" verification_time="2016-11-20T11:00:00" verification_result="false" isPositive="false">
 					<Source source_name="NODE3" />
 					<Destination destination_name="NODE1" />
 					<Devices>

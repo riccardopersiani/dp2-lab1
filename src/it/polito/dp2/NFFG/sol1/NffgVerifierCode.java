@@ -45,7 +45,6 @@ public class NffgVerifierCode implements NffgVerifier {
 		policyReaders = new HashSet<PolicyReader>();
 		nffgPoliciesMap = new HashMap<NffgReader,Set<PolicyReader>>();
 
-		//TODO lo metto fuori?
 		String fileName = System.getProperty("it.polito.dp2.NFFG.sol1.NffgInfo.file");
 		RootNetworkType root = doUnmarshall(new File(fileName));
 
@@ -56,18 +55,30 @@ public class NffgVerifierCode implements NffgVerifier {
 			
 			for(ReachabilityPolicyType reachabilityPolicy: nffg.getPolicies().getReachabilityPolicy()){
 				ReachabilityPolicyReader reachabilityReader = new ReachabilityPolicyReaderCode(nffg, nffgReader, reachabilityPolicy);
-				policyReaders.add(reachabilityReader); //TODO remove?
+				policyReaders.add(reachabilityReader);
 				oneNffgPolicies.add(reachabilityReader);
 			}
 			
 			for(TraversalPolicyType traversalPolicy: nffg.getPolicies().getTraversalPolicy()){
 				TraversalPolicyReader traversalReader = new TraversalPolicyReaderCode(nffg, nffgReader, traversalPolicy);
-				policyReaders.add(traversalReader); //TODO remove?
+				policyReaders.add(traversalReader);
 				oneNffgPolicies.add(traversalReader);
 
 			}
 			nffgPoliciesMap.put(nffgReader, oneNffgPolicies);
 		}	
+		// Check if there are policies with the same id
+		for(PolicyReader p : policyReaders ){
+			int count = 0;
+			for(PolicyReader pr : policyReaders ){
+				if(p.getName()==pr.getName()){
+					count++;
+					if(count>1){
+						System.err.println("Error! "+count+" policies with the same Id");
+					}
+				}
+			}
+		}
 	}
 
 	@Override
@@ -103,13 +114,13 @@ public class NffgVerifierCode implements NffgVerifier {
 
 	@Override
 	public Set<PolicyReader> getPolicies(Calendar arg0) {
-		// TODO Auto-generated method stub
+		Set<PolicyReader> policyAfter = new HashSet<PolicyReader>();
 		for(PolicyReader policyReader: policyReaders){
-			if(policyReader.equals(arg0)){
-				return policyReaders;
+			if(policyReader.getResult().getVerificationTime().after(arg0)){
+				policyAfter.add(policyReader);
 			}
 		}
-		return null;
+		return policyAfter;
 	}
 	
 	private RootNetworkType doUnmarshall(File inputFile) throws JAXBException, SAXException, IllegalArgumentException {
@@ -135,9 +146,7 @@ public class NffgVerifierCode implements NffgVerifier {
 		// Set the schema 
 		jaxbUnmarshaller.setSchema(schema);
 		// Set the input file to be unmarshalled 
-		System.out.println("Unmarshaling Done!!");
 		//RootNetworkType root = (RootNetworkType)jaxbUnmarshaller.unmarshal(inputFile);
-		//TODO fix this warning
 		JAXBElement<RootNetworkType> root = (JAXBElement<RootNetworkType>) jaxbUnmarshaller.unmarshal(inputFile);
 		RootNetworkType r = root.getValue();
 		return r;
