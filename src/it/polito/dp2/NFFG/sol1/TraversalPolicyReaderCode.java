@@ -14,6 +14,8 @@ import it.polito.dp2.NFFG.sol1.jaxb.NodeType;
 import it.polito.dp2.NFFG.sol1.jaxb.ServiceType;
 import it.polito.dp2.NFFG.sol1.jaxb.TraversalPolicyType;
 
+import it.polito.dp2.NFFG.sol1.util.Util;
+
 public class TraversalPolicyReaderCode extends NamedEntityReaderCode implements TraversalPolicyReader{
 
 	private NffgReader nffgReader;
@@ -51,7 +53,7 @@ public class TraversalPolicyReaderCode extends NamedEntityReaderCode implements 
 		
 		for(DevicesListType devices: traversalPolicy.getDevices()){
 			for(ServiceType service: devices.getDevice()){
-				traversalDevices.add(covertServiceToFunctional(service));
+				traversalDevices.add(Util.covertServiceToFunctional(service));
 			}
 		}
 	}
@@ -86,31 +88,6 @@ public class TraversalPolicyReaderCode extends NamedEntityReaderCode implements 
 		return this.traversalDevices;
 	}
 	
-	private FunctionalType covertServiceToFunctional(ServiceType service){
-		FunctionalType functional = FunctionalType.CACHE;
-		switch(service){
-		case WEB_CACHE: functional = FunctionalType.CACHE;
-				    break;
-		case DPI: functional = FunctionalType.DPI;
-					break;
-		case FIREWALL: functional = FunctionalType.FW;
-					break;
-		case NAT: functional = FunctionalType.NAT;
-					break;
-		case ANTI_SPAM: functional = FunctionalType.SPAM;
-					break;
-		case VPN_GATEWAY: functional = FunctionalType.VPN;
-					break;
-		case WEB_CLIENT: functional = FunctionalType.WEB_CLIENT;
-					break;
-		case MAIL_CLIENT: functional = FunctionalType.MAIL_CLIENT;
-					break;
-		case MAIL_SERVER: functional = FunctionalType.MAIL_SERVER;
-					break;
-		case WEB_SERVER: functional = FunctionalType.WEB_SERVER;
-					break;
-		}
-		return functional;
-	}
+
 
 }

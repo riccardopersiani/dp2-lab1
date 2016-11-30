@@ -2,7 +2,7 @@
 // Questo file è stato generato dall'architettura JavaTM per XML Binding (JAXB) Reference Implementation, v2.2.8-b130911.1802 
 // Vedere <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Qualsiasi modifica a questo file andrà persa durante la ricompilazione dello schema di origine. 
-// Generato il: 2016.11.30 alle 03:24:17 PM CET 
+// Generato il: 2016.11.30 alle 04:46:38 PM CET 
 //
 
 
@@ -31,7 +31,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="Links" type="{http://www.riccardopersiani.com/Schema}LinksType"/>
  *         &lt;element name="Policies" type="{http://www.riccardopersiani.com/Schema}PoliciesType" minOccurs="0"/>
  *       &lt;/sequence>
- *       &lt;attribute name="name" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
+ *       &lt;attribute name="name" use="required" type="{http://www.riccardopersiani.com/Schema}InitialCharType" />
  *       &lt;attribute name="last_update_time" type="{http://www.w3.org/2001/XMLSchema}dateTime" />
  *     &lt;/restriction>
  *   &lt;/complexContent>

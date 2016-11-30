@@ -2,7 +2,7 @@
 // Questo file è stato generato dall'architettura JavaTM per XML Binding (JAXB) Reference Implementation, v2.2.8-b130911.1802 
 // Vedere <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Qualsiasi modifica a questo file andrà persa durante la ricompilazione dello schema di origine. 
-// Generato il: 2016.11.30 alle 03:24:17 PM CET 
+// Generato il: 2016.11.30 alle 04:46:38 PM CET 
 //
 
 
@@ -65,6 +65,30 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link NodesType }
+     * 
+     */
+    public NodesType createNodesType() {
+        return new NodesType();
+    }
+
+    /**
+     * Create an instance of {@link TraversalPolicyType }
+     * 
+     */
+    public TraversalPolicyType createTraversalPolicyType() {
+        return new TraversalPolicyType();
+    }
+
+    /**
+     * Create an instance of {@link ReachabilityPolicyType }
+     * 
+     */
+    public ReachabilityPolicyType createReachabilityPolicyType() {
+        return new ReachabilityPolicyType();
+    }
+
+    /**
      * Create an instance of {@link NodeType }
      * 
      */
@@ -89,35 +113,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link NodesType }
-     * 
-     */
-    public NodesType createNodesType() {
-        return new NodesType();
-    }
-
-    /**
-     * Create an instance of {@link TraversalPolicyType }
-     * 
-     */
-    public TraversalPolicyType createTraversalPolicyType() {
-        return new TraversalPolicyType();
-    }
-
-    /**
      * Create an instance of {@link LinkType }
      * 
      */
     public LinkType createLinkType() {
         return new LinkType();
-    }
-
-    /**
-     * Create an instance of {@link ReachabilityPolicyType }
-     * 
-     */
-    public ReachabilityPolicyType createReachabilityPolicyType() {
-        return new ReachabilityPolicyType();
     }
 
     /**

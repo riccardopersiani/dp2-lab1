@@ -63,7 +63,7 @@
 			<xsd:element name="Links" type="nffg:LinksType"/> 
 			<xsd:element name="Policies" type="nffg:PoliciesType" minOccurs="0"/>
 		</xsd:sequence>
-		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="name" type="nffg:InitialCharType" use="required"/>
 		<xsd:attribute name="last_update_time" type="xsd:dateTime"/>
 	</xsd:complexType>
 	
@@ -86,11 +86,17 @@
 		</xsd:sequence>
 	</xsd:complexType>
 	
+	<xsd:simpleType name="InitialCharType">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="[a-zA-Z]([a-zA-Z0-9])*"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+			
 	<xsd:complexType name="NodeType"> <!-- Node uses this type -->
 		<xsd:sequence>
 			<xsd:element name="Service" type="nffg:ServiceType"/>
 		</xsd:sequence>
-		<xsd:attribute name="id" type="xsd:string" use="required"/>
+		<xsd:attribute name="id" type="nffg:InitialCharType" use="required"/>			
 	</xsd:complexType>
 	
 	<xsd:complexType name="LinkType"> <!-- Link uses this type -->
@@ -98,7 +104,7 @@
 			<xsd:element name="Source" type="xsd:string" /> 
 			<xsd:element name="Destination" type="xsd:string"/> 
 		</xsd:sequence>
-		<xsd:attribute name="id" type="xsd:string" use="required"/>
+		<xsd:attribute name="id" type="nffg:InitialCharType" use="required"/>
 	</xsd:complexType>
 	
 	<xsd:complexType name="ReachabilityPolicyType"> <!-- Policy uses this type -->
@@ -108,7 +114,7 @@
 			<xsd:element name="isPositive" type="xsd:boolean"/>
 			<xsd:element name="Verification" type="nffg:VerificationType" minOccurs="0"/>
 		</xsd:sequence>
-		<xsd:attribute name="id" type="xsd:string" use="required"/>
+		<xsd:attribute name="id" type="nffg:InitialCharType" use="required"/>
 	</xsd:complexType>
 	
 	<xsd:complexType name="TraversalPolicyType">

@@ -12,8 +12,6 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
-import javax.xml.datatype.DatatypeConfigurationException;
-import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
@@ -34,6 +32,7 @@ import it.polito.dp2.NFFG.sol1.jaxb.RootNetworkType;
 import it.polito.dp2.NFFG.sol1.jaxb.ServiceType;
 import it.polito.dp2.NFFG.sol1.jaxb.TraversalPolicyType;
 import it.polito.dp2.NFFG.sol1.jaxb.VerificationType;
+import it.polito.dp2.NFFG.sol1.util.Util;
 
 public class NffgInfoSerializer {
 
@@ -97,33 +96,11 @@ public class NffgInfoSerializer {
 			PrintStream fpout = new PrintStream(new File(args[0]));
 			serializer.FromJavaToXml(fpout);
 		} catch (NffgVerifierException e) {
-			/*******TODO********/
 			System.err.println("Error creating the new NFFGInfoSerializer");
 			e.printStackTrace();
 		} catch (FileNotFoundException e) {
 			System.err.println("Error! The file: "+args[0]+" does not exists!");
 			e.printStackTrace();
-		}
-	}
-
-	private XMLGregorianCalendar calendarToXMLGregorianCalendar(Calendar calendar) {
-		try {
-			DatatypeFactory dtf = DatatypeFactory.newInstance();
-			XMLGregorianCalendar xgc = dtf.newXMLGregorianCalendar();
-			xgc.setYear(calendar.get(Calendar.YEAR));
-			xgc.setMonth(calendar.get(Calendar.MONTH) + 1);
-			xgc.setDay(calendar.get(Calendar.DAY_OF_MONTH));
-			xgc.setHour(calendar.get(Calendar.HOUR_OF_DAY));
-			xgc.setMinute(calendar.get(Calendar.MINUTE));
-			xgc.setSecond(calendar.get(Calendar.SECOND));
-			xgc.setMillisecond(calendar.get(Calendar.MILLISECOND));
-			// Calendar ZONE_OFFSET and DST_OFFSET fields are in milliseconds.
-			int offsetInMinutes = (calendar.get(Calendar.ZONE_OFFSET) + calendar.get(Calendar.DST_OFFSET)) / (60 * 1000);
-			xgc.setTimezone(offsetInMinutes);
-			return xgc;
-		} catch (DatatypeConfigurationException e) {
-			System.out.print(e.getMessage());
-			return null;
 		}
 	}
 
@@ -149,7 +126,7 @@ public class NffgInfoSerializer {
 
 				// Select each device traversed by the policy 
 				for(FunctionalType f: FunctionalSet) {
-					ServiceType Service = covertFunctionalToService(f);
+					ServiceType Service = Util.covertFunctionalToService(f);
 					Devices.getDevice().add(Service);
 				}	
 
@@ -169,7 +146,7 @@ public class NffgInfoSerializer {
 					// Set <attribute name="last_update_time">
 					Calendar verificationTime = result.getVerificationTime();
 					XMLGregorianCalendar verificationTimeXGC;
-					verificationTimeXGC = calendarToXMLGregorianCalendar(verificationTime);
+					verificationTimeXGC = Util.calendarToXMLGregorianCalendar(verificationTime);
 
 					if (result.getVerificationResult()){
 						Verification.setResult(true);
@@ -203,7 +180,7 @@ public class NffgInfoSerializer {
 					// Set <attribute name="last_update_time">
 					Calendar verificationTime = result.getVerificationTime();
 					XMLGregorianCalendar verificationTimeXGC;
-					verificationTimeXGC = calendarToXMLGregorianCalendar(verificationTime);
+					verificationTimeXGC = Util.calendarToXMLGregorianCalendar(verificationTime);
 
 					if (result.getVerificationResult()){
 						Verification.setResult(true);
@@ -223,33 +200,6 @@ public class NffgInfoSerializer {
 		}
 	}
 
-	private ServiceType covertFunctionalToService(FunctionalType functional){
-		ServiceType service = ServiceType.WEB_CACHE;
-		switch(functional){
-		case CACHE: service = ServiceType.WEB_CACHE;
-					break;
-		case DPI: service = ServiceType.DPI;
-					break;
-		case FW: service = ServiceType.FIREWALL;
-					break;
-		case NAT: service = ServiceType.NAT;
-					break;
-		case SPAM: service = ServiceType.ANTI_SPAM;
-					break;
-		case VPN: service = ServiceType.VPN_GATEWAY;
-					break;
-		case WEB_CLIENT: service = ServiceType.WEB_CLIENT;
-					break;
-		case MAIL_CLIENT: service = ServiceType.MAIL_CLIENT;
-					break;
-		case MAIL_SERVER: service = ServiceType.MAIL_SERVER;
-					break;
-		case WEB_SERVER: service = ServiceType.WEB_SERVER;
-					break;
-		}
-		return service;
-	}
-
 	private void createNffgsStructure() {
 		// Get the list of NFFGs
 		Set<NffgReader> NFFGset = monitor.getNffgs();
@@ -263,7 +213,7 @@ public class NffgInfoSerializer {
 			// Set <attribute name="last_update_time">
 			Calendar lastUpdateTime = nffg_r.getUpdateTime();
 			XMLGregorianCalendar lastUpdateTimeXGC;
-			lastUpdateTimeXGC = calendarToXMLGregorianCalendar(lastUpdateTime);
+			lastUpdateTimeXGC = Util.calendarToXMLGregorianCalendar(lastUpdateTime);
 			NFFG.setLastUpdateTime(lastUpdateTimeXGC);
 
 			// Add a single NFFG to the root
@@ -287,7 +237,7 @@ public class NffgInfoSerializer {
 				// Set <attribute name="id">
 				Node.setId(nr.getName());
 				// Set <attribute name="Service">
-				Node.setService(covertFunctionalToService(nr.getFuncType()));
+				Node.setService(Util.covertFunctionalToService(nr.getFuncType()));
 				// Add a single Node to the Nodes
 				Nodes.getNode().add(Node);
 				// Get the list of links

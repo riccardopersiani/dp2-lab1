@@ -119,7 +119,7 @@ public class NffgVerifierCode implements NffgVerifier {
 		// Create the package where the class used to read XML elements and create objects (like NodeType).
 		try {
 			schema = SchemaFactory.newInstance(W3C_XML_SCHEMA_NS_URI).newSchema(new File(XSD_NAME));
-			
+
 		}catch(IllegalArgumentException e) {
 			System.err.println("Error! No implementation of the schema language is available");
 			throw new NffgVerifierException();
@@ -133,6 +133,7 @@ public class NffgVerifierCode implements NffgVerifier {
 		// Set the schema 
 		jaxbUnmarshaller.setSchema(schema);
 		// Set the input file to be unmarshalled 
+		@SuppressWarnings("unchecked")
 		JAXBElement<RootNetworkType> root = (JAXBElement<RootNetworkType>) jaxbUnmarshaller.unmarshal(inputFile);
 		RootNetworkType r = root.getValue();
 		return r;
