@@ -1,12 +1,17 @@
 <!-- DTD for a System that manages NFFGs and Catalog -->
-<!ELEMENT RootNetwork (NFFG+, Catalog)>
-
+<!ELEMENT RootNetwork (NFFG+)>
 
 <!ELEMENT NFFG (Nodes, Links, Policies)>
 <!ATTLIST NFFG
 	NFFG_name ID #REQUIRED	
 	last_update_time CDATA #REQUIRED	
 >	
+
+<!ELEMENT Nodes (Node+) >
+
+<!ELEMENT Links (Link+) >
+
+<!ELEMENT Policies (Policy+) >
 
 <!ELEMENT Node (Service) >
 <!ATTLIST Node
@@ -20,17 +25,12 @@
 <!ATTLIST Policy
 	policy_name ID #REQUIRED
 >	
-
-<!ELEMENT Nodes (Node+) >
-
-<!ELEMENT Links (Link+) >
-
-<!ELEMENT Policies (Policy+) >
-
+	
 <!ELEMENT Service EMPTY>
 <!ATTLIST Service
-	service_name IDREF #REQUIRED		
+	service_name (Firewall | DPI | Mail_client | Mail_server | Web_client | Web_server | Anti_spam | NAT | VPN_gateway | Web_cache)	#REQUIRED	
 >	
+
 <!ELEMENT Source EMPTY>
 <!ATTLIST Source
 	source_name IDREF #REQUIRED		
@@ -57,15 +57,9 @@
 
 <!ELEMENT Device EMPTY>
 <!ATTLIST Device	
-	service_name IDREF #REQUIRED 		
+	service_name (Firewall | DPI | Mail_client | Mail_server | Web_client | Web_server | Anti_spam | NAT | VPN_gateway | Web_cache) #REQUIRED 		
 >
-	
-<!ELEMENT Catalog (SingleService)+>	
-	
-<!ELEMENT SingleService EMPTY>
-<!ATTLIST SingleService 
-	service_name ID #REQUIRED
->	<!-- Must use the char "-" to separate words, otherwise it will display an error -->	
+<!-- Must use the char "-" to separate words, otherwise it will display an error -->	
 
 <!-- Using IDREFs will introduce the difficulty to manage them inside the DTD but it the application side will be easier -->
 		

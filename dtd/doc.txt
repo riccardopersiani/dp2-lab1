@@ -2,7 +2,7 @@ This project was developed by Riccardo Persiani for the course of Distributed Pr
 In particular this document refers to the Assignment 1 - part a, released in early October.
 
 This DTD is the implementation of a System that manages Network Function Forwarding Graphs(NF-FGs), where network devices offer services listed in a catalog.
-The tree root is named "RootNetwork" which has no attributes and contains one or more "NFFG" and one and only one "Catalog". 
+The tree root is named "RootNetwork" which has no attributes and contains one or more "NFFG". 
 
 The "NFFG" element, which represent a single network, contains 3 elements: "Nodes", "Links" and "Policies".
 The "NFFG" attributes are an ID, which uniquely identifies it, and a CDATA field that represents the time of its last update.
@@ -13,20 +13,21 @@ It was developed in order to have "Node" elements grouped together and make the 
 "Node" represents a single device and it contains a "Service" element.
 In addiction it is uniquely identified by an ID field, in this way i can have multiple nodes that offer the same service and at the same time i can be able to distinguish them.
 
-A "Service" is a functionality offered by a node and has a pointer to a "SingleService" which is inside the "Catalog"..
+A "Service" is a one and only one functionality offered by a node and it refers to an enumeration of the possible fuctionalities available: Firewall, DPI, NAT, Web_cache, Web_client, Web_server, Mail_server, Mail_client, Anti_spam, VPN_gateway.
 
-"Links" as well as "Nodes" is a container for "Link" elements and has no attributes.
+"Links" is a container for "Link" elements and has no attributes.
 
-"Link" is the representation for a connection between two nodes: one and only one "Source" element, and one and only one "Destination" element. In addition "Link" is uniquely identified by an ID field. 
+"Link" is the representation for a connection between two nodes: one and only one "Source" element, and one and only one "Destination" element.
+In addition "Link" is uniquely identified by an ID field. 
 
 "Source" is the node where the Link taken into account starts and has a pointer(IDREF) to a node declared.
 
 "Destination" is the node where the link ends and, like "Source", has a pointer(IDREF) to a node declared.
 
-"Policies" as well as "Nodes" and "Links" is a container for "Policy" elements.
+"Policies" is a container for "Policy" elements.
 
-Every "Policy" has a policy_name which must be unique within the NFFG, does not matter if it is a reachability policy or a traversal policy. 
-In this way i can distinguish and them inside the network.
+Every "Policy" has a policy_name which must be unique globally, does not matter if it is a reachability policy or a traversal policy. 
+In this way i can distinguish them globally.
 
 There are two different types of policy: reachability and traversal.
 "ReachabilityPolicy" with the following attribute list: result which is IMPLIED, this field could be used to verify if the property associated with the policy is satisfied; 
@@ -39,11 +40,6 @@ The difference from "Link" here is that is possible to have other nodes between 
 
 "Devices" represents the set of nodes traversed by the "TraversalPolicy", is a container for the "Device" elements and has no attributes.
 
+"Device" is the last element which i am going describe. 
 Every "Device" represent a network device traversed by the actual "Traversal Policy". 
-It has a service_name which is a pointer(IDREF) to the relative "SigleService" contained in "Catalog".
-
-"Catalog" represents a set of services offered by a service provider and contains one or more "SingleService" element.
-
-"SingleService" is the last element which i'm going describe. 
-It is a service offered by the service provider, it is identified by the ID field service_name because it must be unique inside the Catalog.
-
+It has a service_name which is an enumeration of the possible fuctionalities available: Firewall, DPI, NAT, Web_cache, Web_client, Web_server, Mail_server, Mail_client, Anti_spam, VPN_gateway.

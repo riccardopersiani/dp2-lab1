@@ -59,18 +59,4 @@
 			</Policy>
 		</Policies>
 	</NFFG>
-	
-	<Catalog>
-		<SingleService service_name="NAT" />
-		<SingleService service_name="Firewall" />
-		<SingleService service_name="DPI" />
-		<SingleService service_name="Web_client" />
-		<SingleService service_name="Web_server" />
-		<SingleService service_name="Cache" />
-		<SingleService service_name="Anti-spam" />
-		<SingleService service_name="Mail_client" />
-		<SingleService service_name="Mail_server" />
-		<SingleService service_name="VPN_gateway" />
-	</Catalog>
-	
 </RootNetwork>
