@@ -20,6 +20,7 @@ import org.xml.sax.SAXException;
 
 import it.polito.dp2.NFFG.NffgReader;
 import it.polito.dp2.NFFG.NffgVerifier;
+import it.polito.dp2.NFFG.NffgVerifierException;
 import it.polito.dp2.NFFG.PolicyReader;
 import it.polito.dp2.NFFG.ReachabilityPolicyReader;
 import it.polito.dp2.NFFG.TraversalPolicyReader;
@@ -39,7 +40,7 @@ public class NffgVerifierCode implements NffgVerifier {
 	private Set<PolicyReader> oneNffgPolicies; //Contains the policy for one nffg
 	private Map<NffgReader,Set<PolicyReader>> nffgPoliciesMap; //Contains a map of all policies for every nffg
 
-	public NffgVerifierCode() throws SAXException, JAXBException{	
+	public NffgVerifierCode() throws SAXException, JAXBException, IllegalArgumentException, NffgVerifierException{	
 
 		nffgReaders = new HashSet<NffgReader>();
 		policyReaders = new HashSet<PolicyReader>();
@@ -67,18 +68,6 @@ public class NffgVerifierCode implements NffgVerifier {
 			}
 			nffgPoliciesMap.put(nffgReader, oneNffgPolicies);
 		}	
-		// Check if there are policies with the same id
-		for(PolicyReader p : policyReaders ){
-			int count = 0;
-			for(PolicyReader pr : policyReaders ){
-				if(p.getName()==pr.getName()){
-					count++;
-					if(count>1){
-						System.err.println("Error! "+count+" policies with the same Id");
-					}
-				}
-			}
-		}
 	}
 
 	@Override
@@ -123,30 +112,27 @@ public class NffgVerifierCode implements NffgVerifier {
 		return policyAfter;
 	}
 	
-	private RootNetworkType doUnmarshall(File inputFile) throws JAXBException, SAXException, IllegalArgumentException {
+	private RootNetworkType doUnmarshall(File inputFile) throws JAXBException, SAXException, IllegalArgumentException, NffgVerifierException {
 		System.out.println("inputFile: "+inputFile);
 		JAXBContext jc = JAXBContext.newInstance(PACKAGE);
 		Schema schema = null;
-		// Create the package where the class used to read XML elements and create objects like NodeType
-
+		// Create the package where the class used to read XML elements and create objects (like NodeType).
 		try {
-			// Instantiate the schema from the file .xsd
 			schema = SchemaFactory.newInstance(W3C_XML_SCHEMA_NS_URI).newSchema(new File(XSD_NAME));
 			
 		}catch(IllegalArgumentException e) {
 			System.err.println("Error! No implementation of the schema language is available");
-			throw e;
+			throw new NffgVerifierException();
 		}
 		catch(NullPointerException e) {
 			System.err.println("Error! The instance of the schema or the file of the schema is not well created!\n");
-			throw new SAXException("The schema file is null!");
+			throw new NffgVerifierException();
 		}
 		// Create the Unmarshaller to extract the schema data
 		Unmarshaller jaxbUnmarshaller = jc.createUnmarshaller();
 		// Set the schema 
 		jaxbUnmarshaller.setSchema(schema);
 		// Set the input file to be unmarshalled 
-		//RootNetworkType root = (RootNetworkType)jaxbUnmarshaller.unmarshal(inputFile);
 		JAXBElement<RootNetworkType> root = (JAXBElement<RootNetworkType>) jaxbUnmarshaller.unmarshal(inputFile);
 		RootNetworkType r = root.getValue();
 		return r;

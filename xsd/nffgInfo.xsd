@@ -69,7 +69,7 @@
 	
 	<xsd:complexType name="NodesType">
 		<xsd:sequence>
-			<xsd:element name="Node" type="nffg:NodeType" minOccurs="2" maxOccurs="unbounded"/>
+			<xsd:element name="Node" type="nffg:NodeType" maxOccurs="unbounded"/>
 		</xsd:sequence>
 	</xsd:complexType>
 	

@@ -17,7 +17,6 @@ public class NffgVerifierFactory extends it.polito.dp2.NFFG.NffgVerifierFactory 
 			System.out.println("new NffgVerifierCode() successfully called.");
 		} catch (SAXException | JAXBException e) {
 			e.printStackTrace();
-			//System.out.println("INSIDE CATCH!!");
 		}
 		return myNffgVerifier;
 	}
