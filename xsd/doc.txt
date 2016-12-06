@@ -1,5 +1,65 @@
 This project was developed by Riccardo Persiani for the course of Distributed Programming II, taught by Professor Ricardo Sisto at the Technical Univerity of Turin.
-In particular this document refers to the Assignment 1 - part a, released in early October.
+In particular this document refers to the xml schema of the Assignment 1 - part a, released in early October.
 
-This W3C XML Schema is the implementation of a System that manages Network Function Forwarding Graphs(NF-FGs), where network devices offer services listed in a catalog.
-The root is named "RootNetwork" which has no attributes and contains one or more "NFFG" and one and only one "Catalog". 
+This W3C XML Schema is the implementation of a system that manages Network Function Forwarding Graphs(NF-FGs), where network devices offer services listed in a catalog.
+ 
+The root element of the tree is called "RootNetwork" and inside it there are two unique declarations:
+- The first one defines a global unique identifier for an "NFFG" on its attribute "name";
+- The second one defines a global unique identifier for a the policies on their attribute "id".
+As required by specs, policies and NFFGs elements must be identified uniquely in the whole system.
+"RootNetwork" does not have any attributes and ,as described in its type "RootNetworkType", contains one or more "NFFG" elements.
+
+In the system an NFFG is a set of:
+- "Nodes" of type "NodesType";
+- "Links" of type "LinksType"; 
+- "Policies" of type "PoliciesType".
+The NFFG element has two required attributes:
+- The "name" of the NFFG which, as I described before, identifies the element in the whole system and its type is "InitialCharType", a restriction on the string type that make my schema more robust(Name must start with a letter and cannot contain simbols: [a-zA-Z]([a-zA-Z0-9])*);
+- The "last_update_time" of the type "dateTime" which use also the timezone in order to be more precise.
+"NFFG" element has the maxOccurs value set to unbounded istead of minOccurs value which has the default value; that is because, in my opinion, a rappresentation of this system should at least have one NFFG instantiated.
+The type of an "NFFG" element is the complex type "NFFGType".
+
+"Nodes" is a container for "Node" elements.
+The "Node" represent a network device (DPI, NAT, ...) and has a required attribute named "id" which identifies the node inside the NFFG.
+That is one of the reasons why, inside the "NFFG" element, a key is created on this attribute (the other reasons will be described late).
+The type of the attribute named "id" is "InitialCharType"(described previously). 
+The maxOccurs value of "Node" is set to unbounded, because I want one or more "Node" element inside "Nodes".
+"Node" is defined by a complex type named "NodeType", in this declaration we can see that "Node" contains one ad only one "Service" element (which will be described lately), which describe what is the function of the "Node" element. 
+
+"Links" is a container for "Link" elements.
+The "Link" in general represent a unidirectional phisical connection between two network devices, but in addition, in my rappresentation, link can have the same source and destination. 
+It has a required attribute named "id" which uniquely identifies a link inside the NFFG.
+That is the reasons why, inside the "NFFG" element there is a unique declaration for the link attribute "id.
+The type of the attribute id is "InitialCharType"(described previously). 
+The maxOccurs value of "Link" is set to unbounded, because i want one or more "Link" element inside "Links".
+"Link" is defined by the complex type "LinkType", this declaration shows that Link includes two elements:
+- "Source", a string, which is a keyref("SourceLinkKeyRef") defined inside "NFFG", that points to the key "Node"(described before) where the actual link starts, declared inside its NFFG.
+- "Destination", a string, which is a keyref("DestinationLinkKeyRef") defined inside the "NFFG", that points to the "Node" where the actual link ends, declared inside its NFFG.
+
+"Policies" is a contatiner for two kind of policy elements: reachability and traversal. 
+"Policies" can containt: no policies (minOccurs="0"); just reachability policies; just traversal policies or both of them.
+"ReachabilityPolicy" is a reachability policy element described by the complex type "ReachabilityPolicyType".
+It has a required attribute named "id" which is a global identifier(as i described before talking about "RootNetwork" element) for the actual policy inside the entire system.
+ The type of the attribute "id" is "InitialCharType"(which implement code robustness, described previously).
+"ReachabilityPolicy" is a sequence of several elements:
+- "Source", a string, which is also a keyref("SourceReachabilityPolicyKeyRef") defined inside "NFFG", that points to the key "Node" described before where this policy starts, declared inside its actual NFFG.
+- "Destination" a string, which is also a keyref("DestinationReachabilityPolicyKeyRef") defined inside the "NFFG", that points to the "Node" where this policy ends, declared inside its actual NFFG.
+- "isPositive", a boolean that describes if the actual policy is positive(isPositive="true") or negative (isPositive="false"). 
+- "Verification", an element described by the type "VerificationType", with minOccurs value equal to zero, which is a sequence of three elements, all with minOccurs set to zero, used for the descption of the policy: 
+	- "Time", the time when the policy has been verified, with type="dateTime";
+	- "Result", that says if the policy has been verified(true) or not(false), with type="boolean";
+	- "Message", which is a message used to show textual information about the policy verification, with type="string". 
+
+Then, we have "TraversalPolicy" element, a traversal policy described by the type "TraversalPolicyType".
+"TraversalPolicy" extends the "ReachabilityPolicy" described before, adding the elements "Devices".
+
+"Devices", described by the type "DevicesListType", is a container for "Device" elements. 
+"Device" has its maxOccurs value set to unbounded, because we can decide to have more that one device for a positive traversal policy(make the dual for the negative traversal policy).
+"Device" is a node with a specific function (DPI, NAT, ...), infact its type is "ServiceType", which is exactly the same type used for describing the service ("Service" element inside "Node" element) of a node.
+
+"Service" is the last element that I am going to describe and, as said previously, is the element that describe the function of the node inside the NFFG and it uses the type "ServiceType".
+"ServiceType" is a simple type and it is an enumeration of ten possible functions(DPI, NAT, ...) that can be used inside the system.
+In conclusion, I decided to not implement a Catalog element because I think it is unnecessary and its role can be covered just by enumerating services, thing that is realized in the symple type "ServiceType". 
+In this way, it is also easy to extend features adding a new service at xml schema level.  
+
+I tried to implement every constraint required by specifications in the xml schema in order to avoid a more complex implementation at the java level. 

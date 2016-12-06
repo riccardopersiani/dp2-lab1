@@ -64,7 +64,7 @@
 			<xsd:element name="Policies" type="nffg:PoliciesType" minOccurs="0"/>
 		</xsd:sequence>
 		<xsd:attribute name="name" type="nffg:InitialCharType" use="required"/>
-		<xsd:attribute name="last_update_time" type="xsd:dateTime"/>
+		<xsd:attribute name="last_update_time" type="xsd:dateTime" use="required"/>
 	</xsd:complexType>
 	
 	<xsd:complexType name="NodesType">
@@ -121,7 +121,7 @@
 		<xsd:complexContent>
 			<xsd:extension base="nffg:ReachabilityPolicyType">
 				<xsd:sequence>
-					<xsd:element name="Devices" type="nffg:DevicesListType" maxOccurs="unbounded"/>
+					<xsd:element name="Devices" type="nffg:DevicesListType"/>
 				</xsd:sequence>
 			</xsd:extension>
 		</xsd:complexContent>

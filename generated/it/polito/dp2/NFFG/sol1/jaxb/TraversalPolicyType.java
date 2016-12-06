@@ -2,14 +2,12 @@
 // Questo file è stato generato dall'architettura JavaTM per XML Binding (JAXB) Reference Implementation, v2.2.8-b130911.1802 
 // Vedere <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Qualsiasi modifica a questo file andrà persa durante la ricompilazione dello schema di origine. 
-// Generato il: 2016.11.30 alle 04:46:38 PM CET 
+// Generato il: 2016.12.06 alle 04:39:06 PM CET 
 //
 
 
 package it.polito.dp2.NFFG.sol1.jaxb;
 
-import java.util.ArrayList;
-import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -26,7 +24,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;extension base="{http://www.riccardopersiani.com/Schema}ReachabilityPolicyType">
  *       &lt;sequence>
- *         &lt;element name="Devices" type="{http://www.riccardopersiani.com/Schema}DevicesListType" maxOccurs="unbounded"/>
+ *         &lt;element name="Devices" type="{http://www.riccardopersiani.com/Schema}DevicesListType"/>
  *       &lt;/sequence>
  *     &lt;/extension>
  *   &lt;/complexContent>
@@ -44,35 +42,30 @@ public class TraversalPolicyType
 {
 
     @XmlElement(name = "Devices", required = true)
-    protected List<DevicesListType> devices;
+    protected DevicesListType devices;
 
     /**
-     * Gets the value of the devices property.
+     * Recupera il valore della proprietà devices.
      * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the devices property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getDevices().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link DevicesListType }
-     * 
-     * 
+     * @return
+     *     possible object is
+     *     {@link DevicesListType }
+     *     
      */
-    public List<DevicesListType> getDevices() {
-        if (devices == null) {
-            devices = new ArrayList<DevicesListType>();
-        }
-        return this.devices;
+    public DevicesListType getDevices() {
+        return devices;
+    }
+
+    /**
+     * Imposta il valore della proprietà devices.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link DevicesListType }
+     *     
+     */
+    public void setDevices(DevicesListType value) {
+        this.devices = value;
     }
 
 }

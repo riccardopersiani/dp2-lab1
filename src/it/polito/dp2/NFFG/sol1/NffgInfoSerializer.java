@@ -135,7 +135,7 @@ public class NffgInfoSerializer {
 				TraversalPolicy.setSource(policy.getSourceNode().getName());
 				TraversalPolicy.setDestination(policy.getDestinationNode().getName());
 				TraversalPolicy.setIsPositive(policy.isPositive());
-				TraversalPolicy.getDevices().add(Devices);
+				TraversalPolicy.setDevices(Devices);
 
 				VerificationResultReader result = policy.getResult();
 

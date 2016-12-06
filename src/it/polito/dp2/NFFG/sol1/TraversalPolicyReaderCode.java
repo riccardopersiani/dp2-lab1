@@ -8,7 +8,6 @@ import it.polito.dp2.NFFG.NffgReader;
 import it.polito.dp2.NFFG.NodeReader;
 import it.polito.dp2.NFFG.TraversalPolicyReader;
 import it.polito.dp2.NFFG.VerificationResultReader;
-import it.polito.dp2.NFFG.sol1.jaxb.DevicesListType;
 import it.polito.dp2.NFFG.sol1.jaxb.NFFGType;
 import it.polito.dp2.NFFG.sol1.jaxb.NodeType;
 import it.polito.dp2.NFFG.sol1.jaxb.ServiceType;
@@ -51,11 +50,10 @@ public class TraversalPolicyReaderCode extends NamedEntityReaderCode implements 
 			}
 		}
 		
-		for(DevicesListType devices: traversalPolicy.getDevices()){
-			for(ServiceType service: devices.getDevice()){
-				traversalDevices.add(Util.covertServiceToFunctional(service));
-			}
+		for(ServiceType service:  traversalPolicy.getDevices().getDevice()){
+			traversalDevices.add(Util.covertServiceToFunctional(service));
 		}
+		
 	}
 	
 	@Override
