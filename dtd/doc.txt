@@ -24,7 +24,7 @@ In addition "Link" is uniquely identified by an ID field.
 
 "Destination" is the node where the link ends and, like "Source", has a pointer(IDREF) to a node declared.
 
-"Policies" is a container for "Policy" elements.
+"Policies" is a container for "Policy" elements, it can contain from 0 to multiple "Policy" elements.
 
 Every "Policy" has a policy_name which must be unique globally, does not matter if it is a reachability policy or a traversal policy. 
 In this way i can distinguish them globally.
@@ -43,3 +43,5 @@ The difference from "Link" here is that is possible to have other nodes between 
 "Device" is the last element which i am going describe. 
 Every "Device" represent a network device traversed by the actual "Traversal Policy". 
 It has a service_name which is an enumeration of the possible fuctionalities available: Firewall, DPI, NAT, Web_cache, Web_client, Web_server, Mail_server, Mail_client, Anti_spam, VPN_gateway.
+
+In conclusion, we can say that a lot of constaints are not realizable inside the dtd schema, for example is impossible to make the node id unique inside its NFFG (now node id is globally unique) and the same is for link.

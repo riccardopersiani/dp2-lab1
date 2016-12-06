@@ -5,7 +5,7 @@
 		 xsi:schemaLocation="http://www.riccardopersiani.com/Schema nffgInfo.xsd"
 		 >
 	
-	<NFFG name="NFFG1">
+	<NFFG name="NFFG1" last_update_time="2016-09-27T03:26:20.000+02:00">
 		<Nodes>
 			<Node id="Node1">
 				<Service>NAT</Service>
@@ -44,7 +44,7 @@
 				<Destination>Node4</Destination>
 				<isPositive>true</isPositive>
 				<Verification>
-					<Time>2016-10-24T13:00:00</Time>
+					<Time>2016-09-27T03:26:20.000+02:00</Time>
 					<Message>Ok</Message>
 					<Result>true</Result>
 				</Verification> 
@@ -53,15 +53,14 @@
 				<Source>Node2</Source>
 				<Destination>Node4</Destination>
 				<isPositive>true</isPositive>
-			</ReachabilityPolicy>
-		
+			</ReachabilityPolicy>	
 			<TraversalPolicy id="TraversalPolicy1">
 				<Source>Node2</Source>
 				<Destination>Node3</Destination>
 				<isPositive>false</isPositive>			
 				<Verification>
-					<Time>2016-10-24T13:00:00</Time>
-					<Message>Ok</Message>
+					<Time>2016-09-27T03:26:20.000+02:00</Time>
+					<Message>The result is false</Message>
 					<Result>false</Result>
 				</Verification> 
 				<Devices>
@@ -71,7 +70,7 @@
 		</Policies>
 	</NFFG>
 	
-	<NFFG name="NFFG2">
+	<NFFG name="NFFG2" last_update_time="2016-09-27T03:26:20.000+02:00">
 		<Nodes>
 			<Node id="Node1">
 				<Service>NAT</Service>
@@ -109,29 +108,31 @@
 				<Source>Node2</Source>
 				<Destination>Node4</Destination>
 				<isPositive>true</isPositive>
-				<Verification>
-					<Time>2016-10-24T13:00:00</Time>
-					<Message>Ok</Message>
-					<Result>true</Result>
-				</Verification> 
 			</ReachabilityPolicy>
 			<ReachabilityPolicy id="ReachabilityPolicy4">
 				<Source>Node2</Source>
 				<Destination>Node4</Destination>
 				<isPositive>true</isPositive>
-			</ReachabilityPolicy>
-		
+			</ReachabilityPolicy>	
 			<TraversalPolicy id="TraversalPolicy2">
 				<Source>Node2</Source>
 				<Destination>Node3</Destination>
 				<isPositive>false</isPositive>			
-				<Verification>
-					<Time>2016-10-24T13:00:00</Time>
-					<Message>Ok</Message>
-					<Result>false</Result>
-				</Verification> 
 				<Devices>
 					<Device>Mail client</Device>
+				</Devices>
+			</TraversalPolicy>
+			<TraversalPolicy id="TraversalPolicy3">
+				<Source>Node4</Source>
+				<Destination>Node3</Destination>
+				<isPositive>true</isPositive>	
+				<Verification>
+					<Time>2016-09-27T03:26:20.000+02:00</Time>
+					<Message>Ok</Message>
+					<Result>true</Result>
+				</Verification> 		
+				<Devices>
+					<Device>Mail server</Device>
 				</Devices>
 			</TraversalPolicy>
 		</Policies>

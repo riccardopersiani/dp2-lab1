@@ -3,7 +3,7 @@
 
 <RootNetwork>
 
-	<NFFG NFFG_name="NFFG1" last_update_time="2016-10-24T13:00:00">
+	<NFFG NFFG_name="NFFG1" last_update_time="2016-09-27T03:26:20.000+02:00">
 		<Nodes>
 			<Node node_name="NODE1">
 				<Service service_name="NAT" />
@@ -42,16 +42,81 @@
 				</ReachabilityPolicy>
 			</Policy>
 			<Policy policy_name="POLICY2">
-				<ReachabilityPolicy verification_message="Ok" verification_time="2016-12-24T13:00:00" verification_result="true" isPositive="true">
+				<ReachabilityPolicy verification_message="Ok" verification_time="2016-09-27T03:26:20.000+02:00" verification_result="true" isPositive="true">
 					<Source source_name="NODE2" />
 					<Destination destination_name="NODE1" />
 				</ReachabilityPolicy>
 			</Policy>
 			<Policy policy_name="POLICY3">
+				<TraversalPolicy verification_message="Ok" verification_time="2016-09-27T03:26:20.000+02:00" verification_result="false" isPositive="false">
+					<Source source_name="NODE3" />
+					<Destination destination_name="NODE1" />
+					<Devices>
+						<Device service_name="NAT" />
+						<Device service_name="Firewall" />
+					</Devices>
+				</TraversalPolicy>
+			</Policy>
+		</Policies>
+	</NFFG>
+	<NFFG NFFG_name="NFFG2" last_update_time="2016-09-27T03:26:20.000+02:00">
+		<Nodes>
+			<Node node_name="NODE4">
+				<Service service_name="NAT" />
+			</Node>
+			<Node node_name="NODE5">
+				<Service service_name="Mail_client" />
+			</Node>
+			<Node node_name="NODE6">
+				<Service service_name="DPI" />
+			</Node>
+		</Nodes>
+		<Links>
+			<Link link_name="LINK5">
+				<Source source_name="NODE4" />
+				<Destination destination_name="NODE5" />
+			</Link>
+			<Link link_name="LINK6">
+				<Source source_name="NODE5" />
+				<Destination destination_name="NODE5" />
+			</Link>
+			<Link link_name="LINK7">
+				<Source source_name="NODE6" />
+				<Destination destination_name="NODE5" />
+			</Link>
+			<Link link_name="LINK8">
+				<Source source_name="NODE6" />
+				<Destination destination_name="NODE6" />
+			</Link>
+		</Links>
+		<Policies>
+			<Policy policy_name="POLICY4">
+				<ReachabilityPolicy isPositive="true">
+					<Source source_name="NODE6" />
+					<Destination destination_name="NODE4" />
+				</ReachabilityPolicy>
+			</Policy>
+			<Policy policy_name="POLICY5">
+				<ReachabilityPolicy verification_message="Ok" verification_time="2016-09-27T03:26:20.000+02:00" verification_result="true" isPositive="true">
+					<Source source_name="NODE4" />
+					<Destination destination_name="NODE5" />
+				</ReachabilityPolicy>
+			</Policy>
+			<Policy policy_name="POLICY6">
+				<TraversalPolicy  isPositive="true">
+					<Source source_name="NODE4" />
+					<Destination destination_name="NODE5" />
+					<Devices>
+						<Device service_name="Mail_client" />
+					</Devices>
+				</TraversalPolicy>
+			</Policy>
+			<Policy policy_name="POLICY7">
 				<TraversalPolicy verification_message="Ok" verification_time="2016-11-20T11:00:00" verification_result="false" isPositive="false">
 					<Source source_name="NODE3" />
 					<Destination destination_name="NODE1" />
 					<Devices>
+						<Device service_name="NAT" />
 						<Device service_name="NAT" />
 						<Device service_name="Firewall" />
 					</Devices>

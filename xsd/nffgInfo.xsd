@@ -47,6 +47,16 @@
 				<xsd:keyref name="DestinationReachabilityPolicyKeyRef" refer="nffg:NodeKey">
 					<xsd:selector xpath="nffg:Policies/nffg:ReachabilityPolicy"/>
 					<xsd:field xpath="nffg:Destination"/>
+				</xsd:keyref>	
+				<!-- The KEYREF is the element (Source) present [TraversalPolicy] ->(id)[Node] -->
+				<xsd:keyref name="SourceTraversalPolicyKeyRef" refer="nffg:NodeKey">
+					<xsd:selector xpath="nffg:Policies/nffg:TraversalPolicy"/>
+					<xsd:field xpath="nffg:Source"/>
+				</xsd:keyref>
+				<!-- The KEYREF is the element (Destination) present [TraversalPolicy] ->(id)[Node] -->
+				<xsd:keyref name="DestinationTraversalPolicyKeyRef" refer="nffg:NodeKey">
+					<xsd:selector xpath="nffg:Policies/nffg:TraversalPolicy"/>
+					<xsd:field xpath="nffg:Destination"/>
 				</xsd:keyref>		
 				<!-- (id) in [Link] must be unique locally, inside the NFFG -->
 				<xsd:unique name="oneLinkforEachLinkID"> 

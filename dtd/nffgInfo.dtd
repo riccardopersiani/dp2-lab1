@@ -11,7 +11,7 @@
 
 <!ELEMENT Links (Link+) >
 
-<!ELEMENT Policies (Policy+) >
+<!ELEMENT Policies (Policy*) >
 
 <!ELEMENT Node (Service) >
 <!ATTLIST Node
