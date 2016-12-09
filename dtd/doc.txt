@@ -13,7 +13,7 @@ It was developed in order to have "Node" elements grouped together and make the 
 "Node" represents a single device and it contains a "Service" element.
 In addiction it is uniquely identified by an ID field, in this way i can have multiple nodes that offer the same service and at the same time i can be able to distinguish them.
 
-A "Service" is a one and only one functionality offered by a node and it refers to an enumeration of the possible fuctionalities available: Firewall, DPI, NAT, Web_cache, Web_client, Web_server, Mail_server, Mail_client, Anti_spam, VPN_gateway.
+A "Device" represent, inside node, a one and only one functionality offered by a node and its attribute service_name refers to an enumeration of the possible fuctionalities available: Firewall, DPI, NAT, Web_cache, Web_client, Web_server, Mail_server, Mail_client, Anti_spam, VPN_gateway.
 
 "Links" is a container for "Link" elements and has no attributes.
 
@@ -40,8 +40,8 @@ The difference from "Link" here is that is possible to have other nodes between 
 
 "Devices" represents the set of nodes traversed by the "TraversalPolicy", is a container for the "Device" elements and has no attributes.
 
-"Device" is the last element which i am going describe. 
-Every "Device" represent a network device traversed by the actual "Traversal Policy". 
+"Device"(also described previously), inside TraversalPolicy, is the last element which i am going describe. 
+Every "Device" here represent a network device traversed by the actual "Traversal Policy". 
 It has a service_name which is an enumeration of the possible fuctionalities available: Firewall, DPI, NAT, Web_cache, Web_client, Web_server, Mail_server, Mail_client, Anti_spam, VPN_gateway.
 
 In conclusion, we can say that a lot of constaints are not realizable inside the dtd schema, for example is impossible to make the node id unique inside its NFFG (now node id is globally unique) and the same is for link.

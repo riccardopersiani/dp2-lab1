@@ -13,7 +13,7 @@
 
 <!ELEMENT Policies (Policy*) >
 
-<!ELEMENT Node (Service) >
+<!ELEMENT Node (Device) >
 <!ATTLIST Node
 	node_name ID #REQUIRED		
 >
@@ -24,11 +24,6 @@
 <!ELEMENT Policy (ReachabilityPolicy | TraversalPolicy)>
 <!ATTLIST Policy
 	policy_name ID #REQUIRED
->	
-	
-<!ELEMENT Service EMPTY>
-<!ATTLIST Service
-	service_name (Firewall | DPI | Mail_client | Mail_server | Web_client | Web_server | Anti_spam | NAT | VPN_gateway | Web_cache)	#REQUIRED	
 >	
 
 <!ELEMENT Source EMPTY>

@@ -6,13 +6,13 @@
 	<NFFG NFFG_name="NFFG1" last_update_time="2016-09-27T03:26:20.000+02:00">
 		<Nodes>
 			<Node node_name="NODE1">
-				<Service service_name="NAT" />
+				<Device service_name="NAT" />
 			</Node>
 			<Node node_name="NODE2">
-				<Service service_name="Firewall" />
+				<Device service_name="Firewall" />
 			</Node>
 			<Node node_name="NODE3">
-				<Service service_name="DPI" />
+				<Device service_name="DPI" />
 			</Node>
 		</Nodes>
 		<Links>
@@ -62,13 +62,13 @@
 	<NFFG NFFG_name="NFFG2" last_update_time="2016-09-27T03:26:20.000+02:00">
 		<Nodes>
 			<Node node_name="NODE4">
-				<Service service_name="NAT" />
+				<Device service_name="NAT" />
 			</Node>
 			<Node node_name="NODE5">
-				<Service service_name="Mail_client" />
+				<Device service_name="Mail_client" />
 			</Node>
 			<Node node_name="NODE6">
-				<Service service_name="DPI" />
+				<Device service_name="DPI" />
 			</Node>
 		</Nodes>
 		<Links>

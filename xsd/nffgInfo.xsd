@@ -101,6 +101,12 @@
 			<xsd:pattern value="[a-zA-Z]([a-zA-Z0-9])*"/>
 		</xsd:restriction>
 	</xsd:simpleType>
+	
+	<xsd:simpleType name="MessageType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
 			
 	<xsd:complexType name="NodeType"> <!-- Node uses this type -->
 		<xsd:sequence>
@@ -140,7 +146,7 @@
 	<xsd:complexType name="VerificationType"> <!-- Verification uses this type -->
 		<xsd:sequence>
 			<xsd:element name="Time" type="xsd:dateTime" minOccurs="0"/>
-			<xsd:element name="Message" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Message" type="nffg:MessageType" minOccurs="0"/>
 			<xsd:element name="Result" type="xsd:boolean" minOccurs="0"/>
 		</xsd:sequence>
 	</xsd:complexType>	

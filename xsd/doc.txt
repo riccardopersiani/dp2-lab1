@@ -48,7 +48,8 @@ It has a required attribute named "id" which is a global identifier(as i describ
 - "Verification", an element described by the type "VerificationType", with minOccurs value equal to zero, which is a sequence of three elements, all with minOccurs set to zero, used for the descption of the policy: 
 	- "Time", the time when the policy has been verified, with type="dateTime";
 	- "Result", that says if the policy has been verified(true) or not(false), with type="boolean";
-	- "Message", which is a message used to show textual information about the policy verification, with type="string". 
+	- "Message", which is a message used to show textual information about the policy verification, with type="MessageType". 
+	             "MessageType" was defined in order to guarantee that in case a "Message" exist it must be greater equal than one char.
 
 Then, we have "TraversalPolicy" element, a traversal policy described by the type "TraversalPolicyType".
 "TraversalPolicy" extends the "ReachabilityPolicy" described before, adding the elements "Devices".
